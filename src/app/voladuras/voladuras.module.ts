@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CieloAbiertoComponent } from './cieloAbierto.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: 
@@ -15,7 +16,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
         RouterModule, 
         FormsModule,
         ReactiveFormsModule,
-        NgSelectModule
+        NgSelectModule,
+        HttpClientModule
     ],
     exports: []
 })

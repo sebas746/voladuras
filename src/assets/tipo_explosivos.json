@@ -1,0 +1,24 @@
+[
+    {
+        "IdTipoExplosivo" : "1",
+        "Nombre": "ANFO",
+        "Diametro": "101.6",
+        "Peso": "1.2",
+        "Descripcion": "Agente de Voladura",
+        "PrecioUnitario": "4820",
+        "Densidad": "0.85",
+        "EnergiaExplosiva": "3730",
+        "ParametroExplosivo": "0.85"
+    },
+    {
+        "IdTipoExplosivo" : "2",
+        "Nombre": "OTRO",
+        "Diametro": "101.6",
+        "Peso": "1.2",
+        "Descripcion": "Agente de Voladura",
+        "PrecioUnitario": "4820",
+        "Densidad": "0.85",
+        "EnergiaExplosiva": "3730",
+        "ParametroExplosivo": "0.85"
+    }
+]

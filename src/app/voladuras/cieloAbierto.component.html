@@ -3,17 +3,18 @@
 <form [formGroup]="cieloAbiertoForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="exampleInputEmail1">Tipo de Explosivo</label>
-        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && formControls.tipoExplosivo1.errors }" 
-            [items]="defaultBindingsList" formControlName="tipoExplosivo1" required>
+        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoExplosivo1.errors }" 
+            [items]="tipo_explosivos" formControlName="tipoExplosivo1" bindLabel="Nombre" required>
         </ng-select>
-        <div *ngIf="isSubmitted && formControls.tipoExplosivo1.invalid" class="invalid-feedback d-block">
+        
+        <div *ngIf="isSubmitted && form.tipoExplosivo1.invalid" class="invalid-feedback d-block">
             Ingrese el tipo de explosivo
          </div>
     </div>
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno (Grados)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.anguloBarreno.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.anguloBarreno.errors }"
             placeholder="Angulo en grados" formControlName="anguloBarreno">
         <div class="invalid-feedback">
             Ingrese el ángulo del barreno.
@@ -22,7 +23,7 @@
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno 2 (Grados)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.angulo2Barreno.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.angulo2Barreno.errors }"
             placeholder="Angulo en grados" formControlName="angulo2Barreno">
         <div class="invalid-feedback">
             Ingrese el ángulo (2) del barreno.
@@ -31,7 +32,7 @@
     <div class="form-group">
         <label for="diametroBarreno">Diámetro Barreno (mm)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.diametroBarreno.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.diametroBarreno.errors }"
             placeholder="Diámetro en milimetros" formControlName="diametroBarreno">
         <div class="invalid-feedback">
             Ingrese el díametro del barreno.
@@ -40,7 +41,7 @@
     <div class="form-group">
         <label for="alturaBanco">Altura Promedio Banco (m)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.alturaBanco.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.alturaBanco.errors }"
             placeholder="Altura promedio en metros" formControlName="alturaBanco">
         <div class="invalid-feedback">
             Ingrese la altura promedio del banco.
@@ -49,7 +50,7 @@
     <div class="form-group">
         <label for="duracionProyecto">Duración del proyecto (meses)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.duracionProyecto.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.duracionProyecto.errors }"
             placeholder="Número de meses del proyecto" formControlName="duracionProyecto">
         <div class="invalid-feedback">
             Ingrese la duración del proyecto en número de meses.
@@ -58,7 +59,7 @@
     <div class="form-group">
         <label for="totalVoladuras">Total Voladuras por Mes</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.totalVoladuras.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.totalVoladuras.errors }"
             placeholder="Número de voladuras en el mes" formControlName="totalVoladuras">
         <div class="invalid-feedback">
             Ingrese el total de voladuras en el mes.
@@ -67,7 +68,7 @@
     <div class="form-group">
         <label for="longitudVia">Longitud Vía (m)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.longitudVia.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.longitudVia.errors }"
             placeholder="Longitud de la vía en metros" formControlName="longitudVia">
         <div class="invalid-feedback">
             Ingrese la longitud de la vía en metros.
@@ -76,7 +77,7 @@
     <div class="form-group">
         <label for="tamanoCantera">Tamaño de la Cantera</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.tamanoCantera.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.tamanoCantera.errors }"
             placeholder="Altura x Ancho x Largo" formControlName="tamanoCantera">
         <div class="invalid-feedback">
             Ingrese el tamaño aproximado Alto x Ancho x Largo.
@@ -85,7 +86,7 @@
     <div class="form-group">
         <label for="volumenSuelto">Volumen Suelto (m3)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.volumenSuelto.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.volumenSuelto.errors }"
             placeholder="Volumen suelto en metros cúbicos" formControlName="volumenSuelto">
         <div class="invalid-feedback">
             Ingrese el volumen suelto en metros cúbicos.
@@ -94,7 +95,7 @@
     <div class="form-group">
         <label for="volumenMovido">Volumen Total Mover (m3)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.volumenMovido.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.volumenMovido.errors }"
             placeholder="Volumen en metros cúbicos" formControlName="volumenMovido">
         <div class="invalid-feedback">
             Ingrese el volumen total a mover en metros cúbicos.
@@ -103,7 +104,7 @@
     <div class="form-group">
         <label for="distanciaVivienda">Distancia Vivienda más Cercana (m)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.distanciaVivienda.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaVivienda.errors }"
             placeholder="Distancia en metros" formControlName="distanciaVivienda">
         <div class="invalid-feedback">
             Ingrese la distancia en metros a la vivienda más cercana.
@@ -112,7 +113,7 @@
     <div class="form-group">
         <label for="correcionFactoresGeo">Corrección por factores geológicos Kd</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.correcionFactoresGeo.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionFactoresGeo.errors }"
             placeholder="Valor del factor" formControlName="correcionFactoresGeo">
         <div class="invalid-feedback">
             Ingrese el valor del factor de correción geológico Kd.
@@ -121,7 +122,7 @@
     <div class="form-group">
         <label for="correcionNumeroFilas">Corrección por No. De hileras Kr (segunda fila)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.correcionNumeroFilas.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionNumeroFilas.errors }"
             placeholder="Valor del factor" formControlName="correcionNumeroFilas">
         <div class="invalid-feedback">
             Ingrese el valor del factor de por número de filas Kr.
@@ -130,7 +131,7 @@
     <div class="form-group">
         <label for="correccionEstGeologica">Correción por estructura geológica Ks</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && formControls.correccionEstGeologica.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.correccionEstGeologica.errors }"
             placeholder="Valor del factor" formControlName="correccionEstGeologica">
         <div class="invalid-feedback">
             Ingrese el valor del factor de corrección por estructura geológica Ks.
@@ -141,3 +142,33 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br />
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Parámetro Calculado</th>
+        <th scope="col">Lopez Jimeno</th>
+        <th scope="col">Rodgers</th>
+        <th scope="col">Konya</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Taco Promedio (m)</th>
+        <td>{{ burden[0] }}</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>

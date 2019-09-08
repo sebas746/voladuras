@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Repository } from './repository';
+import { TipoExplosivo } from '../models/tipoExplosivo.model';
+import { Calculos } from './calculos';
 
 @Component({
     templateUrl: "cieloAbierto.component.html"
@@ -7,24 +10,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CieloAbiertoComponent implements OnInit {
     cieloAbiertoForm: FormGroup;
     isSubmitted = false;
+    explosivo1: any = {};
 
-    defaultBindingsList = [
-        { value: 1, label: 'Vilnius' },
-        { value: 2, label: 'Kaunas' },
-        { value: 3, label: 'Pavilnys'}
-    ];
+    burden: any[] = [0 , 0, 0];
+    
+    constructor(private formBuilder: FormBuilder, private repo: Repository,
+                private calculos: Calculos) {
+    }
 
-    selectedCity = null;
+    ngOnInit() {       
+        this.createForm();   
+    }
 
-    constructor(private formBuilder: FormBuilder) {
+    get tipo_explosivos(): TipoExplosivo[] {
         
+        return this.repo.tipo_explosivos;
     }
 
-    ngOnInit() {
-        this.createForm();
-    }
-
-    get formControls() { return this.cieloAbiertoForm.controls; }
+    get form() { return this.cieloAbiertoForm.controls; }
 
     createForm() {
         this.cieloAbiertoForm = this.formBuilder.group({
@@ -47,6 +50,9 @@ export class CieloAbiertoComponent implements OnInit {
     }
 
     submit() {
+        
+        this.burden = this.calculos.burden(this.cieloAbiertoForm);
+
         this.isSubmitted = true;
         if (this.cieloAbiertoForm.invalid) {
             return;
