@@ -12,12 +12,12 @@
     },
     {
         "IdTipoExplosivo" : "2",
-        "Nombre": "OTRO",
+        "Nombre": "ANFO PESADO",
         "Diametro": "101.6",
         "Peso": "1.2",
         "Descripcion": "Agente de Voladura",
         "PrecioUnitario": "4820",
-        "Densidad": "0.85",
+        "Densidad": "1.2",
         "EnergiaExplosiva": "3730",
         "ParametroExplosivo": "0.85"
     }

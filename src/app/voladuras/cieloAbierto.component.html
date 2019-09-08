@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno (Grados)</label>
-        <input type="text" class="form-control form-control-sm" value="121212"
+        <input type="text" class="form-control form-control-sm" value="121212s"
             [ngClass]="{ 'is-invalid': isSubmitted && form.anguloBarreno.errors }" placeholder="Angulo en grados"
             formControlName="anguloBarreno">
         <div class="invalid-feedback">
@@ -165,7 +165,8 @@
 <hr>
 <h1>Resultados Generales</h1>
 <br />
-<table class="table table-hover table-bordered table-sm">
+
+<table id="tableResult" class="display nowrap">
     <thead>
         <tr>
             <th scope="col">Parámetro Calculado</th>
@@ -176,251 +177,196 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row">Burden (m)</th>
+            <td>Burden (m)</td>
             <td>{{ burden[0] }}</td>
             <td>{{ burden[1] }}</td>
             <td>{{ burden[2] }}</td>
         </tr>
         <tr>
-            <th scope="row">Burden Corregido (m)</th>
+            <td>Burden Corregido (m)</td>
             <td>{{ burdenCorregido[0] }}</td>
             <td>{{ burdenCorregido[1] }}</td>
             <td>{{ burdenCorregido[2] }}</td>
         </tr>
         <tr>
-            <th scope="row">Índice Rigidez</th>
+            <td>Índice Rigidez</td>
             <td>{{ indiceRigidez[0] }}</td>
             <td>{{ indiceRigidez[1] }}</td>
             <td>{{ indiceRigidez[2] }}</td>
         </tr>
         <tr>
-            <th scope="row">Espaciamiento Óptimo (m)</th>
+            <td>Espaciamiento Óptimo (m)</td>
             <td>{{ espaciamientoOptimo[0] }}</td>
             <td>{{ espaciamientoOptimo[1] }}</td>
             <td>{{ espaciamientoOptimo[2] }}</td>
         </tr>
         <tr>
-            <th scope="row">Taco Promedio (m)</th>
+            <td>Taco Promedio (m)</td>
+            <td>{{ tacoPromedio[0] }}</td>
+            <td>{{ tacoPromedio[1] }}</td>
+            <td>{{ tacoPromedio[2] }}</td>
+        </tr>
+        <tr>
+            <td>Distribución de Energía (%)</td>
+            <td>{{ distribucionEnergia[0] }}</td>
+            <td>{{ distribucionEnergia[1] }}</td>
+            <td>{{ distribucionEnergia[2] }}</td>
+        </tr>
+        <tr>
+            <td>Sobreperforación (m)</td>
+            <td>{{ sobrePerforacion[0] }}</td>
+            <td>{{ sobrePerforacion[1] }}</td>
+            <td>{{ sobrePerforacion[2] }}</td>
+        </tr>
+        <tr>
+            <td>Altura Vertical Barreno (m)</td>
+            <td>{{ alturaVerticalBarreno[0] }}</td>
+            <td>{{ alturaVerticalBarreno[1] }}</td>
+            <td>{{ alturaVerticalBarreno[2] }}</td>
+        </tr>
+        <tr>
+            <td>Altura Efectiva Barreno (m)</td>
+            <td>{{ alturaEfecBarreno[0] }}</td>
+            <td>{{ alturaEfecBarreno[0] }}</td>
+            <td>{{ alturaEfecBarreno[0] }}</td>
+        </tr>
+        <tr>
+            <td>Verificación de Diámetro (mm)</td>
+            <td>{{ verifDiametro[0] }}</td>
+            <td>{{ verifDiametro[1] }}</td>
+            <td>{{ verifDiametro[2] }}</td>
+        </tr>
+        <tr>
+            <td>Longitud del explosivo (m)</td>
+            <td>{{ longitudExplosivo[0] }}</td>
+            <td>{{ longitudExplosivo[1] }}</td>
+            <td>{{ longitudExplosivo[2] }}</td>
+        </tr>
+        <tr>
+            <td>Área Barreno (m2)</td>
+            <td>{{ areaBarreno[0] }}</td>
+            <td>{{ areaBarreno[1] }}</td>
+            <td>{{ areaBarreno[2] }}</td>
+        </tr>
+        <tr>
+            <td>Densidad Carga Emulit (Kg/m)</td>
+            <td>{{ densidadCargaEmulit[0] }}</td>
+            <td>{{ densidadCargaEmulit[1] }}</td>
+            <td>{{ densidadCargaEmulit[2] }}</td>
+        </tr>
+        <tr>
+            <td>Peso Explosivo por Barreno (Kg)</td>
+            <td>{{ pesoExplosivoPorBarreno[0] }}</td>
+            <td>{{ pesoExplosivoPorBarreno[1] }}</td>
+            <td>{{ pesoExplosivoPorBarreno[2] }}</td>
+        </tr>
+        <tr>
+            <td>Energía Explosiva (mj/barreno)</td>
+            <td>{{ energiaExplosiva[0] }}</td>
+            <td>{{ energiaExplosiva[1] }}</td>
+            <td>{{ energiaExplosiva[2] }}</td>
+        </tr>
+        <tr>
+            <td>Volumen Arrancado VR (BXSX H/COS18º) (mcb)</td>
+            <td>{{ volumenArrancado[0] }}</td>
+            <td>{{ volumenArrancado[1] }}</td>
+            <td>{{ volumenArrancado[2] }}</td>
+        </tr>
+        <tr>
+            <td>Rendimiento de Arranque (m3/m)</td>
+            <td>{{ rendimientoArranque[0] }}</td>
+            <td>{{ rendimientoArranque[1] }}</td>
+            <td>{{ rendimientoArranque[2] }}</td>
+        </tr>
+        <tr>
+            <td>Masa de Tiro</td>
+            <td>{{ masaTiro[0] }}</td>
+            <td>{{ masaTiro[1] }}</td>
+            <td>{{ masaTiro[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Potencia (Kg/Mcb)</td>
+            <td>{{ factorPotencia1[0] }}</td>
+            <td>{{ factorPotencia1[1] }}</td>
+            <td>{{ factorPotencia1[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Potencia (Kg/Ton)</td>
+            <td>{{ factorPotencia2[0] }}</td>
+            <td>{{ factorPotencia2[1] }}</td>
+            <td>{{ factorPotencia2[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Potencia (Ton/Kg)</td>
+            <td>{{ factorPotencia3[0] }}</td>
+            <td>{{ factorPotencia3[1] }}</td>
+            <td>{{ factorPotencia3[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Energía (Kj/Ton)</td>
+            <td>{{ factorEnergia[0] }}</td>
+            <td>{{ factorEnergia[1] }}</td>
+            <td>{{ factorEnergia[2] }}</td>
+        </tr>
+        <tr>
+            <td>Longitud Carga de Fondo lf (m)</td>
+            <td>{{ longitudCargaFondo[0] }}</td>
+            <td>{{ longitudCargaFondo[1] }}</td>
+            <td>{{ longitudCargaFondo[2] }}</td>
+        </tr>
+        <tr>
+            <td>Concrentracion Carga de Fondo qf (Kg/m)</td>
+            <td>{{ concentracionCargaFondo[0] }}</td>
+            <td>{{ concentracionCargaFondo[1] }}</td>
+            <td>{{ concentracionCargaFondo[2] }}</td>
+        </tr>
+        <tr>
+            <td>Carga de Fondo (Kg)</td>
+            <td>{{ cargaFondo[0] }}</td>
+            <td>{{ cargaFondo[1] }}</td>
+            <td>{{ cargaFondo[2] }}</td>
+        </tr>
+        <tr>
+            <td>Longitud de Carga de Columna qc (m)</td>
+            <td>{{ longitudCargaColumna[0] }}</td>
+            <td>{{ longitudCargaColumna[1] }}</td>
+            <td>{{ longitudCargaColumna[2] }}</td>
+        </tr>
+        <tr>
+            <td>Concrentracion Carga de Columna qc (Kg/m) </td>
+            <td>{{ concentracionCargaColumna[0] }}</td>
+            <td>{{ concentracionCargaColumna[1] }}</td>
+            <td>{{ concentracionCargaColumna[2] }}</td>
+        </tr>
+        <tr>
+            <td>Carga de Columna Qb (Kg)</td>
+            <td>{{ cargaColumna[0] }}</td>
+            <td>{{ cargaColumna[1] }}</td>
+            <td>{{ cargaColumna[2] }}</td>
+        </tr>
+        <tr>
+            <td>Carga de Barreno (Kg)</td>
+            <td>{{ cargaBarreno[0] }}</td>
+            <td>{{ cargaBarreno[1] }}</td>
+            <td>{{ cargaBarreno[2] }}</td>
+        </tr>
+        <tr>
+            <td>Consumo Especifico CE (kg/m3)</td>
+            <td>{{ consumoEspecifico[0] }}</td>
+            <td>{{ consumoEspecifico[1] }}</td>
+            <td>{{ consumoEspecifico[2] }}</td>
+        </tr>
+        <tr>
+            <td>Burden </td>
             <td>{{ burden[0] }}</td>
             <td>{{ burden[1] }}</td>
             <td>{{ burden[2] }}</td>
         </tr>
         <tr>
-            <th scope="row">Distribución de Energía (%)</th>
+            <td>Burden</td>
             <td>{{ burden[0] }}</td>
             <td>{{ burden[1] }}</td>
             <td>{{ burden[2] }}</td>
         </tr>
-        <tr>
-            <th scope="row">Sobreperforación (m)</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Altura Efectiva Barreno (m)</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden</th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Burden </th>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
-        </tr>
-
     </tbody>
 </table>
