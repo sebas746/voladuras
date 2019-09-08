@@ -3,19 +3,39 @@
 <form [formGroup]="cieloAbiertoForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="exampleInputEmail1">Tipo de Explosivo</label>
-        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoExplosivo1.errors }" 
-            [items]="tipo_explosivos" formControlName="tipoExplosivo1" bindLabel="Nombre" required>
+        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoExplosivo1.errors }" [items]="tipo_explosivos"
+            formControlName="tipoExplosivo1" bindLabel="Nombre" required>
         </ng-select>
-        
+
         <div *ngIf="isSubmitted && form.tipoExplosivo1.invalid" class="invalid-feedback d-block">
-            Ingrese el tipo de explosivo
-         </div>
+            Ingrese el tipo de explosivo (1)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Tipo de Explosivo (2)</label>
+        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoExplosivo2.errors }" [items]="tipo_explosivos"
+            formControlName="tipoExplosivo2" bindLabel="Nombre" required>
+        </ng-select>
+
+        <div *ngIf="isSubmitted && form.tipoExplosivo2.invalid" class="invalid-feedback d-block">
+            Ingrese el tipo de explosivo (2)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Tipo de Roca</label>
+        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoRoca.errors }" [items]="tipo_rocas"
+            formControlName="tipoRoca" bindLabel="Nombre" required>
+        </ng-select>
+
+        <div *ngIf="isSubmitted && form.tipoExplosivo1.invalid" class="invalid-feedback d-block">
+            Ingrese el tipo de roca
+        </div>
     </div>
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno (Grados)</label>
-        <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.anguloBarreno.errors }"
-            placeholder="Angulo en grados" formControlName="anguloBarreno">
+        <input type="text" class="form-control form-control-sm" value="121212"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.anguloBarreno.errors }" placeholder="Angulo en grados"
+            formControlName="anguloBarreno">
         <div class="invalid-feedback">
             Ingrese el ángulo del barreno.
         </div>
@@ -23,8 +43,8 @@
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno 2 (Grados)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.angulo2Barreno.errors }"
-            placeholder="Angulo en grados" formControlName="angulo2Barreno">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.angulo2Barreno.errors }" placeholder="Angulo en grados"
+            formControlName="angulo2Barreno">
         <div class="invalid-feedback">
             Ingrese el ángulo (2) del barreno.
         </div>
@@ -41,8 +61,8 @@
     <div class="form-group">
         <label for="alturaBanco">Altura Promedio Banco (m)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.alturaBanco.errors }"
-            placeholder="Altura promedio en metros" formControlName="alturaBanco">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.alturaBanco.errors }" placeholder="Altura promedio en metros"
+            formControlName="alturaBanco">
         <div class="invalid-feedback">
             Ingrese la altura promedio del banco.
         </div>
@@ -77,8 +97,8 @@
     <div class="form-group">
         <label for="tamanoCantera">Tamaño de la Cantera</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.tamanoCantera.errors }"
-            placeholder="Altura x Ancho x Largo" formControlName="tamanoCantera">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.tamanoCantera.errors }" placeholder="Altura x Ancho x Largo"
+            formControlName="tamanoCantera">
         <div class="invalid-feedback">
             Ingrese el tamaño aproximado Alto x Ancho x Largo.
         </div>
@@ -104,8 +124,8 @@
     <div class="form-group">
         <label for="distanciaVivienda">Distancia Vivienda más Cercana (m)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaVivienda.errors }"
-            placeholder="Distancia en metros" formControlName="distanciaVivienda">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaVivienda.errors }" placeholder="Distancia en metros"
+            formControlName="distanciaVivienda">
         <div class="invalid-feedback">
             Ingrese la distancia en metros a la vivienda más cercana.
         </div>
@@ -113,8 +133,8 @@
     <div class="form-group">
         <label for="correcionFactoresGeo">Corrección por factores geológicos Kd</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionFactoresGeo.errors }"
-            placeholder="Valor del factor" formControlName="correcionFactoresGeo">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionFactoresGeo.errors }" placeholder="Valor del factor"
+            formControlName="correcionFactoresGeo">
         <div class="invalid-feedback">
             Ingrese el valor del factor de correción geológico Kd.
         </div>
@@ -122,8 +142,8 @@
     <div class="form-group">
         <label for="correcionNumeroFilas">Corrección por No. De hileras Kr (segunda fila)</label>
         <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionNumeroFilas.errors }"
-            placeholder="Valor del factor" formControlName="correcionNumeroFilas">
+            [ngClass]="{ 'is-invalid': isSubmitted && form.correcionNumeroFilas.errors }" placeholder="Valor del factor"
+            formControlName="correcionNumeroFilas">
         <div class="invalid-feedback">
             Ingrese el valor del factor de por número de filas Kr.
         </div>
@@ -140,35 +160,267 @@
     <div class="form-check">
 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Calcular Valores</button>
 </form>
+<hr>
+<h1>Resultados Generales</h1>
 <br />
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered table-sm">
     <thead>
-      <tr>
-        <th scope="col">Parámetro Calculado</th>
-        <th scope="col">Lopez Jimeno</th>
-        <th scope="col">Rodgers</th>
-        <th scope="col">Konya</th>
-      </tr>
+        <tr>
+            <th scope="col">Parámetro Calculado</th>
+            <th scope="col">Lopez Jimeno</th>
+            <th scope="col">Rodgers</th>
+            <th scope="col">Konya</th>
+        </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">Taco Promedio (m)</th>
-        <td>{{ burden[0] }}</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+        <tr>
+            <th scope="row">Burden (m)</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden Corregido (m)</th>
+            <td>{{ burdenCorregido[0] }}</td>
+            <td>{{ burdenCorregido[1] }}</td>
+            <td>{{ burdenCorregido[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Índice Rigidez</th>
+            <td>{{ indiceRigidez[0] }}</td>
+            <td>{{ indiceRigidez[1] }}</td>
+            <td>{{ indiceRigidez[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Espaciamiento Óptimo (m)</th>
+            <td>{{ espaciamientoOptimo[0] }}</td>
+            <td>{{ espaciamientoOptimo[1] }}</td>
+            <td>{{ espaciamientoOptimo[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Taco Promedio (m)</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Distribución de Energía (%)</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sobreperforación (m)</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Altura Efectiva Barreno (m)</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden</th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Burden </th>
+            <td>{{ burden[0] }}</td>
+            <td>{{ burden[1] }}</td>
+            <td>{{ burden[2] }}</td>
+        </tr>
+
     </tbody>
-  </table>
+</table>

@@ -1,0 +1,14 @@
+[
+    {
+        "Nombre" : "Caliza Dureza Media",
+        "Densidad": "2.4",
+        "Resistencia_Compresion": "85",
+        "Dureza": "10"
+    },
+    {
+        "Nombre" : "Arenisca",
+        "Densidad": "1",
+        "Resistencia_Compresion": "80",
+        "Dureza": "15"
+    }
+]

@@ -13,6 +13,9 @@ export class CieloAbiertoComponent implements OnInit {
     explosivo1: any = {};
 
     burden: any[] = [0 , 0, 0];
+    burdenCorregido: any[] = [0 , 0, 0];
+    indiceRigidez: any[] = [0 , 0, 0];
+    espaciamientoOptimo: any[] = [0 , 0, 0];
     
     constructor(private formBuilder: FormBuilder, private repo: Repository,
                 private calculos: Calculos) {
@@ -27,11 +30,18 @@ export class CieloAbiertoComponent implements OnInit {
         return this.repo.tipo_explosivos;
     }
 
+    get tipo_rocas(): TipoExplosivo[] {
+        
+        return this.repo.tipo_rocas;
+    }
+
     get form() { return this.cieloAbiertoForm.controls; }
 
     createForm() {
         this.cieloAbiertoForm = this.formBuilder.group({
             tipoExplosivo1: ['', Validators.required],
+            tipoExplosivo2: ['', Validators.required],
+            tipoRoca: ['', Validators.required],
             anguloBarreno: ['', Validators.required],
             angulo2Barreno: ['', Validators.required],
             diametroBarreno: ['', Validators.required],
@@ -51,7 +61,10 @@ export class CieloAbiertoComponent implements OnInit {
 
     submit() {
         
-        this.burden = this.calculos.burden(this.cieloAbiertoForm);
+        this.burden =  this.calculos.burden(this.cieloAbiertoForm);
+        this.burdenCorregido = this.calculos.burdenCorregido(this.burden, this.cieloAbiertoForm);
+        this.indiceRigidez = this.calculos.indiceRigidez(this.burdenCorregido, this.cieloAbiertoForm);
+        this.espaciamientoOptimo = this.calculos.espacimientoOptimo(this.burden, this.cieloAbiertoForm);
 
         this.isSubmitted = true;
         if (this.cieloAbiertoForm.invalid) {

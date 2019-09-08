@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TipoExplosivo } from '../models/tipoExplosivo.model';
 
 const tipoExplosivoUrl = "./assets/tipo_explosivos.json";
+const tipoRocasUrl = "./assets/tipo_rocas.json";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,8 @@ const tipoExplosivoUrl = "./assets/tipo_explosivos.json";
 export class Repository {
 
     constructor(private http: HttpClient) {  
-        this.getTipoExplosivos();      
+        this.getTipoExplosivos();
+        this.getTipoRocas();      
     }
     
 
@@ -20,9 +22,17 @@ export class Repository {
             .subscribe(
                 response => {
                     this.tipo_explosivos = response; 
-                  
+                });
+    }
+
+    getTipoRocas() {
+        return this.http.get<any[]>(tipoRocasUrl)
+            .subscribe(
+                response => {
+                    this.tipo_rocas = response; 
                 });
     }
 
     tipo_explosivos: TipoExplosivo[] = [];
+    tipo_rocas: any[] = [];
 }
