@@ -1,8 +1,14 @@
-<h1>Datos de Entrada</h1>
+<h2>Datos de Entrada</h2>
+
 <form [formGroup]="cieloAbiertoForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="exampleInputEmail1">Tipo de Explosivo</label>
-        
+        <ng-select [ngClass]="{ 'is-invalid': isSubmitted && formControls.tipoExplosivo1.errors }" 
+            [items]="defaultBindingsList" formControlName="tipoExplosivo1" required>
+        </ng-select>
+        <div *ngIf="isSubmitted && formControls.tipoExplosivo1.invalid" class="invalid-feedback d-block">
+            Ingrese el tipo de explosivo
+         </div>
     </div>
     <div class="form-group">
         <label for="anguloBarreno">Ángulo Barreno (Grados)</label>
@@ -129,7 +135,7 @@
         <div class="invalid-feedback">
             Ingrese el valor del factor de corrección por estructura geológica Ks.
         </div>
-    </div>    
+    </div>
     <div class="form-check">
 
     </div>

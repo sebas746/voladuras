@@ -1,13 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
     templateUrl: "cieloAbierto.component.html"
 })
 export class CieloAbiertoComponent implements OnInit {
     cieloAbiertoForm: FormGroup;
     isSubmitted = false;
+
+    defaultBindingsList = [
+        { value: 1, label: 'Vilnius' },
+        { value: 2, label: 'Kaunas' },
+        { value: 3, label: 'Pavilnys'}
+    ];
+
+    selectedCity = null;
 
     constructor(private formBuilder: FormBuilder) {
         
@@ -21,6 +28,7 @@ export class CieloAbiertoComponent implements OnInit {
 
     createForm() {
         this.cieloAbiertoForm = this.formBuilder.group({
+            tipoExplosivo1: ['', Validators.required],
             anguloBarreno: ['', Validators.required],
             angulo2Barreno: ['', Validators.required],
             diametroBarreno: ['', Validators.required],
