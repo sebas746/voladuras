@@ -6,17 +6,29 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="cieloAbierto">Voladura Cielo Abierto <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="cieloAbierto">Voladuras Cielo Abierto<span class="sr-only">(current)</span></a>
+      </li>     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Demolición Estructuras
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Gustaffson </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Esteban Langa</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">López Jimeno</a>
+        </div>
+      </li>
     </div>
   </div>
 </nav>
 
 <br />
 <div id="wrapper">
-<div class="container-fluid">
-  <router-outlet></router-outlet>
-</div>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -235,4 +235,95 @@ export class Calculos {
         let r3 = r1;
         return this.redondear([r1, r2, r3], 2);
     }
+
+    burdenPrecorte(burden: any[]) {
+        let r1 = burden[0] /2;
+        let r2 = burden[1] /2;
+        let r3 = burden[2] /2;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    longitudCargaPrecorte(form: FormGroup) {
+        let r1 = form.get("alturaBanco").value - form.get("tacoDecidido").value;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    diametroExplosivoPrecorte(form: FormGroup) {
+        let r1 =  Math.sqrt(8 / (5 * Math.PI * 1.2)) * (Math.pow(form.get("diametroBarreno").value, 5/6));
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    cargaMetroLinealPrecorte(form: FormGroup) {
+        let r1 =  1 / 125 * form.get("diametroBarreno").value;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    cargaBarrenoPrecorte(longitudCargaPrecorte: any[], cargaMetroLinealPrecorte: any[]) {
+        let r1 = longitudCargaPrecorte[0] *  cargaMetroLinealPrecorte[0];
+        let r2 = longitudCargaPrecorte[1] *  cargaMetroLinealPrecorte[1];
+        let r3 = longitudCargaPrecorte[2] *  cargaMetroLinealPrecorte[2];
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    numeroBarrenosPrecorte(form: FormGroup) {
+        let r1 =  60 / form.get("espaciamientoPrecorte").value / 2;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 0);
+    }
+
+    numeroVoladurasPrecorte(form: FormGroup) {
+        let r1 = form.get("totalVoladuras").value * form.get("duracionProyecto").value / 2;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    totalBarrenosPrecorte(numeroBarrenosPrecorte: any[], numeroVoladurasPrecorte: any[]) {        
+        let r1 = numeroBarrenosPrecorte[0] * numeroVoladurasPrecorte[0];
+        let r2 = numeroBarrenosPrecorte[1] * numeroVoladurasPrecorte[1];
+        let r3 = numeroBarrenosPrecorte[2] * numeroVoladurasPrecorte[2];
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    perforacionPorVoladuraPrecorte(numeroBarrenosPrecorte: any[], form: FormGroup) {
+        let r1 = numeroBarrenosPrecorte[0] * form.get("alturaBanco").value;
+        let r2 = numeroBarrenosPrecorte[1] * form.get("alturaBanco").value;
+        let r3 = numeroBarrenosPrecorte[2] * form.get("alturaBanco").value;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    totalPerforacionPrecorte(totalBarrenosPrecorte: any[], form: FormGroup) {
+        let r1 = totalBarrenosPrecorte[0] * form.get("alturaBanco").value;
+        let r2 = totalBarrenosPrecorte[0] * form.get("alturaBanco").value;
+        let r3 = totalBarrenosPrecorte[0] * form.get("alturaBanco").value;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    cordonDetonantePrecorte(totalBarrenosPrecorte: any[], form: FormGroup) {
+        let r1 = (totalBarrenosPrecorte[0] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[0]);
+        let r2 = (totalBarrenosPrecorte[1] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[1]);
+        let r3 = (totalBarrenosPrecorte[2] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[2]);
+        return this.redondear([r1, r2, r3], 0);
+    }
+
+    horasPerforacionPorVoladuraPrecorte(perforacionPorVoladuraPrecorte: any[]) {
+        let r1 = perforacionPorVoladuraPrecorte[0] / 12;
+        let r2 = perforacionPorVoladuraPrecorte[1] / 12;
+        let r3 = perforacionPorVoladuraPrecorte[2] / 12;
+        return this.redondear([r1, r2, r3], 0);
+    }
+
+    totalDiasPerforacionPrecorte(horasPerforacionPorVoladuraPrecorte: any[]) {
+        let r1 = horasPerforacionPorVoladuraPrecorte[0] / 8;
+        let r2 = horasPerforacionPorVoladuraPrecorte[1] / 8;
+        let r3 = horasPerforacionPorVoladuraPrecorte[2] / 8;
+        return this.redondear([r1, r2, r3], 2);
+    }
 }

@@ -56,6 +56,15 @@ export class CieloAbiertoComponent implements OnInit {
     factorPotenciaPeso: any[] = [0, 0, 0];
     factorPotenciaVolumen: any[] = [0, 0, 0];
     pesoExplosivo: any[] = [0, 0, 0];
+    cargaMetroLinealPrecorte: any[] = [0, 0, 0];
+    cargaBarrenoPrecorte: any[] = [0, 0, 0];
+    numeroBarrenosPrecorte: any[] = [0, 0, 0];
+    numeroVoladurasPrecorte: any[] = [0, 0, 0];
+    perforacionPorVoladuraPrecorte: any[] = [0, 0, 0];
+    totalPerforacionPrecorte: any[] = [0, 0, 0];
+    cordonDetonantePrecorte: any[] = [0, 0, 0];
+    horasPerforacionPorVoladuraPrecorte: any[] = [0, 0, 0];
+    totalDiasPerforacionPrecorte: any[] = [0, 0, 0];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) {
@@ -112,9 +121,9 @@ export class CieloAbiertoComponent implements OnInit {
             anguloBarreno: [18, Validators.required],
             angulo2Barreno: [0.951, Validators.required],
             diametroBarreno: [101.6, Validators.required],
-            alturaBanco: [11, Validators.required],
+            alturaBanco: [10.8, Validators.required],
             duracionProyecto: [3, Validators.required],
-            totalVoladuras: [1, Validators.required],
+            totalVoladuras: [2, Validators.required],
             longitudVia: [100, Validators.required],
             largoCantera: [180, Validators.required],
             anchoCantera: [10.8, Validators.required],
@@ -129,7 +138,9 @@ export class CieloAbiertoComponent implements OnInit {
             diametroBarrenoPrecorte: [''],
             espaciamientoPrecorte: [''],
             tacoDecidido: [''],
-            geometria: ['1', Validators.required]
+            geometria: ['1', Validators.required],
+            RMRRoca: ['1', Validators.required],
+            espaciamientoDiscontinuidad: ['1', Validators.required]
         });
     }
 
@@ -142,10 +153,14 @@ export class CieloAbiertoComponent implements OnInit {
             this.cieloAbiertoForm.get("tacoDecidido").setValidators([Validators.required]);
         }
         else {
-            this.cieloAbiertoForm.get("diametroExplosivoAsumido").clearValidators();
+            this.cieloAbiertoForm.get("diametroExplosivoAsumido").clearValidators()
+            this.cieloAbiertoForm.get("diametroExplosivoAsumido").setValue('');
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").clearValidators();
+            this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValue('');
             this.cieloAbiertoForm.get("espaciamientoPrecorte").clearValidators();
+            this.cieloAbiertoForm.get("espaciamientoPrecorte").setValue('');
             this.cieloAbiertoForm.get("tacoDecidido").clearValidators();
+            this.cieloAbiertoForm.get("tacoDecidido").setValue('');
         }
     }
 
@@ -182,6 +197,19 @@ export class CieloAbiertoComponent implements OnInit {
         this.energiaExplosiva = this.calculos.energiaExplosiva(this.pesoExplosivoPorBarreno, this.cieloAbiertoForm);
         this.factorEnergia = this.calculos.factorEnergia(this.masaTiro, this.energiaExplosiva);
         this.volumenSuelto = this.calculos.volumenSuelto(this.cieloAbiertoForm);
+        this.burdenPrecorte = this.calculos.burdenPrecorte(this.burden);
+        this.longitudCargaPrecorte = this.calculos.longitudCargaPrecorte(this.cieloAbiertoForm);
+        this.diametroExplosivoPrecorte = this.calculos.diametroExplosivoPrecorte(this.cieloAbiertoForm);
+        this.cargaMetroLinealPrecorte = this.calculos.cargaMetroLinealPrecorte(this.cieloAbiertoForm);
+        this.cargaBarrenoPrecorte = this.calculos.cargaBarrenoPrecorte(this.longitudCargaPrecorte, this.cargaMetroLinealPrecorte);
+        this.numeroBarrenosPrecorte = this.calculos.numeroBarrenosPrecorte(this.cieloAbiertoForm);
+        this.numeroVoladurasPrecorte = this.calculos.numeroVoladurasPrecorte(this.cieloAbiertoForm);
+        this.totalBarrenosPrecorte = this.calculos.totalBarrenosPrecorte(this.numeroBarrenosPrecorte, this.numeroVoladurasPrecorte);
+        this.perforacionPorVoladuraPrecorte = this.calculos.perforacionPorVoladuraPrecorte(this.numeroBarrenosPrecorte, this.cieloAbiertoForm);
+        this.totalPerforacionPrecorte = this.calculos.totalPerforacionPrecorte(this.totalBarrenosPrecorte, this.cieloAbiertoForm);
+        this.cordonDetonantePrecorte = this.calculos.cordonDetonantePrecorte(this.totalBarrenosPrecorte, this.cieloAbiertoForm);
+        this.horasPerforacionPorVoladuraPrecorte = this.calculos.horasPerforacionPorVoladuraPrecorte(this.perforacionPorVoladuraPrecorte);
+        this.totalDiasPerforacionPrecorte = this.calculos.totalDiasPerforacionPrecorte(this.horasPerforacionPorVoladuraPrecorte);
 
         this.isSubmitted = true;
         if (this.cieloAbiertoForm.invalid) {
