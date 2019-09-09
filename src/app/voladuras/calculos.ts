@@ -228,4 +228,11 @@ export class Calculos {
         let r3 = energiaExplosiva[2] * 1000 / masaTiro[2];
         return this.redondear([r1, r2, r3], 2);
     }
+
+    volumenSuelto(form: FormGroup) {
+        let r1 = form.get("largoCantera").value * form.get("anchoCantera").value * form.get("fondoCantera").value;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
 }

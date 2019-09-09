@@ -1,5 +1,7 @@
 <h2>Datos de Entrada</h2>
-
+<hr>
+<h4>Parámetros Generales</h4>
+<hr>
 <form [formGroup]="cieloAbiertoForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="exampleInputEmail1">Tipo de Explosivo</label>
@@ -41,7 +43,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="anguloBarreno">Ángulo Barreno 2 (Grados)</label>
+        <label for="anguloBarreno">Error de Inclinación del Barreno</label>
         <input type="text" class="form-control form-control-sm"
             [ngClass]="{ 'is-invalid': isSubmitted && form.angulo2Barreno.errors }" placeholder="Angulo en grados"
             formControlName="angulo2Barreno">
@@ -95,21 +97,23 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="tamanoCantera">Tamaño de la Cantera</label>
-        <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.tamanoCantera.errors }" placeholder="Altura x Ancho x Largo"
-            formControlName="tamanoCantera">
-        <div class="invalid-feedback">
-            Ingrese el tamaño aproximado Alto x Ancho x Largo.
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="volumenSuelto">Volumen Suelto (m3)</label>
-        <input type="text" class="form-control form-control-sm"
-            [ngClass]="{ 'is-invalid': isSubmitted && form.volumenSuelto.errors }"
-            placeholder="Volumen suelto en metros cúbicos" formControlName="volumenSuelto">
-        <div class="invalid-feedback">
-            Ingrese el volumen suelto en metros cúbicos.
+        <label for="tamanoCantera">Total Tamaño de la Cantera (m3)</label>
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control form-control-sm" placeholder="Largo"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.largoCantera.errors }"
+                    formControlName="largoCantera">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control form-control-sm" placeholder="Ancho"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.anchoCantera.errors }"
+                    formControlName="anchoCantera">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control form-control-sm" placeholder="Fondo"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.fondoCantera.errors }"
+                    formControlName="fondoCantera">
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -157,10 +161,90 @@
             Ingrese el valor del factor de corrección por estructura geológica Ks.
         </div>
     </div>
-    <div class="form-check">
-
+    <div class="form-group">
+        <label for="esPrecorte">Precorte</label>
+        <select class="form-control form-control-sm" formControlName="esPrecorte"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.esPrecorte.errors }"
+            (change)="cambioPrecorte(form.esPrecorte.value)">
+            <option value="NO">No</option>
+            <option value="SI">Si</option>
+        </select>
+        <div class="invalid-feedback">
+            Ingrese SI o NO para precorte.
+        </div>
     </div>
+    <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
+        <label for="diametroExplosivoAsumido">Diámetro Explosivo Asumido (mm)</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.diametroExplosivoAsumido.errors }"
+            placeholder="Diámetro en milímetros" formControlName="diametroExplosivoAsumido">
+        <div class="invalid-feedback">
+            Ingrese el díametro del explosivo asumido.
+        </div>
+    </div>
+    <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
+        <label for="diametroBarrenoPrecorte">Diámetro Barreno Precorte (mm)</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.diametroBarrenoPrecorte.errors }"
+            placeholder="Diámetro en milímetros" formControlName="diametroBarrenoPrecorte">
+        <div class="invalid-feedback">
+            Ingrese el díametro del barreno en precorte.
+        </div>
+    </div>
+    <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
+        <label for="espaciamientoPrecorte">Espaciamiento Eo (m)</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.espaciamientoPrecorte.errors }"
+            placeholder="Espaciamiento en metros" formControlName="espaciamientoPrecorte">
+        <div class="invalid-feedback">
+            Ingrese el espaciamiento.
+        </div>
+    </div>
+    <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
+        <label for="tacoDecidido">Taco (m)</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.tacoDecidido.errors }" placeholder="Taco en metros"
+            formControlName="tacoDecidido">
+        <div class="invalid-feedback">
+            Ingrese el taco asumido.
+        </div>
+    </div>
+    <hr>
+    <h4>Kuz Ram</h4>
+    <hr>
+    <div class="form-group">
+        <label for="RMRRoca">RMR de la Roca</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.RMRRoca.errors }" placeholder="Valor del RMR"
+            formControlName="RMRRoca">
+        <div class="invalid-feedback">
+            Ingrese el valor del RMR.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="espaciamientoDiscontinuidad">Espaciamiento (m)</label>
+        <input type="text" class="form-control form-control-sm"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.espaciamientoDiscontinuidad.errors }"
+            placeholder="Valor del RMR" formControlName="espaciamientoDiscontinuidad">
+        <div class="invalid-feedback">
+            Ingrese el valor del RMR.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="geometria">Geometría</label>
+        <select class="form-control form-control-sm" formControlName="geometria"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.geometria.errors }"
+            (change)="cambioPrecorte(form.esPrecorte.value)">
+            <option value="1">Tresbolillo</option>
+            <option value="1.1">Cuadrada</option>
+        </select>
+        <div class="invalid-feedback">
+            Ingrese SI o NO para precorte.
+        </div>
+    </div>
+    <br />
     <button type="submit" class="btn btn-primary">Calcular Valores</button>
+    <br />
 </form>
 <hr>
 <h1>Resultados Generales</h1>
@@ -176,6 +260,12 @@
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>Volumen Suelto (m3)</td>
+            <td>{{ volumenSuelto[0] }}</td>
+            <td>{{ volumenSuelto[1] }}</td>
+            <td>{{ volumenSuelto[2] }}</td>
+        </tr>
         <tr>
             <td>Burden (m)</td>
             <td>{{ burden[0] }}</td>
@@ -249,7 +339,7 @@
             <td>{{ areaBarreno[2] }}</td>
         </tr>
         <tr>
-            <td>Densidad Carga Emulit (Kg/m)</td>
+            <td>Densidad Carga (Kg/m)</td>
             <td>{{ densidadCargaEmulit[0] }}</td>
             <td>{{ densidadCargaEmulit[1] }}</td>
             <td>{{ densidadCargaEmulit[2] }}</td>
@@ -267,7 +357,7 @@
             <td>{{ energiaExplosiva[2] }}</td>
         </tr>
         <tr>
-            <td>Volumen Arrancado VR (BXSX H/COS18º) (mcb)</td>
+            <td>Volumen Arrancado (mcb)</td>
             <td>{{ volumenArrancado[0] }}</td>
             <td>{{ volumenArrancado[1] }}</td>
             <td>{{ volumenArrancado[2] }}</td>
@@ -357,16 +447,48 @@
             <td>{{ consumoEspecifico[2] }}</td>
         </tr>
         <tr>
-            <td>Burden </td>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
+            <td>Burden Precorte (m)</td>
+            <td>{{ burdenPrecorte[0] }}</td>
+            <td>{{ burdenPrecorte[1] }}</td>
+            <td>{{ burdenPrecorte[2] }}</td>
         </tr>
         <tr>
-            <td>Burden</td>
-            <td>{{ burden[0] }}</td>
-            <td>{{ burden[1] }}</td>
-            <td>{{ burden[2] }}</td>
+            <td>Díámetro de Explosivo Precorte dcc (mm)</td>
+            <td>{{ diametroExplosivoPrecorte[0] }}</td>
+            <td>{{ diametroExplosivoPrecorte[1] }}</td>
+            <td>{{ diametroExplosivoPrecorte[2] }}</td>
+        </tr>
+        <tr>
+            <td>Total Barrenos de Precorte (un)</td>
+            <td>{{ totalBarrenosPrecorte[0] }}</td>
+            <td>{{ totalBarrenosPrecorte[1] }}</td>
+            <td>{{ totalBarrenosPrecorte[2] }}</td>
+        </tr>
+        <tr>
+            <td>Distancia Entre la Fila de Precorte y la 1ra Produccion (m)</td>
+            <td>{{ distanciaCorteProduccion[0] }}</td>
+            <td>{{ distanciaCorteProduccion[1] }}</td>
+            <td>{{ distanciaCorteProduccion[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Potencia del Explosivo en Peso (Kg/Ton)</td>
+            <td>{{ distanciaCorteProduccion[0] }}</td>
+            <td>{{ distanciaCorteProduccion[1] }}</td>
+            <td>{{ distanciaCorteProduccion[2] }}</td>
+        </tr>
+        <tr>
+            <td>Factor Potencia del Explosivo en Volumen (Kg/m3b)</td>
+            <td>{{ distanciaCorteProduccion[0] }}</td>
+            <td>{{ distanciaCorteProduccion[1] }}</td>
+            <td>{{ distanciaCorteProduccion[2] }}</td>
+        </tr>
+        <tr>
+            <td>Peso del Explosivo (Kg/barreno)</td>
+            <td>{{ distanciaCorteProduccion[0] }}</td>
+            <td>{{ distanciaCorteProduccion[1] }}</td>
+            <td>{{ distanciaCorteProduccion[2] }}</td>
         </tr>
     </tbody>
 </table>
+<br />
+<br />

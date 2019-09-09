@@ -4,6 +4,8 @@ import { CieloAbiertoComponent } from './voladuras/cieloAbierto.component';
 
 
 const routes: Routes = [
+  { path: "*", component: CieloAbiertoComponent  },
+  { path: "", component: CieloAbiertoComponent  },
   { path: "cieloAbierto", component: CieloAbiertoComponent  }
 ];
 

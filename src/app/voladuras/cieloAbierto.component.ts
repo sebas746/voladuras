@@ -47,10 +47,19 @@ export class CieloAbiertoComponent implements OnInit {
     cargaColumna: any[] = [0, 0, 0];
     cargaBarreno: any[] = [0, 0, 0];
     consumoEspecifico: any[] = [0, 0, 0];
+    burdenPrecorte: any[] = [0, 0, 0];
+    longitudCargaPrecorte: any[] = [0, 0, 0];
+    diametroExplosivoPrecorte: any[] = [0, 0, 0];
+    totalBarrenosPrecorte: any[] = [0, 0, 0];
+    distanciaCorteProduccion: any[] = [0, 0, 0];
+    volumenSuelto: any[] = [0, 0, 0];
+    factorPotenciaPeso: any[] = [0, 0, 0];
+    factorPotenciaVolumen: any[] = [0, 0, 0];
+    pesoExplosivo: any[] = [0, 0, 0];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) {
-                
+
     }
 
 
@@ -95,7 +104,7 @@ export class CieloAbiertoComponent implements OnInit {
 
     get form() { return this.cieloAbiertoForm.controls; }
 
-    createForm() {     
+    createForm() {
         this.cieloAbiertoForm = this.formBuilder.group({
             tipoExplosivo1: ['', Validators.required],
             tipoExplosivo2: ['', Validators.required],
@@ -107,14 +116,37 @@ export class CieloAbiertoComponent implements OnInit {
             duracionProyecto: [3, Validators.required],
             totalVoladuras: [1, Validators.required],
             longitudVia: [100, Validators.required],
-            tamanoCantera: ['180 X 50 X10.8', Validators.required],
-            volumenSuelto: [97200, Validators.required],
+            largoCantera: [180, Validators.required],
+            anchoCantera: [10.8, Validators.required],
+            fondoCantera: [50, Validators.required],            
             volumenMovido: [200000, Validators.required],
             distanciaVivienda: [150, Validators.required],
             correcionFactoresGeo: [0.9, Validators.required],
             correcionNumeroFilas: [0.95, Validators.required],
             correccionEstGeologica: [1.10, Validators.required],
+            esPrecorte: ['NO', Validators.required],
+            diametroExplosivoAsumido: [''],
+            diametroBarrenoPrecorte: [''],
+            espaciamientoPrecorte: [''],
+            tacoDecidido: [''],
+            geometria: ['1', Validators.required]
         });
+    }
+
+    cambioPrecorte(value) {
+        console.log(value);
+        if (value == 'SI') {
+            this.cieloAbiertoForm.get("diametroExplosivoAsumido").setValidators([Validators.required]);
+            this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValidators([Validators.required]);
+            this.cieloAbiertoForm.get("espaciamientoPrecorte").setValidators([Validators.required]);
+            this.cieloAbiertoForm.get("tacoDecidido").setValidators([Validators.required]);
+        }
+        else {
+            this.cieloAbiertoForm.get("diametroExplosivoAsumido").clearValidators();
+            this.cieloAbiertoForm.get("diametroBarrenoPrecorte").clearValidators();
+            this.cieloAbiertoForm.get("espaciamientoPrecorte").clearValidators();
+            this.cieloAbiertoForm.get("tacoDecidido").clearValidators();
+        }
     }
 
     submit() {
@@ -131,7 +163,7 @@ export class CieloAbiertoComponent implements OnInit {
         this.verifDiametro = this.calculos.verificacionDiametro(this.burdenCorregido, this.cieloAbiertoForm);
         this.longitudExplosivo = this.calculos.longitudExplosivo(this.tacoPromedio, this.alturaEfecBarreno);
         this.areaBarreno = this.calculos.areaBarreno(this.cieloAbiertoForm);
-        this.densidadCargaEmulit = this.calculos.densidadCargaEmulit(this.cieloAbiertoForm, this.areaBarreno);        
+        this.densidadCargaEmulit = this.calculos.densidadCargaEmulit(this.cieloAbiertoForm, this.areaBarreno);
         this.volumenArrancado = this.calculos.volumenArrancado(this.burden, this.espaciamientoOptimo, this.burdenCorregido, this.cieloAbiertoForm);
         this.rendimientoArranque = this.calculos.rendimientoArranque(this.alturaVerticalBarreno, this.volumenArrancado);
         this.masaTiro = this.calculos.masaTiro(this.volumenArrancado, this.cieloAbiertoForm);
@@ -149,6 +181,7 @@ export class CieloAbiertoComponent implements OnInit {
         this.factorPotencia3 = this.calculos.factorPotencia3(this.masaTiro, this.pesoExplosivoPorBarreno);
         this.energiaExplosiva = this.calculos.energiaExplosiva(this.pesoExplosivoPorBarreno, this.cieloAbiertoForm);
         this.factorEnergia = this.calculos.factorEnergia(this.masaTiro, this.energiaExplosiva);
+        this.volumenSuelto = this.calculos.volumenSuelto(this.cieloAbiertoForm);
 
         this.isSubmitted = true;
         if (this.cieloAbiertoForm.invalid) {
