@@ -326,4 +326,32 @@ export class Calculos {
         let r3 = horasPerforacionPorVoladuraPrecorte[2] / 8;
         return this.redondear([r1, r2, r3], 2);
     }
+
+    moduloYoung(form: FormGroup) {
+        let r1 = 2 * form.get("RMRRoca").value - 100;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 0);
+    }
+
+    factorPotenciaVolumen(burden: any[], espacimientoOptimo: any[], form: FormGroup) {
+        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[0] * espacimientoOptimo[0] * form.get("alturaBanco").value);
+        let r2 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[1] * espacimientoOptimo[1] * form.get("alturaBanco").value);
+        let r3 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[2] * espacimientoOptimo[2] * form.get("alturaBanco").value);
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    factorPotenciaPeso(factorPotenciaVolumen: any[], form: FormGroup) {
+        let r1 = factorPotenciaVolumen[0] / form.get("tipoRoca").value.Densidad;
+        let r2 = factorPotenciaVolumen[1] / form.get("tipoRoca").value.Densidad;
+        let r3 = factorPotenciaVolumen[2] / form.get("tipoRoca").value.Densidad;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    pesoExplosivo(form: FormGroup) {
+        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("tipoRoca").value.Densidad * form.get("longitudCarga").value;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
 }

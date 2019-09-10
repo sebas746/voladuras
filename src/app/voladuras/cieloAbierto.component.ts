@@ -52,10 +52,7 @@ export class CieloAbiertoComponent implements OnInit {
     diametroExplosivoPrecorte: any[] = [0, 0, 0];
     totalBarrenosPrecorte: any[] = [0, 0, 0];
     distanciaCorteProduccion: any[] = [0, 0, 0];
-    volumenSuelto: any[] = [0, 0, 0];
-    factorPotenciaPeso: any[] = [0, 0, 0];
-    factorPotenciaVolumen: any[] = [0, 0, 0];
-    pesoExplosivo: any[] = [0, 0, 0];
+    volumenSuelto: any[] = [0, 0, 0];    
     cargaMetroLinealPrecorte: any[] = [0, 0, 0];
     cargaBarrenoPrecorte: any[] = [0, 0, 0];
     numeroBarrenosPrecorte: any[] = [0, 0, 0];
@@ -65,6 +62,10 @@ export class CieloAbiertoComponent implements OnInit {
     cordonDetonantePrecorte: any[] = [0, 0, 0];
     horasPerforacionPorVoladuraPrecorte: any[] = [0, 0, 0];
     totalDiasPerforacionPrecorte: any[] = [0, 0, 0];
+    moduloYoung: any[] = [0, 0, 0];
+    factorPotenciaPeso: any[] = [0, 0, 0];
+    factorPotenciaVolumen: any[] = [0, 0, 0];
+    pesoExplosivo: any[] = [0, 0, 0];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) {
@@ -76,8 +77,34 @@ export class CieloAbiertoComponent implements OnInit {
     ngOnInit() {
         this.defExplosivo1 = this.repo.tipo_explosivos[0];
         this.createForm();
+        this.initTable();
+    }
 
+    initTable() {
         $('#tableResult').DataTable({
+            "ordering": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "No se han encontrado registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+
+            }
+        });
+
+        $('#tableKuzRamResult').DataTable({
             "ordering": false,
             dom: 'Bfrtip',
             buttons: [
@@ -127,7 +154,7 @@ export class CieloAbiertoComponent implements OnInit {
             longitudVia: [100, Validators.required],
             largoCantera: [180, Validators.required],
             anchoCantera: [10.8, Validators.required],
-            fondoCantera: [50, Validators.required],            
+            fondoCantera: [50, Validators.required],
             volumenMovido: [200000, Validators.required],
             distanciaVivienda: [150, Validators.required],
             correcionFactoresGeo: [0.9, Validators.required],
@@ -139,8 +166,12 @@ export class CieloAbiertoComponent implements OnInit {
             espaciamientoPrecorte: [''],
             tacoDecidido: [''],
             geometria: ['1', Validators.required],
-            RMRRoca: ['1', Validators.required],
-            espaciamientoDiscontinuidad: ['1', Validators.required]
+            RMRRoca: ['90', Validators.required],
+            espaciamientoDiscontinuidad: ['1', Validators.required],
+            buzamientoDiscontinuidad: ['80', Validators.required],
+            rumboDiscontinuidad: ['0', Validators.required],
+            tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
+            longitudCarga: ['9.56', Validators.required]
         });
     }
 
@@ -210,8 +241,13 @@ export class CieloAbiertoComponent implements OnInit {
         this.cordonDetonantePrecorte = this.calculos.cordonDetonantePrecorte(this.totalBarrenosPrecorte, this.cieloAbiertoForm);
         this.horasPerforacionPorVoladuraPrecorte = this.calculos.horasPerforacionPorVoladuraPrecorte(this.perforacionPorVoladuraPrecorte);
         this.totalDiasPerforacionPrecorte = this.calculos.totalDiasPerforacionPrecorte(this.horasPerforacionPorVoladuraPrecorte);
+        this.moduloYoung = this.calculos.moduloYoung(this.cieloAbiertoForm);
+        this.factorPotenciaVolumen = this.calculos.factorPotenciaVolumen(this.burden, this.espaciamientoOptimo, this.cieloAbiertoForm);
+        this.factorPotenciaPeso = this.calculos.factorPotenciaPeso(this.factorPotenciaVolumen, this.cieloAbiertoForm);
+        this.pesoExplosivo = this.calculos.pesoExplosivo(this.cieloAbiertoForm);
 
         this.isSubmitted = true;
+        
         if (this.cieloAbiertoForm.invalid) {
             return;
         }

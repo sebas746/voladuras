@@ -6,9 +6,22 @@
         "Dureza": "10"
     },
     {
-        "Nombre" : "Arenisca",
-        "Densidad": "1",
-        "Resistencia_Compresion": "80",
-        "Dureza": "15"
-    }
+        "IdTipoRoca": "1",
+        "Nombre": "Granodiorita de biotita y horblenda",
+        "Descripcion": "blanda",
+        "Peso": "2.83",
+        "Densidad": "2.83",
+        "ResistenciaCompresion": "50",
+		"ValorDureza": "46"
+    },
+	{
+        "IdTipoRoca": "2",
+        "Nombre": "Diorita horblenda alterada",
+        "Descripcion": "media",
+        "Peso": "2.83",
+        "Densidad": "2.83",
+        "ResistenciaCompresion": "90",
+		"ValorDureza": "35"
+     }
+
 ]
