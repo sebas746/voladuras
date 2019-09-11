@@ -7,7 +7,8 @@ import { Calculos } from './calculos';
 declare var $: any;
 
 @Component({
-    templateUrl: "cieloAbierto.component.html"
+    templateUrl: "cieloAbierto.component.html",
+    selector: 'app-cielo-abierto'
 })
 export class CieloAbiertoComponent implements OnInit {
     cieloAbiertoForm: FormGroup;
@@ -66,13 +67,16 @@ export class CieloAbiertoComponent implements OnInit {
     factorPotenciaPeso: any[] = [0, 0, 0];
     factorPotenciaVolumen: any[] = [0, 0, 0];
     pesoExplosivo: any[] = [0, 0, 0];
+    resistenciaExplosivo: any[] = [0, 0, 0];
+    tamanoPromedioMaterial: any[] = [0, 0, 0];
+    exponenteUniformidad: any[] = [0, 0, 0];
+    tamanoCaracteristico: any[] = [0, 0, 0];
+    porcentajeSobreTamano: any[] = [0, 0, 0];
+    porcentajeEnRango: any[] = [0, 0, 0];
+    porcentajeSubtamanos: any[] = [0, 0, 0];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
-        private calculos: Calculos) {
-
-    }
-
-
+        private calculos: Calculos) {}
 
     ngOnInit() {
         this.defExplosivo1 = this.repo.tipo_explosivos[0];
@@ -173,6 +177,7 @@ export class CieloAbiertoComponent implements OnInit {
             tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
             longitudCarga: ['9.56', Validators.required],
             indiceEstabilidad: ['7.18', Validators.required],
+            RWSExplosivo: ['100', Validators.required]
         });
     }
 
@@ -246,6 +251,7 @@ export class CieloAbiertoComponent implements OnInit {
         this.factorPotenciaVolumen = this.calculos.factorPotenciaVolumen(this.burden, this.espaciamientoOptimo, this.cieloAbiertoForm);
         this.factorPotenciaPeso = this.calculos.factorPotenciaPeso(this.factorPotenciaVolumen, this.cieloAbiertoForm);
         this.pesoExplosivo = this.calculos.pesoExplosivo(this.cieloAbiertoForm);
+        this.resistenciaExplosivo = this.calculos.resistenciaExplosivo(this.cieloAbiertoForm);
 
         this.isSubmitted = true;
         

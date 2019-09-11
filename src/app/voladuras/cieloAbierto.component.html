@@ -1,3 +1,10 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Voladuras Cielo Abierto</li>
+    </ol>
+</nav>
+<h1 class="text-center">VOLADURAS A CIELO ABIERTO</h1>
 <h2>Datos de Entrada</h2>
 <hr>
 <br />
@@ -266,6 +273,15 @@
                     placeholder="Valor en metros" formControlName="tamanoBloqueDiscontinuidad">
                 <div class="invalid-feedback">
                     Ingrese el valor en metros.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="RWSExplosivo">RWS Explosivo (%)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.RWSExplosivo.errors }" placeholder="Porcentaje"
+                    formControlName="RWSExplosivo">
+                <div class="invalid-feedback">
+                    Ingrese un valor de 0 a 100.
                 </div>
             </div>
             <div class="form-group">
@@ -606,7 +622,7 @@
                     <td>{{ distanciaCorteProduccion[0] }}</td>
                     <td>{{ distanciaCorteProduccion[1] }}</td>
                     <td>{{ distanciaCorteProduccion[2] }}</td>
-                </tr>               
+                </tr>
             </tbody>
         </table>
     </div>
@@ -631,6 +647,12 @@
                     <td>{{ moduloYoung[0] }}</td>
                     <td>{{ moduloYoung[1] }}</td>
                     <td>{{ moduloYoung[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Resistencia </td>
+                    <td>{{ resistenciaExplosivo[0] }}</td>
+                    <td>{{ resistenciaExplosivo[1] }}</td>
+                    <td>{{ resistenciaExplosivo[2] }}</td>
                 </tr>
                 <tr>
                     <td>Factor Potencia del explosivo en peso (Kg/Ton)</td>
@@ -667,6 +689,24 @@
                     <td>{{ tamanoCaracteristico[0] }}</td>
                     <td>{{ tamanoCaracteristico[1] }}</td>
                     <td>{{ tamanoCaracteristico[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Porcentage de Sobretamaños (%)</td>
+                    <td>{{ porcentajeSobreTamano[0] }}</td>
+                    <td>{{ porcentajeSobreTamano[1] }}</td>
+                    <td>{{ porcentajeSobreTamano[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Pocentage en el Rango (%)</td>
+                    <td>{{ porcentajeEnRango[0] }}</td>
+                    <td>{{ porcentajeEnRango[1] }}</td>
+                    <td>{{ porcentajeEnRango[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Porcentage de Subtamaños (%)</td>
+                    <td>{{ porcentajeSubtamanos[0] }}</td>
+                    <td>{{ porcentajeSubtamanos[1] }}</td>
+                    <td>{{ porcentajeSubtamanos[2] }}</td>
                 </tr>
             </tbody>
         </table>
