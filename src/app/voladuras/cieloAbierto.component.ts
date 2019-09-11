@@ -181,8 +181,7 @@ export class CieloAbiertoComponent implements OnInit {
         });
     }
 
-    cambioPrecorte(value) {
-        console.log(value);
+    cambioPrecorte(value) {        
         if (value == 'SI') {
             this.cieloAbiertoForm.get("diametroExplosivoAsumido").setValidators([Validators.required]);
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValidators([Validators.required]);

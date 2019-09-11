@@ -1,0 +1,10 @@
+[
+    {
+        "IdTipoDemolicion" : "1",
+        "Nombre" : "Muro Ladrillo Espesor=0.35m",
+        "Ancho": "0.3",
+        "Fondo": "0.3",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.7"
+    }
+]
