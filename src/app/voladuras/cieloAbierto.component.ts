@@ -171,7 +171,8 @@ export class CieloAbiertoComponent implements OnInit {
             buzamientoDiscontinuidad: ['80', Validators.required],
             rumboDiscontinuidad: ['0', Validators.required],
             tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
-            longitudCarga: ['9.56', Validators.required]
+            longitudCarga: ['9.56', Validators.required],
+            indiceEstabilidad: ['7.18', Validators.required],
         });
     }
 

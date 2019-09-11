@@ -256,7 +256,7 @@
                     [ngClass]="{ 'is-invalid': isSubmitted && form.rumboDiscontinuidad.errors }"
                     placeholder="Valor en grados" formControlName="rumboDiscontinuidad">
                 <div class="invalid-feedback">
-                        Ingrese el valor en grados.
+                    Ingrese el valor en grados.
                 </div>
             </div>
             <div class="form-group">
@@ -269,14 +269,14 @@
                 </div>
             </div>
             <div class="form-group">
-                    <label for="longitudCarga">Longitud de la Carga (m)</label>
-                    <input type="text" class="form-control form-control-sm"
-                        [ngClass]="{ 'is-invalid': isSubmitted && form.longitudCarga.errors }"
-                        placeholder="Valor en metros" formControlName="longitudCarga">
-                    <div class="invalid-feedback">
-                        Ingrese la longitud en metros.
-                    </div>
+                <label for="longitudCarga">Longitud de la Carga (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.longitudCarga.errors }" placeholder="Valor en metros"
+                    formControlName="longitudCarga">
+                <div class="invalid-feedback">
+                    Ingrese la longitud en metros.
                 </div>
+            </div>
             <div class="form-group">
                 <label for="geometria">Geometría de la Voladura</label>
                 <select class="form-control form-control-sm" formControlName="geometria"
@@ -288,7 +288,16 @@
                 <div class="invalid-feedback">
                     Ingrese el tipo de geometría de la voladura.
                 </div>
-            </div>         
+            </div>
+            <div class="form-group">
+                <label for="indiceEstabilidad">Índice de Estabilidad</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.indiceEstabilidad.errors }"
+                    placeholder="Valor en metros" formControlName="indiceEstabilidad">
+                <div class="invalid-feedback">
+                    Ingrese la el índice.
+                </div>
+            </div>
         </div>
     </div>
     <br />
@@ -597,7 +606,7 @@
                     <td>{{ distanciaCorteProduccion[0] }}</td>
                     <td>{{ distanciaCorteProduccion[1] }}</td>
                     <td>{{ distanciaCorteProduccion[2] }}</td>
-                </tr>
+                </tr>               
             </tbody>
         </table>
     </div>
@@ -605,45 +614,63 @@
 <br />
 <br />
 <div class="card">
-        <h5 class="card-header text-center">Resultados Kuz Ram</h5>
-        <div class="card-body">
-            <table id="tableKuzRamResult" class="display nowrap">
-                <thead>
-                    <tr>
-                        <th scope="col">Parámetro Calculado</th>
-                        <th scope="col">López Jimeno</th>
-                        <th scope="col">Rodgers</th>
-                        <th scope="col">Konya</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Módulo de Young</td>
-                        <td>{{ moduloYoung[0] }}</td>
-                        <td>{{ moduloYoung[1] }}</td>
-                        <td>{{ moduloYoung[2] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Factor Potencia del explosivo en peso (Kg/Ton)</td>
-                        <td>{{ factorPotenciaPeso[0] }}</td>
-                        <td>{{ factorPotenciaPeso[1] }}</td>
-                        <td>{{ factorPotenciaPeso[2] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Factor Potencia del Explosivo en Volumen (Kg/m3b)</td>
-                        <td>{{ factorPotenciaVolumen[0] }}</td>
-                        <td>{{ factorPotenciaVolumen[1] }}</td>
-                        <td>{{ factorPotenciaVolumen[2] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Peso del Explosivo (Kg/barreno)</td>
-                        <td>{{ pesoExplosivo[0] }}</td>
-                        <td>{{ pesoExplosivo[1] }}</td>
-                        <td>{{ pesoExplosivo[2] }}</td>
-                    </tr>                    
-                </tbody>
-            </table>
-        </div>
+    <h5 class="card-header text-center">Resultados Kuz Ram</h5>
+    <div class="card-body">
+        <table id="tableKuzRamResult" class="display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Parámetro Calculado</th>
+                    <th scope="col">López Jimeno</th>
+                    <th scope="col">Rodgers</th>
+                    <th scope="col">Konya</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Módulo de Young (GPa)</td>
+                    <td>{{ moduloYoung[0] }}</td>
+                    <td>{{ moduloYoung[1] }}</td>
+                    <td>{{ moduloYoung[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Factor Potencia del explosivo en peso (Kg/Ton)</td>
+                    <td>{{ factorPotenciaPeso[0] }}</td>
+                    <td>{{ factorPotenciaPeso[1] }}</td>
+                    <td>{{ factorPotenciaPeso[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Factor Potencia del Explosivo en Volumen (Kg/m3b)</td>
+                    <td>{{ factorPotenciaVolumen[0] }}</td>
+                    <td>{{ factorPotenciaVolumen[1] }}</td>
+                    <td>{{ factorPotenciaVolumen[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Peso del Explosivo (Kg/barreno)</td>
+                    <td>{{ pesoExplosivo[0] }}</td>
+                    <td>{{ pesoExplosivo[1] }}</td>
+                    <td>{{ pesoExplosivo[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Tamaño Promedio del Material (cm)</td>
+                    <td>{{ tamanoPromedioMaterial[0] }}</td>
+                    <td>{{ tamanoPromedioMaterial[1] }}</td>
+                    <td>{{ tamanoPromedioMaterial[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Exponente de Uniformidad</td>
+                    <td>{{ exponenteUniformidad[0] }}</td>
+                    <td>{{ exponenteUniformidad[1] }}</td>
+                    <td>{{ exponenteUniformidad[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Tamaño Característico (m)</td>
+                    <td>{{ tamanoCaracteristico[0] }}</td>
+                    <td>{{ tamanoCaracteristico[1] }}</td>
+                    <td>{{ tamanoCaracteristico[2] }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <br />
-    <br />
+</div>
+<br />
+<br />
