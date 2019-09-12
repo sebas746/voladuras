@@ -1,0 +1,13 @@
+[
+    {
+        "IdDureza" : "1",
+        "Nombre" : "Media",
+        "ValorDureza": "35",
+        "ParametroEspaciamiento": "47",
+        "ParametroRetacado": "34",
+        "ParametroRelacion": "1.2",
+        "ParametroConsumoEsp": "0.35",
+        "ParametroSobreperforacion": "11",
+        "ParametroBurden": "37"
+    }
+]

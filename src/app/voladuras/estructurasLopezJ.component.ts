@@ -38,19 +38,7 @@ export class EstructurasLopezJComponent implements OnInit {
     longitudRetardo = 0;
     longitudSobreperforacion = 0;
     longitudPerforacion = 0;
-
-    moduloYoung = 0;
-    factorPotenciaPeso = 0;
-    factorPotenciaVolumen = 0;
-    pesoExplosivo = 0;
-    resistenciaExplosivo = 0;
-    tamanoPromedioMaterial = 0;
-    exponenteUniformidad = 0;
-    tamanoCaracteristico = 0;
-    porcentajeSobreTamano = 0;
-    porcentajeEnRango = 0;
-    porcentajeSubtamanos = 0;
-
+   
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
 
@@ -77,43 +65,11 @@ export class EstructurasLopezJComponent implements OnInit {
             fondoPilar: ['0.3', Validators.required],
             alturaCortePropuesta: ['0.6', Validators.required],
             maximoBarrenosConexionados: ['3', Validators.required],
-            espaciamientoBarreno: ['0.7', Validators.required],
-            geometria: ['1', Validators.required],
-            RMRRoca: ['90', Validators.required],
-            espaciamientoDiscontinuidad: ['1', Validators.required],
-            buzamientoDiscontinuidad: ['80', Validators.required],
-            rumboDiscontinuidad: ['0', Validators.required],
-            tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
-            longitudCarga: ['9.56', Validators.required],
-            indiceEstabilidad: ['7.18', Validators.required],
-            RWSExplosivo: ['100', Validators.required]
+            espaciamientoBarreno: ['0.7', Validators.required]
         });
     }
 
     initTable() {
-        $('#tableKuzRamResult').DataTable({
-            "ordering": false,
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
-            "language": {
-                "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "No se han encontrado registros",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "No records available",
-                "infoFiltered": "(filtered from _MAX_ total records)",
-                "search": "Buscar:",
-                "paginate": {
-                    "first": "Primera",
-                    "last": "Última",
-                    "next": "Siguiente",
-                    "previous": "Anterior"
-                },
-
-            }
-        });
-
         $('#tableResultadosPerforacion').DataTable({
             "ordering": false,
             dom: 'Bfrtip',

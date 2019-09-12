@@ -1,0 +1,150 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Voladura en Vías</li>
+    </ol>
+</nav>
+<h1 class="text-center">Voladuras en Vías</h1>
+<h2>Datos de Entrada</h2>
+<hr>
+<br />
+<form [formGroup]="formulario" (ngSubmit)="submit()">
+    <div class="card">
+        <h5 class="card-header text-center">Parámetros Generales</h5>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="tipoExplosivo">Tipo de Explosivo</label>
+                <ng-select [ngClass]="{ 'is-invalid': isSubmitted  &&  form.tipoExplosivo.errors }"
+                    [items]="tipo_explosivos" bindLabel="Nombre" formControlName="tipoExplosivo" required>
+                </ng-select>
+                <div *ngIf="isSubmitted && form.tipoExplosivo.invalid" class="invalid-feedback d-block">
+                    Ingrese el tipo de explosivo.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="durezaRoca">Dureza de la Roca</label>
+                <ng-select [ngClass]="{ 'is-invalid': isSubmitted &&  form.durezaRoca.errors }" [items]="dureza_roca"
+                    bindLabel="Nombre" formControlName="durezaRoca" required>
+                </ng-select>
+
+                <div *ngIf="isSubmitted && form.durezaRoca.invalid" class="invalid-feedback d-block">
+                    Ingrese la dureza de la roca.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="diametroBarreno">Diámetro del Barreno (mm)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.diametroBarreno.errors }"
+                    placeholder="Diámetro en mm" formControlName="diametroBarreno">
+                <div class="invalid-feedback">
+                    Ingrese diámetro del barreno en milímetros.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="alturaBanco">Altura del Banco (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.alturaBanco.errors }"
+                    placeholder="Altura en m" formControlName="alturaBanco">
+                <div class="invalid-feedback">
+                    Ingrese la altura del banco en metros.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="anguloPerforacion">Ángulo de Perforación del Barreno (Grados)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.anguloPerforacion.errors }"
+                    placeholder="Ángulo en grados" formControlName="anguloPerforacion">
+                <div class="invalid-feedback">
+                    Ingrese el ángulo de perforación del barreno en grados.
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary center">Calcular Valores</button>
+</form>
+<hr>
+<br />
+<h2>Datos de Salida</h2>
+<br />
+<br />
+<div class="card">
+    <h5 class="card-header text-center">Resultados Generales</h5>
+    <div class="card-body">
+        <table id="tableResultados" class="display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Parámetro Calculado</th>
+                    <th scope="col">Voladuras en Trincheras</th>
+                    <th scope="col">Voladuras Media Ladera Barrenos Verticales</th>
+                    <th scope="col">Voladuras Media Ladera Barrenos Horizontales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Longitud Barreno (m)</td>
+                    <td>{{ longitudBarreno[0] }}</td>
+                    <td>{{ longitudBarreno[1] }}</td>
+                    <td>{{ longitudBarreno[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Burden (m)</td>
+                    <td>{{ burden[0] }}</td>
+                    <td>{{ burden[1] }}</td>
+                    <td>{{ burden[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Carga Explosivo Barreno (Kg)</td>
+                    <td>{{ cantidadExplosivoBarreno[0] }}</td>
+                    <td>{{ cantidadExplosivoBarreno[1] }}</td>
+                    <td>{{ cantidadExplosivoBarreno[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Longitud Explosivo Fondo (m)</td>
+                    <td>{{ longitudExplosivoFondo[0] }}</td>
+                    <td>{{ longitudExplosivoFondo[1] }}</td>
+                    <td>{{ longitudExplosivoFondo[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Concentracion Lineal Explosivo (Kg/m)</td>
+                    <td>{{ concentracionLinealExplosivo[0] }}</td>
+                    <td>{{ concentracionLinealExplosivo[1] }}</td>
+                    <td>{{ concentracionLinealExplosivo[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Retacado (m)</td>
+                    <td>{{ retacado[0] }}</td>
+                    <td>{{ retacado[1] }}</td>
+                    <td>{{ retacado[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Relación S/B (m)</td>
+                    <td>{{ relacionSB[0] }}</td>
+                    <td>{{ relacionSB[1] }}</td>
+                    <td>{{ relacionSB[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Sobreperforación (m)</td>
+                    <td>{{ sobreperforacion[0] }}</td>
+                    <td>{{ sobreperforacion[1] }}</td>
+                    <td>{{ sobreperforacion[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Espaciamiento (m)</td>
+                    <td>{{ espaciamiento[0] }}</td>
+                    <td>{{ espaciamiento[1] }}</td>
+                    <td>{{ espaciamiento[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Consumo Especifico</td>
+                    <td>{{ consumoEspecifico[0] }}</td>
+                    <td>{{ consumoEspecifico[1] }}</td>
+                    <td>{{ consumoEspecifico[2] }}</td>
+                </tr>
+             
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<br />

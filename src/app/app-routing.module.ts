@@ -5,12 +5,14 @@ import { HomeComponent } from './voladuras/home.component';
 import { EstructurasLopezJComponent } from './voladuras/estructurasLopezJ.component';
 import { EstructurasGustaffsonComponent } from './voladuras/estructurasGustaffson.component';
 import { EstructurasEstebanLComponent } from './voladuras/estructurasEstebanL.component';
+import { VoladuraViasComponent } from './voladuras/voladuraVias.component';
 
 
 const routes: Routes = [
   { path: "*", component: CieloAbiertoComponent },
   { path: "", component: HomeComponent },  
   { path: "EstructurasLopezJimeno", component: EstructurasLopezJComponent },  
+  { path: "VoladuraVias", component: VoladuraViasComponent },  
   { path: "EstructurasGustaffson", component: EstructurasGustaffsonComponent },  
   { path: "EstructurasEstebanLanga", component: EstructurasEstebanLComponent },  
   { path: "cieloAbierto", component: CieloAbiertoComponent }

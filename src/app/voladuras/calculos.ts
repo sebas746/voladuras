@@ -370,13 +370,13 @@ export class Calculos {
     }
 
     totalLineasPisosIguales(form: FormGroup) {
-        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
+        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.FilasBarreno;
         r1 = Number(r1.toFixed(0));  
         return r1;
     }
 
     totalLineasPisosDiferentes(form: FormGroup) {
-        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
+        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.FilasBarreno;
         r1 = Number(r1.toFixed(0));  
         return r1;
     }
@@ -528,5 +528,70 @@ export class Calculos {
         let r1 = form.get("alturaCortePropuesta").value - form.get("anchoPilar").value;
         r1 = Number(r1.toFixed(2));  
         return r1;
+    }
+
+
+    /****************VOLADURA EN VÍAS */
+    sobreperforacionVoladuraVias(form: FormGroup) {
+        let r1 = form.get("diametroBarreno").value * form.get("durezaRoca").value.ParametroSobreperforacion / 1000;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    retacado(form: FormGroup) {
+        let r1 = form.get("diametroBarreno").value * form.get("durezaRoca").value.ParametroRetacado / 1000;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    relacionSB(form: FormGroup) {
+        let r1 = form.get("durezaRoca").value.ParametroRelacion;
+        let r2 = r1;
+        let r3 = 0;
+        return [r1, r2, r3];
+    }
+
+    longitudExplosivoFondo(form: FormGroup) {
+        let r1 = form.get("diametroBarreno").value * form.get("durezaRoca").value.ValorDureza / 1000;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    longitudBarreno(sobrePerforacion: any[], form: FormGroup) {
+        let r1 = (form.get("alturaBanco").value /  Math.cos(form.get("anguloPerforacion").value * Math.PI / 180)) + 1 - (form.get("anguloPerforacion").value / 100) * sobrePerforacion[0];
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    consumoEspecificoVoladuraVias(form: FormGroup) {
+        let r1 = form.get("durezaRoca").value.ParametroConsumoEsp;
+        let r2 = r1;
+        let r3 = r1;
+        return [r1, r2, r3];
+    }
+
+    concentracionLinealExplosivo(form: FormGroup) {
+        let r1 = 0.078539 * form.get("tipoExplosivo").value.ParametroExplosivo * form.get("diametroBarreno").value * form.get("diametroBarreno").value / 100;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    cargaExplosivoBarreno(concentracionLinealExplosivo: number, longitudExplosivoFondo: number) {
+        let r1 = concentracionLinealExplosivo * longitudExplosivoFondo;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    burdenVoladuraVias(consumoEspecificoExplosivo: number, relacionSB: number, cargaExplosivoBarreno: number, form: FormGroup) {
+        let r1 = Math.pow((cargaExplosivoBarreno / (relacionSB * (form.get("alturaBanco").value / Math.cos(form.get("anguloPerforacion").value)) * consumoEspecificoExplosivo) * -1), 0.5);
+        let r2 = r1;
+        let r3 = form.get("durezaRoca").value.ParametroBurden * form.get("diametroBarreno").value / 1000;
+        return this.redondear([r1, r2, r3], 1);
     }
 }
