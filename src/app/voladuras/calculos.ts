@@ -361,4 +361,119 @@ export class Calculos {
         let r3 = r1;
         return this.redondear([r1, r2, r3], 0);
     }
+
+    //Demolición estructuras
+    volumenTeoricoVolar(form: FormGroup) {
+        let r1 = form.get("anchoPilar").value * form.get("fondoPilar").value * form.get("alturaCortePropuesta").value;
+        r1 = Number(r1.toFixed(4));  
+        return r1;
+    }
+
+    totalLineasPisosIguales(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.FilasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalLineasPisosDiferentes(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.FilasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    noBarrenoFila(form: FormGroup) {
+        let r1 = form.get("alturaCortePropuesta").value / form.get("tipoDemolicion").value.Espaciamiento;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    noBarrenosPilar(noBarrenoFila: number, form: FormGroup) {
+        let r1 = noBarrenoFila * form.get("tipoDemolicion").value.FilasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalBarrenosPisosIguales(noBarrenosPilar: number, totalLineasPisosIguales: number) {
+        let r1 = noBarrenosPilar * totalLineasPisosIguales;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalBarrenosPisosDiferentes(noBarrenosPilar: number, totalLineasPisosIguales: number) {
+        let r1 = noBarrenosPilar * totalLineasPisosIguales;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalBarrenosCargados(totalBarrenosPisosIguales: number, totalBarrenosPisosDiferentes: number) {
+        let r1 = totalBarrenosPisosIguales + totalBarrenosPisosDiferentes;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    cantidadExplosivoTeoricoPilar(noBarrenosPilar: number, form: FormGroup) {
+        let r1 = noBarrenosPilar * form.get("tipoExplosivo").value.Peso / 1000;
+        r1 = Number(r1.toFixed(3));  
+        return r1;
+    }
+
+    cantidadExplosivoBarreno(cantidadExplosivoTeoricoPilar: number, noBarrenosPilar: number) {
+        let r1 = cantidadExplosivoTeoricoPilar / noBarrenosPilar;
+        r1 = Number(r1.toFixed(3));  
+        return r1;
+    }
+
+    totalExplosivoPisosIguales(cantidadExplosivoBarreno: number, totalBarrenosPisosIguales: number, form: FormGroup) {
+        let r1 = cantidadExplosivoBarreno * totalBarrenosPisosIguales * form.get("totalPisosConCargasIguales").value;
+        r1 = Number(r1.toFixed(3));  
+        return r1;
+    }
+
+    totalExplosivoPisosDiferentes(cantidadExplosivoBarreno: number, totalBarrenosPisosDiferentes: number, form: FormGroup) {
+        let r1 = cantidadExplosivoBarreno * totalBarrenosPisosDiferentes * form.get("totalPisosConCargasDiferentes").value;
+        r1 = Number(r1.toFixed(3));  
+        return r1;
+    }
+
+    totalExplosivosEdificio(totalExplosivoPisosIguales: number, totalExplosivoPisosDiferentes: number) {
+        let r1 = totalExplosivoPisosIguales + totalExplosivoPisosDiferentes;
+        r1 = Number(r1.toFixed(3));  
+        return r1;
+    }
+
+    consumoEspecificoExplosivo(volumenTeoricoVolar: number, noBarrenosPilar: number, form: FormGroup) {
+        let r1 = volumenTeoricoVolar / (noBarrenosPilar * form.get("tipoExplosivo").value.Peso / 1000);
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    totalCartuchosEdificio(totalBarrenosPisosIguales: number, totalBarrenosPisosDiferentes: number, form: FormGroup) {
+        let r1 = (totalBarrenosPisosIguales * form.get("totalPisosConCargasIguales").value) + (totalBarrenosPisosDiferentes * form.get("totalPisosConCargasDiferentes").value);
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    longitudPerforacion(form: FormGroup) {
+        let r1 = form.get("fondoPilar").value * 0.75;
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    longitudSobreperforacion(longitudPerforacion: number) {
+        let r1 = longitudPerforacion * 0.1;
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    longitudRetardo(longitudPerforacion: number) {
+        let r1 = longitudPerforacion * 0.3;
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    longitudCarga(longitudPerforacion: number) {
+        let r1 = longitudPerforacion * 0.6;
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
 }

@@ -24,6 +24,7 @@ export class EstructurasLopezJComponent implements OnInit {
     totalLineasPisosIguales = 0;
     totalLineasPisosDiferentes = 0;
     noBarrenoFila = 0;
+    noBarrenosPilar = 0;
     totalBarrenosPisosIguales = 0;
     totalBarrenosPisosDiferentes = 0;
     totalBarrenosCargados = 0;
@@ -71,10 +72,10 @@ export class EstructurasLopezJComponent implements OnInit {
             totalPisosConCargasIguales: ['2', Validators.required],
             totalPilaresConCargasIguales: ['24', Validators.required],
             totalPisosConCargasDiferentes: ['1', Validators.required],
-            totalPilaresConCargasDiferentes: ['1', Validators.required],
-            anchoPilar: ['0.4', Validators.required],
-            fondoPilar: ['0.6', Validators.required],
-            alturaCortePropuesta: ['3.8', Validators.required],
+            totalPilaresConCargasDiferentes: ['16', Validators.required],
+            anchoPilar: ['0.3', Validators.required],
+            fondoPilar: ['0.3', Validators.required],
+            alturaCortePropuesta: ['0.6', Validators.required],
             maximoBarrenosConexionados: ['3', Validators.required],
             espaciamientoBarreno: ['0.7', Validators.required],
             geometria: ['1', Validators.required],
@@ -161,6 +162,24 @@ export class EstructurasLopezJComponent implements OnInit {
     }
 
     submit() {
-
+        this.volumenTeoricoVolar = this.calculos.volumenTeoricoVolar(this.demolicionesForm);
+        this.totalLineasPisosIguales = this.calculos.totalLineasPisosIguales(this.demolicionesForm);
+        this.totalLineasPisosDiferentes = this.calculos.totalLineasPisosDiferentes(this.demolicionesForm);
+        this.noBarrenoFila = this.calculos.noBarrenoFila(this.demolicionesForm);
+        this.noBarrenosPilar = this.calculos.noBarrenosPilar(this.noBarrenoFila, this.demolicionesForm);
+        this.totalBarrenosPisosIguales = this.calculos.totalBarrenosPisosIguales(this.noBarrenosPilar, this.totalLineasPisosIguales);
+        this.totalBarrenosPisosDiferentes = this.calculos.totalBarrenosPisosIguales(this.noBarrenosPilar, this.totalLineasPisosDiferentes); 
+        this.totalBarrenosCargados = this.calculos.totalBarrenosCargados(this.totalBarrenosPisosIguales, this.totalBarrenosPisosDiferentes);
+        this.cantidadExplosivoTeoricoPilar = this.calculos.cantidadExplosivoTeoricoPilar(this.noBarrenosPilar, this.demolicionesForm);
+        this.cantidadExplosivoBarreno = this.calculos.cantidadExplosivoBarreno(this.cantidadExplosivoTeoricoPilar, this.noBarrenosPilar);
+        this.totalExplosivoPisosIguales = this.calculos.totalExplosivoPisosIguales(this.cantidadExplosivoBarreno, this.totalBarrenosPisosIguales, this.demolicionesForm);
+        this.totalExplosivoPisosDiferentes = this.calculos.totalExplosivoPisosDiferentes(this.cantidadExplosivoBarreno, this.totalBarrenosPisosDiferentes, this.demolicionesForm);
+        this.totalExplosivosEdificio = this.calculos.totalExplosivosEdificio(this.totalExplosivoPisosIguales, this.totalExplosivoPisosDiferentes);
+        this.consumoEspecificoExplosivo = this.calculos.consumoEspecificoExplosivo(this.volumenTeoricoVolar, this.noBarrenosPilar, this.demolicionesForm);
+        this.totalCartuchosEdificio = this.calculos.totalCartuchosEdificio(this.totalBarrenosPisosIguales, this.totalBarrenosPisosDiferentes, this.demolicionesForm);
+        this.longitudPerforacion = this.calculos.longitudPerforacion(this.demolicionesForm);
+        this.longitudSobreperforacion = this.calculos.longitudSobreperforacion(this.longitudPerforacion);
+        this.longitudRetardo = this.calculos.longitudRetardo(this.longitudPerforacion);
+        this.longitudCarga = this.calculos.longitudCarga(this.longitudPerforacion);
     }
 }
