@@ -7,6 +7,7 @@ import { TipoDemolicionLopezJ } from '../models/tipoDemolicionLopezJ.model';
 const tipoExplosivoUrl = "./assets/tipo_explosivos.json";
 const tipoRocasUrl = "./assets/tipo_rocas.json";
 const tipoDemolicionLopezJUrl = "./assets/tipo_demolicion_lopez_j.json";
+const tipoDemolicionGustaffsonUrl = "./assets/tipo_demolicion_gustaffson.json";
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class Repository {
         this.getTipoExplosivos();
         this.getTipoRocas();      
         this.getTipoDemolicionLopezJ();
-       
+       this.getTipoDemolicionGustaffson();
     }
     
 
@@ -45,7 +46,16 @@ export class Repository {
                 });
     }
 
+    getTipoDemolicionGustaffson() {
+        return this.http.get<any[]>(tipoDemolicionGustaffsonUrl)
+            .subscribe(
+                response => {                    
+                    this.tipo_demolicion_Gustaffson = response;                     
+                });
+    }
+
     tipo_explosivos: TipoExplosivo[] = [];
     tipo_rocas: any[] = [];
     tipo_demolicion_LopezJ: TipoDemolicionLopezJ[] = [];
+    tipo_demolicion_Gustaffson: any[] = [];
 }

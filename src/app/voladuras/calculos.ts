@@ -370,14 +370,26 @@ export class Calculos {
     }
 
     totalLineasPisosIguales(form: FormGroup) {
-        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.FilasBarreno;
+        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
         r1 = Number(r1.toFixed(0));  
         return r1;
     }
 
     totalLineasPisosDiferentes(form: FormGroup) {
-        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.FilasBarreno;
+        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
         r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalLineasPisosIgualesEstebanL(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("numeroFilasBarrenoPilar").value;
+         
+        return r1;
+    }
+
+    totalLineasPisosDiferentesEstebanL(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("numeroFilasBarrenoPilar").value;
+        
         return r1;
     }
 
@@ -387,8 +399,43 @@ export class Calculos {
         return r1;
     }
 
+    noBarrenoFilaGustaffson(form: FormGroup) {
+        let r1 = form.get("tipoDemolicion").value.NoHilerasBarreno;          
+       
+        return r1;
+    }
+
+    noBarrenoFilaEstebanL(form: FormGroup) {
+        let r1 = form.get("numeroFilasBarrenoPilar").value;       
+        return r1;
+    }
+
+    noBarrenosPorFila(form: FormGroup) {
+        let r1 = form.get("alturaCortePropuesta").value / form.get("tipoDemolicion").value.Espaciamiento;     
+        r1 = Number(r1.toFixed(0));      
+        return r1;
+    }
+
     noBarrenosPilar(noBarrenoFila: number, form: FormGroup) {
         let r1 = noBarrenoFila * form.get("tipoDemolicion").value.FilasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    noBarrenosPorFilaEstebanL(form: FormGroup) {
+        let r1 = form.get("alturaCortePropuesta").value / form.get("espaciamiento").value;     
+        r1 = Number(r1.toFixed(0));      
+        return r1;
+    }
+
+    noBarrenosPilarEstebanL(noBarrenoFila: number, form: FormGroup) {
+        let r1 = noBarrenoFila * form.get("numeroFilasBarrenoPilar").value;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    noBarrenosPilarGustaffson(noBarrenoFila: number, noBarrenosPorFila: number) {
+        let r1 = noBarrenoFila * noBarrenosPorFila;
         r1 = Number(r1.toFixed(0));  
         return r1;
     }
@@ -473,6 +520,12 @@ export class Calculos {
 
     longitudCarga(longitudPerforacion: number) {
         let r1 = longitudPerforacion * 0.6;
+        r1 = Number(r1.toFixed(2));  
+        return r1;
+    }
+
+    alturaOcupadaBarrenos(form: FormGroup) {
+        let r1 = form.get("alturaCortePropuesta").value - form.get("anchoPilar").value;
         r1 = Number(r1.toFixed(2));  
         return r1;
     }

@@ -1,0 +1,9 @@
+[
+    {
+        "IdTipoDemolicion" : "1",
+        "Nombre" : "Hormigon en Masa mala calidad",
+        "ProfundidadBarreno": "1",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.8"
+    }
+]

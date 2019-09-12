@@ -6,19 +6,254 @@
 </nav>
 <h1 class="text-center">Demolición Estructuras Esteban Langa</h1>
 <br />
+<h2>Datos de Entrada</h2>
+<hr>
+<br />
+<form [formGroup]="demolicionesForm" (ngSubmit)="submit()">
+    <div class="card">
+        <h5 class="card-header text-center">Parámetros Generales</h5>
+        <div class="card-body">           
+            <div class="form-group">
+                <label for="tipoExplosivo">Tipo de Explosivo</label>
+                <ng-select [ngClass]="{ 'is-invalid': isSubmitted  &&  form.tipoExplosivo.errors }"
+                    [items]="tipo_explosivos" bindLabel="Nombre" formControlName="tipoExplosivo" required>
+                </ng-select>
+                <div *ngIf="isSubmitted && form.tipoExplosivo.invalid" class="invalid-feedback d-block">
+                    Ingrese el tipo de explosivo.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPisosEdificio">Total Pisos Edificio</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPisosEdificio.errors }"
+                    placeholder="Total de pisos" formControlName="totalPisosEdificio">
+                <div class="invalid-feedback">
+                    Ingrese el total de pisos del edificio.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPisosConExplosivos">Total Pisos con Explosivos</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPisosConExplosivos.errors }"
+                    placeholder="Total de pisos" formControlName="totalPisosConExplosivos">
+                <div class="invalid-feedback">
+                    Ingrese el total de pisos con explosivos.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPisosConCargasIguales">Total de Pisos con Cargas Iguales</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPisosConCargasIguales.errors }"
+                    placeholder="Total con cargas iguales" formControlName="totalPisosConCargasIguales">
+                <div class="invalid-feedback">
+                    Ingrese el total de pisos con cargas iguales.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPilaresConCargasIguales">TOTAL PILARES (PISOS CON CARGAS IGUALES)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPilaresConCargasIguales.errors }"
+                    placeholder="Total pilares" formControlName="totalPilaresConCargasIguales">
+                <div class="invalid-feedback">
+                    Ingrese el total de pilares con cargas iguales.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPisosConCargasDiferentes">Total de Pisos con Cargas Diferentes</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPisosConCargasDiferentes.errors }"
+                    placeholder="Total pisos" formControlName="totalPisosConCargasDiferentes">
+                <div class="invalid-feedback">
+                    Ingrese el total de pisos con cargas diferentes.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalPilaresConCargasDiferentes">TOTAL PILARES (PISOS CON CARGAS DIFERENTES)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.totalPilaresConCargasDiferentes.errors }"
+                    placeholder="Total pilares" formControlName="totalPilaresConCargasDiferentes">
+                <div class="invalid-feedback">
+                    Ingrese el total de pilares en los pisos con cargas diferentes.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="anchoPilar">Ancho de Pilar (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.anchoPilar.errors }" placeholder="En metros"
+                    formControlName="anchoPilar">
+                <div class="invalid-feedback">
+                    Ingrese el ancho del pilar en metros.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fondoPilar">Fondo de Pilar (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.fondoPilar.errors }" placeholder="En metros"
+                    formControlName="fondoPilar">
+                <div class="invalid-feedback">
+                    Ingrese el fondo del pilar en metros.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="alturaCortePropuesta">Altura de Corte Propuesta (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.alturaCortePropuesta.errors }"
+                    placeholder="En metros" formControlName="alturaCortePropuesta">
+                <div class="invalid-feedback">
+                    Ingrese la altura de corte propuesta.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="maximoBarrenosConexionados">No. Máximo Barrenos Conexionados Simultáneos</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.maximoBarrenosConexionados.errors }"
+                    placeholder="Total" formControlName="maximoBarrenosConexionados">
+                <div class="invalid-feedback">
+                    Ingrese el máximo de barrenos conexionados simultáneos.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="espacimiento">Espaciamiento Entre Barrenos de la Misma Fila</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.espacimiento.errors }"
+                    placeholder="Total" formControlName="espaciamiento">
+                <div class="invalid-feedback">
+                    Ingrese el espaciamiento.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="espacimiento">Número de Filas de Barreno en el Pilar</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.numeroFilasBarrenoPilar.errors }"
+                    placeholder="Total" formControlName="numeroFilasBarrenoPilar">
+                <div class="invalid-feedback">
+                    Ingrese el número de filas en el barreno.
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary center">Calcular Valores</button>
+</form>
+<hr>
+<br />
 <h2>Datos de Salida</h2>
+<br />
 <br />
 <div class="card">
     <h5 class="card-header text-center">Resultados Generales</h5>
     <div class="card-body">
+        <table id="tableResultados" class="display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Parámetro Calculado</th>
+                    <th scope="col">Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Consumo Específico de Explosivo (Kg/m3)</td>
+                    <td>{{ consumoEspecificoExplosivo }}</td>
+                </tr>
+                <tr>
+                    <td>Volumen a Volar Teórico (m3)</td>
+                    <td>{{ volumenTeoricoVolar }}</td>
+                </tr>
+                <tr>
+                    <td>Cantidad Explosivo Teórico por Pilar (Kg)</td>
+                    <td>{{ cantidadExplosivoTeoricoPilar }}</td>
+                </tr>
+                <tr>
+                    <td>No. Filas de Barreno en el Pilar (un)</td>
+                    <td>{{ noBarrenoFila }}</td>
+                </tr>
+                <tr>
+                    <td>Total Líneas Pisos Iguales (un)</td>
+                    <td>{{ totalLineasPisosIguales }}</td>
+                </tr>
+                <tr>
+                    <td>Total Líneas Pisos Diferentes (un)</td>
+                    <td>{{ totalLineasPisosDiferentes }}</td>
+                </tr>
+                <tr>
+                    <td>Altura a Ocupar por los Barrenos</td>
+                    <td>{{ alturaOcupadaBarrenos }}</td>
+                </tr>
+                <tr>
+                    <td>Número de Barrenos por Fila (un)</td>
+                    <td>{{ noBarrenosPorFila }}</td>
+                </tr>
+                <tr>
+                    <td>Número de Barrenos por Pilar (un)</td>
+                    <td>{{ noBarrenosPilar }}</td>
+                </tr>
+                <tr>
+                    <td>Total Barrenos en Pisos Iguales (un)</td>
+                    <td>{{ totalBarrenosPisosIguales }}</td>
+                </tr>
+                <tr>
+                    <td>Total Barrenos en Pisos Diferentes (un)</td>
+                    <td>{{ totalBarrenosPisosDiferentes }}</td>
+                </tr>
+                <tr>
+                    <td>Total Barrenos Cargados (un)</td>
+                    <td>{{ totalBarrenosCargados }}</td>
+                </tr>
+                <tr>
+                    <td>Cantidad Explosivo por Barreno (Kg)</td>
+                    <td>{{ cantidadExplosivoBarreno }}</td>
+                </tr>
+                <tr>
+                    <td>Total Explosivo en Pisos Iguales (Kg)</td>
+                    <td>{{ totalExplosivoPisosIguales }}</td>
+                </tr>
+                <tr>
+                    <td>Total Explosivo en Pisos Diferentes (Kg)</td>
+                    <td>{{ totalExplosivoPisosDiferentes }}</td>
+                </tr>
+                <tr>
+                    <td>TOTAL EXPLOSIVOS EDIFICIO (Kg)</td>
+                    <td>{{ totalExplosivosEdificio }}</td>
+                </tr>
+                <tr>
+                    <td>TOTAL CARTUCHOS EN EDIFICIO (un)</td>
+                    <td>{{ totalCartuchosEdificio }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <br />
 <br />
 <div class="card">
-    <h5 class="card-header text-center">Resultados Kuz Ram</h5>
+    <h5 class="card-header text-center">Resultados Longitud de Perforación</h5>
     <div class="card-body">
-
+        <table id="tableResultadosPerforacion" class="display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Parámetro Calculado</th>
+                    <th scope="col">Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Longitud de Carga Lc (m)</td>
+                    <td>{{ longitudCarga }}</td>
+                </tr>
+                <tr>
+                    <td>Longitud de Retardo Lr (m)</td>
+                    <td>{{ longitudRetardo }}</td>
+                </tr>
+                <tr>
+                    <td>Longitud de Sobreperforación Lsp (m)</td>
+                    <td>{{ longitudSobreperforacion }}</td>
+                </tr>
+                <tr>
+                    <td>Longitud de Perforación Lp (m)</td>
+                    <td>{{ longitudPerforacion }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <br />
