@@ -355,14 +355,10 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-<<<<<<< Updated upstream
     resistenciaExplosivo(form: FormGroup) {
         let r1 = form.get("RWSExplosivo").value / 100;
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 0);
     }
-=======
-    tamanoPromedioMaterial()
->>>>>>> Stashed changes
 }
