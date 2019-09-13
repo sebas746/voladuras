@@ -107,5 +107,6 @@ export class VoladuraViasComponent implements OnInit {
         this.concentracionLinealExplosivo = this.calculos.concentracionLinealExplosivo(this.formulario);
         this.cantidadExplosivoBarreno = this.calculos.cargaExplosivoBarreno(this.concentracionLinealExplosivo[0], this.longitudExplosivoFondo[0]);
         this.burden = this.calculos.burdenVoladuraVias(this.consumoEspecifico[0], this.relacionSB[0], this.cantidadExplosivoBarreno[0], this.formulario);
+        this.espaciamiento = this.calculos.espaciamiento(this.longitudBarreno[2], this.formulario);
     }
 }

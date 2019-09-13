@@ -176,8 +176,11 @@ export class CieloAbiertoComponent implements OnInit {
             rumboDiscontinuidad: ['0', Validators.required],
             tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
             longitudCarga: ['9.56', Validators.required],
-            indiceEstabilidad: ['7.18', Validators.required],
-            RWSExplosivo: ['100', Validators.required]
+            indiceEstabilidad: ['7.645', Validators.required],
+            RWSExplosivo: ['100', Validators.required],
+            fragmentacionSobreTamano: ['0.3', Validators.required],
+            fragmentacionOptimo: ['0.2', Validators.required],
+            fragmentacionSubtamano: ['0.01', Validators.required],
         });
     }
 
@@ -251,7 +254,12 @@ export class CieloAbiertoComponent implements OnInit {
         this.factorPotenciaPeso = this.calculos.factorPotenciaPeso(this.factorPotenciaVolumen, this.cieloAbiertoForm);
         this.pesoExplosivo = this.calculos.pesoExplosivo(this.cieloAbiertoForm);
         this.resistenciaExplosivo = this.calculos.resistenciaExplosivo(this.cieloAbiertoForm);
-
+        this.tamanoPromedioMaterial = this.calculos.tamanoPromedioMaterial(this.factorPotenciaVolumen, this.pesoExplosivo, this.cieloAbiertoForm);
+        this.exponenteUniformidad = this.calculos.exponenteUniformidad(this.burden, this.espaciamientoOptimo, this.cieloAbiertoForm);
+        this.tamanoCaracteristico = this.calculos.tamanoCaracteristico(this.exponenteUniformidad, this.tamanoPromedioMaterial);
+        this.porcentajeSobreTamano = this.calculos.porcentajeSobreTamano(this.exponenteUniformidad, this.tamanoCaracteristico, this.cieloAbiertoForm);
+        this.porcentajeSubtamanos = this.calculos.porcentajeSubtamanos(this.exponenteUniformidad, this.tamanoCaracteristico, this.cieloAbiertoForm);
+        this.porcentajeEnRango = this.calculos.porcentajeEnRango(this.porcentajeSobreTamano, this.porcentajeSubtamanos);
         this.isSubmitted = true;
         
         if (this.cieloAbiertoForm.invalid) {

@@ -335,9 +335,9 @@ export class Calculos {
     }
 
     factorPotenciaVolumen(burden: any[], espacimientoOptimo: any[], form: FormGroup) {
-        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[0] * espacimientoOptimo[0] * form.get("alturaBanco").value);
-        let r2 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[1] * espacimientoOptimo[1] * form.get("alturaBanco").value);
-        let r3 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoRoca").value.Densidad / (burden[2] * espacimientoOptimo[2] * form.get("alturaBanco").value);
+        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[0] * espacimientoOptimo[0] * form.get("alturaBanco").value);
+        let r2 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[1] * espacimientoOptimo[1] * form.get("alturaBanco").value);
+        let r3 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[2] * espacimientoOptimo[2] * form.get("alturaBanco").value);
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -349,9 +349,30 @@ export class Calculos {
     }
 
     pesoExplosivo(form: FormGroup) {
-        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("tipoRoca").value.Densidad * form.get("longitudCarga").value;
-        let r2 = r1;
-        let r3 = r1;
+        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("tipoExplosivo1").value.Densidad * form.get("longitudCarga").value;
+        let r2 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("tipoExplosivo1").value.Densidad * form.get("longitudCarga").value;
+        let r3 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("tipoExplosivo1").value.Densidad * form.get("longitudCarga").value;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    porcentajeSobreTamano(exponenteUniformidad: any[], tamanoCaracteristico: any[], form: FormGroup) {
+        let r1 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[0], exponenteUniformidad[0])))) * 100) ;
+        let r2 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[1], exponenteUniformidad[1])))) * 100) ;
+        let r3 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[2], exponenteUniformidad[2])))) * 100) ;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    porcentajeSubtamanos(exponenteUniformidad: any[], tamanoCaracteristico: any[], form: FormGroup) {
+        let r1 = 100 - (Math.exp(-((Math.pow(form.get("fragmentacionSubtamano").value / tamanoCaracteristico[0], exponenteUniformidad[0])))) * 100);
+        let r2 = 100 - (Math.exp(-((Math.pow(form.get("fragmentacionSubtamano").value / tamanoCaracteristico[1], exponenteUniformidad[1])))) * 100);
+        let r3 = 100 - (Math.exp(-((Math.pow(form.get("fragmentacionSubtamano").value / tamanoCaracteristico[2], exponenteUniformidad[2])))) * 100);
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    porcentajeEnRango(porcentajeSobreTamano: any[], porcentajeSubtamanos: any[]) {
+        let r1 = 100 - porcentajeSobreTamano[0] - porcentajeSubtamanos[0];
+        let r2 = 100 - porcentajeSobreTamano[1] - porcentajeSubtamanos[1];
+        let r3 = 100 - porcentajeSobreTamano[2] - porcentajeSubtamanos[2];
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -360,6 +381,27 @@ export class Calculos {
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 0);
+    }
+
+    tamanoPromedioMaterial(factorPotenciaVolumen: any[], pesoExplosivo: any[], form: FormGroup) {
+        let r1 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[0], -0.8) * Math.pow(pesoExplosivo[0], 0.16667) * Math.pow(115 / 100, 19/30);
+        let r2 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[1], -0.8) * Math.pow(pesoExplosivo[1], 0.16667) * Math.pow(115 / 100, 19/30);
+        let r3 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[2], -0.8) * Math.pow(pesoExplosivo[2], 0.16667) * Math.pow(115 / 100, 19/30);
+        return this.redondear([r1, r2, r3], 0);
+    }
+
+    exponenteUniformidad(burden: any[], espacimientoOptimo: any[], form: FormGroup) {
+        let r1 = (2.2 - 14 * (burden[0] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[0] / burden[0])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[0])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        let r2 = (2.2 - 14 * (burden[1] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[1] / burden[1])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[1])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        let r3 = (2.2 - 14 * (burden[2] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[2] / burden[2])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[2])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        return this.redondear([r1, r2, r3], 3);
+    }
+
+    tamanoCaracteristico(exponenteUniformidad: any[], tamanoPromedioMaterial: any[]) {
+        let r1 = (tamanoPromedioMaterial[0] / 100) / Math.pow(0.693, 1 / exponenteUniformidad[0]);
+        let r2 = (tamanoPromedioMaterial[1] / 100) / Math.pow(0.693, 1 / exponenteUniformidad[1]);
+        let r3 = (tamanoPromedioMaterial[2] / 100) / Math.pow(0.693, 1 / exponenteUniformidad[2]);
+        return this.redondear([r1, r2, r3], 3);
     }
 
     //Demolición estructuras
@@ -530,7 +572,6 @@ export class Calculos {
         return r1;
     }
 
-
     /****************VOLADURA EN VÍAS */
     sobreperforacionVoladuraVias(form: FormGroup) {
         let r1 = form.get("diametroBarreno").value * form.get("durezaRoca").value.ParametroSobreperforacion / 1000;
@@ -570,7 +611,7 @@ export class Calculos {
     consumoEspecificoVoladuraVias(form: FormGroup) {
         let r1 = form.get("durezaRoca").value.ParametroConsumoEsp;
         let r2 = r1;
-        let r3 = r1;
+        let r3 = 0;
         return [r1, r2, r3];
     }
 
@@ -592,6 +633,13 @@ export class Calculos {
         let r1 = Math.pow((cargaExplosivoBarreno / (relacionSB * (form.get("alturaBanco").value / Math.cos(form.get("anguloPerforacion").value)) * consumoEspecificoExplosivo) * -1), 0.5);
         let r2 = r1;
         let r3 = form.get("durezaRoca").value.ParametroBurden * form.get("diametroBarreno").value / 1000;
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    espaciamiento(longitudBarreno: number, form: FormGroup) {
+        let r1 = form.get("durezaRoca").value.ParametroEspaciamiento * form.get("diametroBarreno").value / 1000;
+        let r2 = r1;
+        let r3 = 3 * Math.pow(form.get("diametroBarreno").value / 1000 * longitudBarreno, 0.5);
         return this.redondear([r1, r2, r3], 1);
     }
 }
