@@ -74,6 +74,7 @@ export class CieloAbiertoComponent implements OnInit {
     porcentajeSobreTamano: any[] = [0, 0, 0];
     porcentajeEnRango: any[] = [0, 0, 0];
     porcentajeSubtamanos: any[] = [0, 0, 0];
+    autor = "López Jimeno";
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) {}
@@ -181,6 +182,7 @@ export class CieloAbiertoComponent implements OnInit {
             fragmentacionSobreTamano: ['0.3', Validators.required],
             fragmentacionOptimo: ['0.2', Validators.required],
             fragmentacionSubtamano: ['0.01', Validators.required],
+            autorGraficos: ['0', Validators.required]
         });
     }
 
@@ -201,6 +203,174 @@ export class CieloAbiertoComponent implements OnInit {
             this.cieloAbiertoForm.get("tacoDecidido").clearValidators();
             this.cieloAbiertoForm.get("tacoDecidido").setValue('');
         }
+    }
+
+    drawGraphic(idAutor) {
+        var canvas = <HTMLCanvasElement>document.getElementById('stage');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.rotate(0);
+
+            // Dibujo del talud
+            ctx.beginPath();
+            ctx.strokeStyle = "#c70d3a";
+            ctx.lineTo(60, 250);
+            ctx.lineTo(160, 250);
+            ctx.moveTo(160, 250);
+            ctx.lineTo(260, 50);
+            ctx.lineTo(660, 50);
+            ctx.stroke();
+
+            //Dibujo barrenos
+            //barreno 1
+            ctx.beginPath();
+            ctx.strokeStyle = "#1089ff";
+            ctx.moveTo(310, 50);
+            ctx.lineTo(180, 320);
+            ctx.moveTo(330, 50);
+            ctx.lineTo(200, 320);
+            ctx.moveTo(200, 320);
+            ctx.lineTo(180, 320);
+            ctx.stroke();
+
+            //barreno 2
+            ctx.beginPath();
+            ctx.strokeStyle = "#1089ff";
+            ctx.moveTo(410, 50);
+            ctx.lineTo(280, 320);
+            ctx.moveTo(430, 50);
+            ctx.lineTo(300, 320);
+            ctx.moveTo(280, 320);
+            ctx.lineTo(300, 320);
+            ctx.stroke();
+
+            // barreno 3
+            ctx.beginPath();
+            ctx.strokeStyle = "#1089ff";
+            ctx.moveTo(510, 50);
+            ctx.lineTo(380, 320);
+            ctx.moveTo(530, 50);
+            ctx.lineTo(400, 320);
+            ctx.moveTo(380, 320);
+            ctx.lineTo(400, 320);
+            ctx.stroke();
+
+            // lineas cota barreno
+            ctx.beginPath();
+            ctx.strokeStyle = "#202040";
+            ctx.moveTo(510, 45);
+            ctx.lineTo(510, 35);
+            ctx.moveTo(530, 45);
+            ctx.lineTo(530, 35);
+            ctx.moveTo(530, 40);
+            ctx.lineTo(510, 40);
+            
+            ctx.stroke();
+
+            // lineas cota cargas
+            ctx.beginPath();
+            ctx.fillStyle = "#202040";
+            ctx.moveTo(550, 52);
+            ctx.lineTo(420, 320);
+            ctx.moveTo(540, 52);
+            ctx.lineTo(560, 52);
+            ctx.moveTo(513, 110);
+            ctx.lineTo(533, 110);
+            ctx.moveTo(474, 190);
+            ctx.lineTo(494, 190);
+            ctx.moveTo(443, 250);
+            ctx.lineTo(463, 250);
+            ctx.moveTo(410, 320);
+            ctx.lineTo(430, 320);
+            ctx.stroke();
+
+            // //Altura del banco            
+            ctx.beginPath();
+            ctx.moveTo(0, 250);
+            ctx.lineTo(30, 250);
+            ctx.moveTo(0, 50);
+            ctx.lineTo(30, 50);
+            ctx.moveTo(15, 50);
+            ctx.lineTo(15, 250);
+            ctx.stroke();
+
+            //Textos            
+            ctx.strokeStyle = "#202040";
+            ctx.font = "9px Verdana";
+            ctx.fillText("Altura Banco = " + this.cieloAbiertoForm.get("alturaBanco").value + "m", 25, 140);
+            ctx.fillText("Diám. Barreno = " + this.cieloAbiertoForm.get("diametroBarreno").value + "mm", 485, 30);
+            ctx.fillText("Taco = " + this.tacoPromedio[idAutor] + "m", 545, 90);
+            ctx.fillText("Carga de Columna = " + this.cargaColumna[idAutor] + "Kg", 510, 155);
+            ctx.fillText("Carga de Fondo = " + this.cargaFondo[idAutor], 475, 225);
+            ctx.fillText("Sobreperforación = " + this.sobrePerforacion[idAutor], 445, 290);
+            ctx.fillText("Subbarrenación = " + this.sobrePerforacion[idAutor], 25, 290);
+            ctx.fillText("Burden = " + this.burden[idAutor], 275, 30);
+
+            // Rotated rectangle
+            ctx.beginPath();
+            ctx.rotate(-63 * Math.PI / 180);
+            ctx.fillStyle = "#202040";      
+            ctx.font = "9px Verdana";
+            ctx.fillText("Longitud de Barrenación", -110, 275);
+
+            // Reset transformation matrix to the identity matrix
+            ctx.resetTransform();
+
+            //Subbarrenacion
+            ctx.beginPath();
+            ctx.fillStyle = "#202040";
+            ctx.moveTo(15, 253);
+            ctx.lineTo(15, 320);
+            ctx.moveTo(0, 253);
+            ctx.lineTo(30, 253);
+            ctx.moveTo(0, 320);
+            ctx.lineTo(30, 320);           
+            ctx.stroke();
+
+            // lineas cota barreno
+            ctx.beginPath();
+            ctx.fillStyle = "#202040";
+            ctx.moveTo(260, 45);
+            ctx.lineTo(260, 35);
+            ctx.moveTo(260, 40);
+            ctx.lineTo(320, 40);
+            ctx.moveTo(320, 45);
+            ctx.lineTo(320, 35);
+            
+            console.log(this.burden);
+            ctx.stroke();
+
+            // longitud de barrenación
+            ctx.beginPath();
+            ctx.fillStyle = "#202040";
+            ctx.moveTo(290, 52);
+            ctx.lineTo(160, 320);
+            ctx.moveTo(280, 52);
+            ctx.lineTo(300, 52);
+            ctx.moveTo(150, 320);
+            ctx.lineTo(170, 320);
+            ctx.stroke();
+
+            //Taco
+            ctx.beginPath();
+            ctx.fillStyle = "#202040";
+            ctx.font = "20px Arial";
+            ctx.fillText("Autor - " + this.autor, 200, 360);
+
+            ctx.resetTransform();
+        }
+
+    }
+
+    cambioAutorGraficos(idAutor: number) {
+        if(idAutor == 2) { this.autor = "Konya"; }
+        if(idAutor == 1) { this.autor = "Rodgers"; }
+        if(idAutor == 0) { this.autor = "López Jimeno"; }
+
+        console.log(idAutor);
+        this.drawGraphic(idAutor);
     }
 
     submit() {
@@ -261,6 +431,8 @@ export class CieloAbiertoComponent implements OnInit {
         this.porcentajeSubtamanos = this.calculos.porcentajeSubtamanos(this.exponenteUniformidad, this.tamanoCaracteristico, this.cieloAbiertoForm);
         this.porcentajeEnRango = this.calculos.porcentajeEnRango(this.porcentajeSobreTamano, this.porcentajeSubtamanos);
         this.isSubmitted = true;
+
+        this.drawGraphic(0);
         
         if (this.cieloAbiertoForm.invalid) {
             return;

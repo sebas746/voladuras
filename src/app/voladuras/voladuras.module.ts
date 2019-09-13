@@ -10,6 +10,7 @@ import { EstructurasEstebanLComponent } from './estructurasEstebanL.component';
 import { EstructurasGustaffsonComponent } from './estructurasGustaffson.component';
 import { EstructurasLopezJComponent } from './estructurasLopezJ.component';
 import { VoladuraViasComponent } from './voladuraVias.component';
+import { GraficosComponent } from './graficos.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { VoladuraViasComponent } from './voladuraVias.component';
         EstructurasEstebanLComponent,
         EstructurasGustaffsonComponent,
         EstructurasLopezJComponent,
-        VoladuraViasComponent
+        VoladuraViasComponent,
+        GraficosComponent
     ],
     imports: [
         BrowserModule, 

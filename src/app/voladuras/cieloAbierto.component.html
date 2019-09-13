@@ -722,4 +722,26 @@
     </div>
 </div>
 <br />
+<div class="card">
+    <h5 class="card-header text-center">Gráficos Generales</h5>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="geometria">Geometría de la Voladura</label>
+            <select class="form-control form-control-sm"                
+                (change)="cambioAutorGraficos($event.target.value)">
+                <option value="0" selected>López Jimeno</option>
+                <option value="1">Rodgers</option>
+                <option value="2">Konya</option>
+            </select>
+            <div class="invalid-feedback">
+                Ingrese el tipo de geometría de la voladura.
+            </div>
+        </div>
+        <div class="center-block">
+            <canvas id="stage" width="700" height="700"></canvas>
+        </div>
+    </div>
+</div>
+<br />
+
 <br />
