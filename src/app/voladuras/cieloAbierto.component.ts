@@ -297,17 +297,18 @@ export class CieloAbiertoComponent implements OnInit {
             ctx.fillText("Diám. Barreno = " + this.cieloAbiertoForm.get("diametroBarreno").value + "mm", 485, 30);
             ctx.fillText("Taco = " + this.tacoPromedio[idAutor] + "m", 545, 90);
             ctx.fillText("Carga de Columna = " + this.cargaColumna[idAutor] + "Kg", 510, 155);
-            ctx.fillText("Carga de Fondo = " + this.cargaFondo[idAutor], 475, 225);
-            ctx.fillText("Sobreperforación = " + this.sobrePerforacion[idAutor], 445, 290);
-            ctx.fillText("Subbarrenación = " + this.sobrePerforacion[idAutor], 25, 290);
-            ctx.fillText("Burden = " + this.burden[idAutor], 275, 30);
+            ctx.fillText("Carga de Fondo = " + this.cargaFondo[idAutor] + "Kg", 475, 225);
+            ctx.fillText("Sobreperforación = " + this.sobrePerforacion[idAutor] + "m", 445, 290);
+            ctx.fillText("Subbarrenación = " + this.sobrePerforacion[idAutor] + "m", 25, 290);
+            ctx.fillText("Burden = " + this.burden[idAutor] + "m", 275, 30);
 
             // Rotated rectangle
+            let longitudBarreno = this.tacoPromedio[idAutor] + this.longitudCargaColumna[idAutor] + this.longitudCargaFondo[idAutor] + this.sobrePerforacion[idAutor];
             ctx.beginPath();
             ctx.rotate(-63 * Math.PI / 180);
             ctx.fillStyle = "#202040";      
             ctx.font = "9px Verdana";
-            ctx.fillText("Longitud de Barrenación", -110, 275);
+            ctx.fillText("Longitud de Barrenación = " + longitudBarreno + "m", -110, 275);
 
             // Reset transformation matrix to the identity matrix
             ctx.resetTransform();
