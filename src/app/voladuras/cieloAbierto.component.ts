@@ -133,15 +133,9 @@ export class CieloAbiertoComponent implements OnInit {
         });
     }
 
-    get tipo_explosivos(): TipoExplosivo[] {
+    get tipo_explosivos(): TipoExplosivo[] { return this.repo.tipo_explosivos; }
 
-
-        return this.repo.tipo_explosivos;
-    }
-
-    get tipo_rocas(): TipoExplosivo[] {
-        return this.repo.tipo_rocas;
-    }
+    get tipo_rocas(): TipoExplosivo[] { return this.repo.tipo_rocas; }
 
     get form() { return this.cieloAbiertoForm.controls; }
 
@@ -338,8 +332,6 @@ export class CieloAbiertoComponent implements OnInit {
             ctx.lineTo(320, 40);
             ctx.moveTo(320, 45);
             ctx.lineTo(320, 35);
-            
-            console.log(this.burden);
             ctx.stroke();
 
             // longitud de barrenación
@@ -358,7 +350,6 @@ export class CieloAbiertoComponent implements OnInit {
             ctx.fillStyle = "#202040";
             ctx.font = "20px Arial";
             ctx.fillText("Autor - " + this.autor, 200, 360);
-
             ctx.resetTransform();
         }
 
