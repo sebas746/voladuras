@@ -109,12 +109,12 @@
                 <label for="tamanoCantera">Total Tamaño de la Cantera (m3)</label>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control form-control-sm" placeholder="Largo"
+                        <input type="text" class="form-control form-control-sm" placeholder="Longitud"
                             [ngClass]="{ 'is-invalid': isSubmitted && form.largoCantera.errors }"
                             formControlName="largoCantera">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control form-control-sm" placeholder="Ancho"
+                        <input type="text" class="form-control form-control-sm" placeholder="Alto"
                             [ngClass]="{ 'is-invalid': isSubmitted && form.anchoCantera.errors }"
                             formControlName="anchoCantera">
                     </div>
@@ -144,6 +144,15 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="distanciaReducida">Distancia Reducida (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaReducida.errors }"
+                    placeholder="Distancia en metros" formControlName="distanciaReducida">
+                <div class="invalid-feedback">
+                    Ingrese la distancia reducida en metros.
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="correcionFactoresGeo">Corrección por factores geológicos Kd</label>
                 <input type="text" class="form-control form-control-sm"
                     [ngClass]="{ 'is-invalid': isSubmitted && form.correcionFactoresGeo.errors }"
@@ -168,6 +177,18 @@
                     placeholder="Valor del factor" formControlName="correccionEstGeologica">
                 <div class="invalid-feedback">
                     Ingrese el valor del factor de corrección por estructura geológica Ks.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="constanciaRelacionadaPropRoca">Constancia Relacionada a propiedades de la Roca</label>
+                <select class="form-control form-control-sm" formControlName="constanciaRelacionadaPropRoca"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.constanciaRelacionadaPropRoca.errors }">
+                    <option value="500">Confinamiento Bajo</option>
+                    <option value="1140">Confinamiento Normal</option>
+                    <option value="5000">Confinamiento Alto</option>
+                </select>
+                <div class="invalid-feedback">
+                    Ingrese el tipo de geometría de la voladura.
                 </div>
             </div>
         </div>
@@ -547,6 +568,54 @@
                     <td>{{ consumoEspecifico[0] }}</td>
                     <td>{{ consumoEspecifico[1] }}</td>
                     <td>{{ consumoEspecifico[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Números de Filas (un)</td>
+                    <td>{{ numeroFilas[0] }}</td>
+                    <td>{{ numeroFilas[1] }}</td>
+                    <td>{{ numeroFilas[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Número de Barrenos por Fila (un)</td>
+                    <td>{{ numeroBarrenosPorFila[0] }}</td>
+                    <td>{{ numeroBarrenosPorFila[1] }}</td>
+                    <td>{{ numeroBarrenosPorFila[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Número de Barrenos Totales (un)</td>
+                    <td>{{ numeroBarrenosTotales[0] }}</td>
+                    <td>{{ numeroBarrenosTotales[1] }}</td>
+                    <td>{{ numeroBarrenosTotales[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Carga Total de la Voladura (Kg)</td>
+                    <td>{{ cargaTotalVoladura[0] }}</td>
+                    <td>{{ cargaTotalVoladura[1] }}</td>
+                    <td>{{ cargaTotalVoladura[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Volumen Total de la Voladura (m3)</td>
+                    <td>{{ volumenTotalVoladura[0] }}</td>
+                    <td>{{ volumenTotalVoladura[1] }}</td>
+                    <td>{{ volumenTotalVoladura[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Factor de Carga (Kg/m3)</td>
+                    <td>{{ factorCarga[0] }}</td>
+                    <td>{{ factorCarga[1] }}</td>
+                    <td>{{ factorCarga[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Carga Máxima por Retardo (m)</td>
+                    <td>{{ cargaMaximaPorRetardo[0] }}</td>
+                    <td>{{ cargaMaximaPorRetardo[1] }}</td>
+                    <td>{{ cargaMaximaPorRetardo[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Velocidad Pico de la Partícula (m/seg)</td>
+                    <td>{{ velocidadPicoParticula[0] }}</td>
+                    <td>{{ velocidadPicoParticula[1] }}</td>
+                    <td>{{ velocidadPicoParticula[2] }}</td>
                 </tr>
                 <tr>
                     <td>Burden Precorte (m)</td>

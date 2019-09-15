@@ -236,6 +236,95 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    numeroFilas(burden: any[], form: FormGroup): number[] {
+        let r1 = form.get("fondoCantera").value / burden[0];
+        let r2 = form.get("fondoCantera").value / burden[1];
+        let r3 = form.get("fondoCantera").value / burden[2];
+        console.log([r1, r2, r3]);
+        return this.redondear([r1, r2, r3], 3);
+    }
+
+    numeroBarrenosPorFila(espacimientoOptimo: any[], form: FormGroup): number[] {
+        let r1 = form.get("largoCantera").value / espacimientoOptimo[0];
+        let r2 = form.get("largoCantera").value / espacimientoOptimo[1];
+        let r3 = form.get("largoCantera").value / espacimientoOptimo[2];
+        console.log([r1, r2, r3]);
+        return this.redondear([r1, r2, r3], 3);
+    }
+
+    numeroBarrenosTotales(numeroFilas: number[], numeroBarrenosPorFila: number[]): number[] {
+        // console.log(this.numeroFilas);
+        // console.log(this.numeroBarrenosTotales);
+        let r1 = numeroFilas[0] * numeroBarrenosPorFila[0];
+        let r2 = numeroFilas[1] * numeroBarrenosPorFila[1];
+        let r3 = numeroFilas[2] * numeroBarrenosPorFila[2];
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    cargaTotalVoladura(cargaBarreno: any[], numeroBarrenosTotales: any[]) {
+        let r1 = cargaBarreno[0] * numeroBarrenosTotales[0];
+        let r2 = cargaBarreno[1] * numeroBarrenosTotales[1];
+        let r3 = cargaBarreno[2] * numeroBarrenosTotales[2];
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    volumenTotalVoladura(burden: any[], espacimientoOptimo: any[], numeroBarrenosTotales: any[], form: FormGroup) {
+        let r1 = burden[0] * espacimientoOptimo[0] * numeroBarrenosTotales[0] * form.get("alturaBanco").value;
+        let r2 = burden[1] * espacimientoOptimo[1] * numeroBarrenosTotales[1] * form.get("alturaBanco").value;
+        let r3 = burden[2] * espacimientoOptimo[2] * numeroBarrenosTotales[2] * form.get("alturaBanco").value;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    factorCarga(cargaTotalVoladura: any[], volumenTotalVoladura: any[]) {
+        let r1 = cargaTotalVoladura[0] / volumenTotalVoladura[0];
+        let r2 = cargaTotalVoladura[1] / volumenTotalVoladura[1];
+        let r3 = cargaTotalVoladura[2] / volumenTotalVoladura[2];
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    cargaMaximaPorRetardo(form: FormGroup) {
+        let r1 = Math.pow(form.get("distanciaVivienda").value / form.get("distanciaReducida").value, 2);
+        let r2 = r1;
+        let r3 = r1
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    velocidadPicoParticula(cargaMaximaPorRetardo: any[], form: FormGroup){
+        let b = -1.6;
+       
+        let r1 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[0], b);
+        let r2 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[1], b);
+        let r3 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[2], b);
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     burdenPrecorte(burden: any[]) {
         let r1 = burden[0] /2;
         let r2 = burden[1] /2;
