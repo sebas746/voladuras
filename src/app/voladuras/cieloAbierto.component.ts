@@ -333,7 +333,7 @@ export class CieloAbiertoComponent implements OnInit {
 
             // barreno 3
             ctx.beginPath();
-            ctx.strokeStyle = "#1089ff";
+            ctx.strokeStyle = "#69F66C";
             ctx.moveTo(510, 50);
             ctx.lineTo(380, 320);
             ctx.moveTo(530, 50);
@@ -387,8 +387,10 @@ export class CieloAbiertoComponent implements OnInit {
             ctx.fillText("Altura Banco = " + this.cieloAbiertoForm.get("alturaBanco").value + "m", 25, 140);
             ctx.fillText("Diám. Barreno = " + this.cieloAbiertoForm.get("diametroBarreno").value + "mm", 485, 30);
             ctx.fillText("Taco = " + this.tacoPromedio[idAutor] + "m", 545, 90);
-            ctx.fillText("Carga de Columna = " + this.cargaColumna[idAutor] + "Kg", 510, 155);
-            ctx.fillText("Carga de Fondo = " + this.cargaFondo[idAutor] + "Kg", 475, 225);
+            ctx.fillText("Carga de Columna = " + this.cargaColumna[idAutor] + "Kg", 510, 150);
+            ctx.fillText("Longitud Carga de Columna = " + this.longitudCargaColumna[idAutor] + "m", 510, 165);
+            ctx.fillText("Carga de Fondo = " + this.cargaFondo[idAutor] + "Kg", 475, 220);
+            ctx.fillText("Longitud Carga de Fondo = " + this.longitudCargaFondo[idAutor] + "m", 475, 235);
             ctx.fillText("Sobreperforación = " + this.sobrePerforacion[idAutor] + "m", 445, 290);
             // ctx.fillText("Subbarrenación = " + this.sobrePerforacion[idAutor] + "m", 25, 290);
             ctx.fillText("Burden = " + this.burden[idAutor] + "m", 275, 30);

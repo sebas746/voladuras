@@ -128,8 +128,8 @@ export class EstructurasGustaffsonComponent implements OnInit {
 
     submit() {
         this.volumenTeoricoVolar = this.calculos.volumenTeoricoVolar(this.demolicionesForm);
-        this.totalLineasPisosIguales = this.calculos.totalLineasPisosIguales(this.demolicionesForm);
-        this.totalLineasPisosDiferentes = this.calculos.totalLineasPisosDiferentes(this.demolicionesForm);
+        this.totalLineasPisosIguales = this.calculos.totalLineasPisosIgualesGustafsson(this.demolicionesForm);
+        this.totalLineasPisosDiferentes = this.calculos.totalLineasPisosDiferentesGustafsson(this.demolicionesForm);
         this.noBarrenoFila = this.calculos.noBarrenoFilaGustaffson(this.demolicionesForm);        
         this.noBarrenosPorFila = this.calculos.noBarrenosPorFila(this.demolicionesForm);
         this.noBarrenosPilar = this.calculos.noBarrenosPilarGustaffson(this.noBarrenoFila, this.noBarrenosPorFila);

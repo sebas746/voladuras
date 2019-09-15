@@ -236,17 +236,6 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-
-
-
-
-
-
-
-
-
-
-
     numeroFilas(burden: any[], form: FormGroup): number[] {
         let r1 = form.get("fondoCantera").value / burden[0];
         let r2 = form.get("fondoCantera").value / burden[1];
@@ -303,9 +292,9 @@ export class Calculos {
     velocidadPicoParticula(cargaMaximaPorRetardo: any[], form: FormGroup){
         let b = -1.6;
        
-        let r1 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[0], b);
-        let r2 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[1], b);
-        let r3 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / cargaMaximaPorRetardo[2], b);
+        let r1 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / Math.pow(cargaMaximaPorRetardo[0], 0.5), b);
+        let r2 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value /  Math.pow(cargaMaximaPorRetardo[1], 0.5), b);
+        let r3 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / Math.pow(cargaMaximaPorRetardo[2], 0.5), b);
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -508,6 +497,18 @@ export class Calculos {
 
     totalLineasPisosDiferentes(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.FilasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalLineasPisosIgualesGustafsson(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
+        r1 = Number(r1.toFixed(0));  
+        return r1;
+    }
+
+    totalLineasPisosDiferentesGustafsson(form: FormGroup) {
+        let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
         r1 = Number(r1.toFixed(0));  
         return r1;
     }

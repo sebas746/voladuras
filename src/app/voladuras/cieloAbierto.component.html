@@ -153,7 +153,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="correcionFactoresGeo">Corrección por factores geológicos Kd</label>
+                <label for="correcionFactoresGeo">Corrección por Factores Geológicos Kd</label>
                 <input type="text" class="form-control form-control-sm"
                     [ngClass]="{ 'is-invalid': isSubmitted && form.correcionFactoresGeo.errors }"
                     placeholder="Valor del factor" formControlName="correcionFactoresGeo">
@@ -171,7 +171,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="correccionEstGeologica">Correción por estructura geológica Ks</label>
+                <label for="correccionEstGeologica">Correción por Estructura Geológica Ks</label>
                 <input type="text" class="form-control form-control-sm"
                     [ngClass]="{ 'is-invalid': isSubmitted && form.correccionEstGeologica.errors }"
                     placeholder="Valor del factor" formControlName="correccionEstGeologica">
@@ -180,7 +180,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="constanciaRelacionadaPropRoca">Constancia Relacionada a propiedades de la Roca</label>
+                <label for="constanciaRelacionadaPropRoca">Constante Relacionada a Propiedades de la Roca</label>
                 <select class="form-control form-control-sm" formControlName="constanciaRelacionadaPropRoca"
                     [ngClass]="{ 'is-invalid': isSubmitted && form.constanciaRelacionadaPropRoca.errors }">
                     <option value="500">Confinamiento Bajo</option>
@@ -188,7 +188,7 @@
                     <option value="5000">Confinamiento Alto</option>
                 </select>
                 <div class="invalid-feedback">
-                    Ingrese el tipo de geometría de la voladura.
+                    Ingrese el valor de la constante.
                 </div>
             </div>
         </div>
