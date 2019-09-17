@@ -796,8 +796,7 @@
     <div class="card-body">
         <div class="form-group">
             <label for="geometria">Seleccione el autor del cual desea ver la gráfica</label>
-            <select class="form-control form-control-sm"                
-                (change)="cambioAutorGraficos($event.target.value)">
+            <select class="form-control form-control-sm" (change)="cambioAutorGraficos($event.target.value)">
                 <option value="0" selected>López Jimeno</option>
                 <option value="1">Rodgers</option>
                 <option value="2">Konya</option>
@@ -806,8 +805,17 @@
                 Ingrese el tipo de geometría de la voladura.
             </div>
         </div>
-        <div class="center-block">
-            <canvas id="stage" width="700" height="700"></canvas>
+        <div class="col">
+            <div class="row">
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [colors]="lineChartColors" [options]="options" [legend]="lineChartLegend" [chartType]="lineChartType"
+                    [plugins]="lineChartPlugins">
+                </canvas>
+            </div>
+            <br />
+            <div class="row">
+                <canvas id="stage" width="700" height="700"></canvas>
+            </div>
         </div>
     </div>
 </div>

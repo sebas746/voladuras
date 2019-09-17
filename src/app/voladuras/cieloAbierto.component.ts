@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Repository } from './repository';
 import { TipoExplosivo } from '../models/tipoExplosivo.model';
 import { Calculos } from './calculos';
+import { Color, Label } from 'ng2-charts';
+import { ChartOptions, ChartDataSets } from 'chart.js';
 
 declare var $: any;
 
@@ -83,6 +85,87 @@ export class CieloAbiertoComponent implements OnInit {
     factorCarga: number[] = [0, 0, 0];
     cargaMaximaPorRetardo: number[] = [0, 0, 0];
     velocidadPicoParticula: number[] = [0, 0, 0];
+    tamanoTamiz: Label[] = [
+        '0.00',
+        '0.05',
+        '0.10',
+        '0.15',
+        '0.20',
+        '0.25',
+        '0.30',
+        '0.35',
+        '0.40',
+        '0.45',
+        '0.50',
+        '0.55',
+        '0.60',
+        '0.65',
+        '0.70',
+        '0.75',
+        '0.80',
+        '0.85',
+        '0.90',
+        '0.95',
+        '1.00',
+        '1.05',
+        '1.10'
+    ];
+
+    resultadoTamiz: number[];
+
+    options = {
+        scales: {
+            yAxes: [{
+                position: 'right',
+                ticks: {
+                    beginAtZero: true,
+                    callback: function (value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }]
+        }
+    };
+
+    public lineChartData: ChartDataSets[] = [
+        { data: [], label: 'Tamizado' },
+    ];
+    public lineChartLabels: Label[] = this.tamanoTamiz;
+    public lineChartOptions: (ChartOptions) = {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                position: 'left',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Porcentaje que pasa (%)'
+                    
+                  },
+                ticks: {
+                    beginAtZero: true,
+                    callback: function (value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }],
+            xAxes: [{
+                
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Tamaño (m)'
+                  }               
+            }]
+        }
+    };
+    public lineChartColors: Color[] = [
+        {
+            borderColor: 'black',
+            backgroundColor: 'rgba(255,0,0,0.3)',
+        },
+    ];
+    public lineChartLegend = true;
+    public lineChartType = 'line';
+    public lineChartPlugins = [];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
@@ -251,7 +334,7 @@ export class CieloAbiertoComponent implements OnInit {
         this.factorCarga = this.calculos.factorCarga(this.cargaTotalVoladura, this.volumenTotalVoladura);
         this.cargaMaximaPorRetardo = this.calculos.cargaMaximaPorRetardo(this.cieloAbiertoForm);
         this.velocidadPicoParticula = this.calculos.velocidadPicoParticula(this.cargaMaximaPorRetardo, this.cieloAbiertoForm);
-        
+
 
 
         //Si hay precorte
@@ -282,6 +365,12 @@ export class CieloAbiertoComponent implements OnInit {
         this.tamanoCaracteristico = this.calculos.tamanoCaracteristico(this.exponenteUniformidad, this.tamanoPromedioMaterial);
         this.porcentajeSobreTamano = this.calculos.porcentajeSobreTamano(this.exponenteUniformidad, this.tamanoCaracteristico, this.cieloAbiertoForm);
         this.porcentajeSubtamanos = this.calculos.porcentajeSubtamanos(this.exponenteUniformidad, this.tamanoCaracteristico, this.cieloAbiertoForm);
+
+        this.resultadoTamiz = this.calculos.resultadoTamizado(this.exponenteUniformidad[0], this.tamanoCaracteristico[0]);
+        this.lineChartData = [
+            { data: this.resultadoTamiz, label: 'Tamizado para autor: ' + this.autor },
+        ];
+
         this.drawGraphic(0);
 
         this.isSubmitted = true;
@@ -454,7 +543,10 @@ export class CieloAbiertoComponent implements OnInit {
         if (idAutor == 1) { this.autor = "Rodgers"; }
         if (idAutor == 0) { this.autor = "López Jimeno"; }
 
-        console.log(idAutor);
         this.drawGraphic(idAutor);
+        this.resultadoTamiz = this.calculos.resultadoTamizado(this.exponenteUniformidad[idAutor], this.tamanoCaracteristico[idAutor]);
+        this.lineChartData = [
+            { data: this.resultadoTamiz, label: 'Tamizado para autor: ' + this.autor },
+        ];
     }
 }

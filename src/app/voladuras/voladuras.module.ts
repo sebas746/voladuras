@@ -11,7 +11,7 @@ import { EstructurasGustaffsonComponent } from './estructurasGustaffson.componen
 import { EstructurasLopezJComponent } from './estructurasLopezJ.component';
 import { VoladuraViasComponent } from './voladuraVias.component';
 import { GraficosComponent } from './graficos.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: 
@@ -30,7 +30,8 @@ import { GraficosComponent } from './graficos.component';
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
-        HttpClientModule
+        HttpClientModule,
+        ChartsModule
     ],
     exports: []
 })

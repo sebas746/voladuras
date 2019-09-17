@@ -1,10 +1,62 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+const tamices: number[] = [
+    0,
+    0.05,
+    0.10,
+    0.15,
+    0.20,
+    0.25,
+    0.30,
+    0.35,
+    0.40,
+    0.45,
+    0.50,
+    0.55,
+    0.60,
+    0.65,
+    0.70,
+    0.75,
+    0.80,
+    0.85,
+    0.90,
+    0.95,
+    1.00,
+    1.05,
+    1.10
+];
+
 @Injectable({
     providedIn: 'root'
 })
 export class Calculos {
+
+    resultadoTamiz: number[] = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ];
 
     redondear(values: any[], decimales) {
         let response = values.map(function (each_element) {
@@ -289,35 +341,19 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-    velocidadPicoParticula(cargaMaximaPorRetardo: any[], form: FormGroup){
+    velocidadPicoParticula(cargaMaximaPorRetardo: any[], form: FormGroup) {
         let b = -1.6;
-       
+
         let r1 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / Math.pow(cargaMaximaPorRetardo[0], 0.5), b);
-        let r2 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value /  Math.pow(cargaMaximaPorRetardo[1], 0.5), b);
+        let r2 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / Math.pow(cargaMaximaPorRetardo[1], 0.5), b);
         let r3 = form.get("constanciaRelacionadaPropRoca").value * Math.pow(form.get("distanciaVivienda").value / Math.pow(cargaMaximaPorRetardo[2], 0.5), b);
         return this.redondear([r1, r2, r3], 2);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     burdenPrecorte(burden: any[]) {
-        let r1 = burden[0] /2;
-        let r2 = burden[1] /2;
-        let r3 = burden[2] /2;
+        let r1 = burden[0] / 2;
+        let r2 = burden[1] / 2;
+        let r3 = burden[2] / 2;
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -329,28 +365,28 @@ export class Calculos {
     }
 
     diametroExplosivoPrecorte(form: FormGroup) {
-        let r1 =  Math.sqrt(8 / (5 * Math.PI * 1.2)) * (Math.pow(form.get("diametroBarreno").value, 5/6));
+        let r1 = Math.sqrt(8 / (5 * Math.PI * 1.2)) * (Math.pow(form.get("diametroBarreno").value, 5 / 6));
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 2);
     }
 
     cargaMetroLinealPrecorte(form: FormGroup) {
-        let r1 =  1 / 125 * form.get("diametroBarreno").value;
+        let r1 = 1 / 125 * form.get("diametroBarreno").value;
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 2);
     }
 
     cargaBarrenoPrecorte(longitudCargaPrecorte: any[], cargaMetroLinealPrecorte: any[]) {
-        let r1 = longitudCargaPrecorte[0] *  cargaMetroLinealPrecorte[0];
-        let r2 = longitudCargaPrecorte[1] *  cargaMetroLinealPrecorte[1];
-        let r3 = longitudCargaPrecorte[2] *  cargaMetroLinealPrecorte[2];
+        let r1 = longitudCargaPrecorte[0] * cargaMetroLinealPrecorte[0];
+        let r2 = longitudCargaPrecorte[1] * cargaMetroLinealPrecorte[1];
+        let r3 = longitudCargaPrecorte[2] * cargaMetroLinealPrecorte[2];
         return this.redondear([r1, r2, r3], 2);
     }
 
     numeroBarrenosPrecorte(form: FormGroup) {
-        let r1 =  60 / form.get("espaciamientoPrecorte").value / 2;
+        let r1 = 60 / form.get("espaciamientoPrecorte").value / 2;
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 0);
@@ -363,7 +399,7 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-    totalBarrenosPrecorte(numeroBarrenosPrecorte: any[], numeroVoladurasPrecorte: any[]) {        
+    totalBarrenosPrecorte(numeroBarrenosPrecorte: any[], numeroVoladurasPrecorte: any[]) {
         let r1 = numeroBarrenosPrecorte[0] * numeroVoladurasPrecorte[0];
         let r2 = numeroBarrenosPrecorte[1] * numeroVoladurasPrecorte[1];
         let r3 = numeroBarrenosPrecorte[2] * numeroVoladurasPrecorte[2];
@@ -385,9 +421,9 @@ export class Calculos {
     }
 
     cordonDetonantePrecorte(totalBarrenosPrecorte: any[], form: FormGroup) {
-        let r1 = (totalBarrenosPrecorte[0] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[0]);
-        let r2 = (totalBarrenosPrecorte[1] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[1]);
-        let r3 = (totalBarrenosPrecorte[2] * form.get("alturaBanco").value  +  form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[2]);
+        let r1 = (totalBarrenosPrecorte[0] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[0]);
+        let r2 = (totalBarrenosPrecorte[1] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[1]);
+        let r3 = (totalBarrenosPrecorte[2] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[2]);
         return this.redondear([r1, r2, r3], 0);
     }
 
@@ -434,9 +470,9 @@ export class Calculos {
     }
 
     porcentajeSobreTamano(exponenteUniformidad: any[], tamanoCaracteristico: any[], form: FormGroup) {
-        let r1 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[0], exponenteUniformidad[0])))) * 100) ;
-        let r2 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[1], exponenteUniformidad[1])))) * 100) ;
-        let r3 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[2], exponenteUniformidad[2])))) * 100) ;
+        let r1 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[0], exponenteUniformidad[0])))) * 100);
+        let r2 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[1], exponenteUniformidad[1])))) * 100);
+        let r3 = (Math.exp(-((Math.pow(form.get("fragmentacionSobreTamano").value / tamanoCaracteristico[2], exponenteUniformidad[2])))) * 100);
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -462,16 +498,16 @@ export class Calculos {
     }
 
     tamanoPromedioMaterial(factorPotenciaVolumen: any[], pesoExplosivo: any[], form: FormGroup) {
-        let r1 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[0], -0.8) * Math.pow(pesoExplosivo[0], 0.16667) * Math.pow(115 / 100, 19/30);
-        let r2 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[1], -0.8) * Math.pow(pesoExplosivo[1], 0.16667) * Math.pow(115 / 100, 19/30);
-        let r3 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[2], -0.8) * Math.pow(pesoExplosivo[2], 0.16667) * Math.pow(115 / 100, 19/30);
+        let r1 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[0], -0.8) * Math.pow(pesoExplosivo[0], 0.16667) * Math.pow(115 / 100, 19 / 30);
+        let r2 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[1], -0.8) * Math.pow(pesoExplosivo[1], 0.16667) * Math.pow(115 / 100, 19 / 30);
+        let r3 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[2], -0.8) * Math.pow(pesoExplosivo[2], 0.16667) * Math.pow(115 / 100, 19 / 30);
         return this.redondear([r1, r2, r3], 0);
     }
 
     exponenteUniformidad(burden: any[], espacimientoOptimo: any[], form: FormGroup) {
-        let r1 = (2.2 - 14 * (burden[0] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[0] / burden[0])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[0])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
-        let r2 = (2.2 - 14 * (burden[1] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[1] / burden[1])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[1])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
-        let r3 = (2.2 - 14 * (burden[2] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[2] / burden[2])), 0.5) * (1- (form.get("angulo2Barreno").value / burden[2])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        let r1 = (2.2 - 14 * (burden[0] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[0] / burden[0])), 0.5) * (1 - (form.get("angulo2Barreno").value / burden[0])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        let r2 = (2.2 - 14 * (burden[1] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[1] / burden[1])), 0.5) * (1 - (form.get("angulo2Barreno").value / burden[1])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
+        let r3 = (2.2 - 14 * (burden[2] / form.get("diametroBarreno").value)) * Math.pow(0.5 * (1 + (espacimientoOptimo[2] / burden[2])), 0.5) * (1 - (form.get("angulo2Barreno").value / burden[2])) * (0.1 + Math.pow(1, 0.1)) * (form.get("longitudCarga").value / form.get("alturaBanco").value) * form.get("geometria").value;
         return this.redondear([r1, r2, r3], 3);
     }
 
@@ -482,183 +518,193 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 3);
     }
 
+
+    resultadoTamizado(exponenteUniformidad: number, tamanoCaracteristico: number) {
+        for(let i = 0; i < tamices.length; i++) {
+            this.resultadoTamiz[i] = (1 - Math.exp(-(Math.pow(tamices[i] / tamanoCaracteristico, exponenteUniformidad))))*100;
+        }
+
+        return this.resultadoTamiz;
+    }
+
+
     //Demolición estructuras
     volumenTeoricoVolar(form: FormGroup) {
         let r1 = form.get("anchoPilar").value * form.get("fondoPilar").value * form.get("alturaCortePropuesta").value;
-        r1 = Number(r1.toFixed(4));  
+        r1 = Number(r1.toFixed(4));
         return r1;
     }
 
     totalLineasPisosIguales(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.FilasBarreno;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalLineasPisosDiferentes(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.FilasBarreno;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalLineasPisosIgualesGustafsson(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasIguales").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalLineasPisosDiferentesGustafsson(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("tipoDemolicion").value.NoHilerasBarreno;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalLineasPisosIgualesEstebanL(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasIguales").value * form.get("numeroFilasBarrenoPilar").value;
-         
+
         return r1;
     }
 
     totalLineasPisosDiferentesEstebanL(form: FormGroup) {
         let r1 = form.get("totalPilaresConCargasDiferentes").value * form.get("numeroFilasBarrenoPilar").value;
-        
+
         return r1;
     }
 
     noBarrenoFila(form: FormGroup) {
         let r1 = form.get("alturaCortePropuesta").value / form.get("tipoDemolicion").value.Espaciamiento;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     noBarrenoFilaGustaffson(form: FormGroup) {
-        let r1 = form.get("tipoDemolicion").value.NoHilerasBarreno;          
-       
+        let r1 = form.get("tipoDemolicion").value.NoHilerasBarreno;
+
         return r1;
     }
 
     noBarrenoFilaEstebanL(form: FormGroup) {
-        let r1 = form.get("numeroFilasBarrenoPilar").value;       
+        let r1 = form.get("numeroFilasBarrenoPilar").value;
         return r1;
     }
 
     noBarrenosPorFila(form: FormGroup) {
-        let r1 = form.get("alturaCortePropuesta").value / form.get("tipoDemolicion").value.Espaciamiento;     
-        r1 = Number(r1.toFixed(0));      
+        let r1 = form.get("alturaCortePropuesta").value / form.get("tipoDemolicion").value.Espaciamiento;
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     noBarrenosPilar(noBarrenoFila: number, form: FormGroup) {
         let r1 = noBarrenoFila * form.get("tipoDemolicion").value.FilasBarreno;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     noBarrenosPorFilaEstebanL(form: FormGroup) {
-        let r1 = form.get("alturaCortePropuesta").value / form.get("espaciamiento").value;     
-        r1 = Number(r1.toFixed(0));      
+        let r1 = form.get("alturaCortePropuesta").value / form.get("espaciamiento").value;
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     noBarrenosPilarEstebanL(noBarrenoFila: number, form: FormGroup) {
         let r1 = noBarrenoFila * form.get("numeroFilasBarrenoPilar").value;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     noBarrenosPilarGustaffson(noBarrenoFila: number, noBarrenosPorFila: number) {
         let r1 = noBarrenoFila * noBarrenosPorFila;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalBarrenosPisosIguales(noBarrenosPilar: number, totalLineasPisosIguales: number) {
         let r1 = noBarrenosPilar * totalLineasPisosIguales;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalBarrenosPisosDiferentes(noBarrenosPilar: number, totalLineasPisosIguales: number) {
         let r1 = noBarrenosPilar * totalLineasPisosIguales;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     totalBarrenosCargados(totalBarrenosPisosIguales: number, totalBarrenosPisosDiferentes: number) {
         let r1 = totalBarrenosPisosIguales + totalBarrenosPisosDiferentes;
-        r1 = Number(r1.toFixed(0));  
+        r1 = Number(r1.toFixed(0));
         return r1;
     }
 
     cantidadExplosivoTeoricoPilar(noBarrenosPilar: number, form: FormGroup) {
         let r1 = noBarrenosPilar * form.get("tipoExplosivo").value.Peso / 1000;
-        r1 = Number(r1.toFixed(3));  
+        r1 = Number(r1.toFixed(3));
         return r1;
     }
 
     cantidadExplosivoBarreno(cantidadExplosivoTeoricoPilar: number, noBarrenosPilar: number) {
         let r1 = cantidadExplosivoTeoricoPilar / noBarrenosPilar;
-        r1 = Number(r1.toFixed(3));  
+        r1 = Number(r1.toFixed(3));
         return r1;
     }
 
     totalExplosivoPisosIguales(cantidadExplosivoBarreno: number, totalBarrenosPisosIguales: number, form: FormGroup) {
         let r1 = cantidadExplosivoBarreno * totalBarrenosPisosIguales * form.get("totalPisosConCargasIguales").value;
-        r1 = Number(r1.toFixed(3));  
+        r1 = Number(r1.toFixed(3));
         return r1;
     }
 
     totalExplosivoPisosDiferentes(cantidadExplosivoBarreno: number, totalBarrenosPisosDiferentes: number, form: FormGroup) {
         let r1 = cantidadExplosivoBarreno * totalBarrenosPisosDiferentes * form.get("totalPisosConCargasDiferentes").value;
-        r1 = Number(r1.toFixed(3));  
+        r1 = Number(r1.toFixed(3));
         return r1;
     }
 
     totalExplosivosEdificio(totalExplosivoPisosIguales: number, totalExplosivoPisosDiferentes: number) {
         let r1 = totalExplosivoPisosIguales + totalExplosivoPisosDiferentes;
-        r1 = Number(r1.toFixed(3));  
+        r1 = Number(r1.toFixed(3));
         return r1;
     }
 
     consumoEspecificoExplosivo(volumenTeoricoVolar: number, noBarrenosPilar: number, form: FormGroup) {
         let r1 = volumenTeoricoVolar / (noBarrenosPilar * form.get("tipoExplosivo").value.Peso / 1000);
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     totalCartuchosEdificio(totalBarrenosPisosIguales: number, totalBarrenosPisosDiferentes: number, form: FormGroup) {
         let r1 = (totalBarrenosPisosIguales * form.get("totalPisosConCargasIguales").value) + (totalBarrenosPisosDiferentes * form.get("totalPisosConCargasDiferentes").value);
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     longitudPerforacion(form: FormGroup) {
         let r1 = form.get("fondoPilar").value * 0.75;
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     longitudSobreperforacion(longitudPerforacion: number) {
         let r1 = longitudPerforacion * 0.1;
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     longitudRetardo(longitudPerforacion: number) {
         let r1 = longitudPerforacion * 0.3;
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     longitudCarga(longitudPerforacion: number) {
         let r1 = longitudPerforacion * 0.6;
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
     alturaOcupadaBarrenos(form: FormGroup) {
         let r1 = form.get("alturaCortePropuesta").value - form.get("anchoPilar").value;
-        r1 = Number(r1.toFixed(2));  
+        r1 = Number(r1.toFixed(2));
         return r1;
     }
 
@@ -692,7 +738,7 @@ export class Calculos {
     }
 
     longitudBarreno(sobrePerforacion: any[], form: FormGroup) {
-        let r1 = (form.get("alturaBanco").value /  Math.cos(form.get("anguloPerforacion").value * Math.PI / 180)) + 1 - (form.get("anguloPerforacion").value / 100) * sobrePerforacion[0];
+        let r1 = (form.get("alturaBanco").value / Math.cos(form.get("anguloPerforacion").value * Math.PI / 180)) + 1 - (form.get("anguloPerforacion").value / 100) * sobrePerforacion[0];
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 1);
