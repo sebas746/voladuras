@@ -524,7 +524,7 @@ export class Calculos {
             this.resultadoTamiz[i] = (1 - Math.exp(-(Math.pow(tamices[i] / tamanoCaracteristico, exponenteUniformidad))))*100;
         }
 
-        return this.resultadoTamiz;
+        return this.redondear(this.resultadoTamiz, 1);
     }
 
 
