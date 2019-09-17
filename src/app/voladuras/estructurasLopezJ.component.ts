@@ -198,10 +198,8 @@ export class EstructurasLopezJComponent implements OnInit {
             ctx.fillRect(470, 410, 30, 20);
             ctx.fillStyle = "#B8F12D";
             ctx.fillRect(500, 410, 30, 20);
-            ctx.fillStyle = "#E5F12D";
-            ctx.fillRect(530, 410, 30, 20);
             ctx.fillStyle = "#2D68F1";
-            ctx.fillRect(560, 410, 30, 20);
+            ctx.fillRect(530, 410, 30, 20);
             ctx.stroke();
 
             // Convenciones
@@ -311,16 +309,28 @@ export class EstructurasLopezJComponent implements OnInit {
             ctx.fillStyle = "#000001";
             ctx.stroke();
 
+            //Cota vista superior
             ctx.beginPath();
-            ctx.font = "14px Verdana";
+            ctx.moveTo(460, 380);
+            ctx.lineTo(460, 460);
+            ctx.moveTo(455, 380);
+            ctx.lineTo(465, 380);
+            ctx.moveTo(455, 460);
+            ctx.lineTo(465, 460);
+            ctx.fillStyle = "#000001";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.font = "bold 14px Verdana";
             ctx.fillStyle = "#000001";
             ctx.fillText("Vista Frontal", 70, 490);
             ctx.fillText("Vista Lateral", 250, 490);
             ctx.fillText("Vista Superior", 500, 490);
             ctx.font = "12px Verdana";
             ctx.fillText("Fondo Pilar = " + this.demolicionesForm.get("fondoPilar").value + "m", 240, 30);
+            ctx.fillText("Fondo Pilar = " + this.demolicionesForm.get("fondoPilar").value + "m", 490, 360);
             ctx.fillText("Ancho Pilar = " + this.demolicionesForm.get("anchoPilar").value + "m", 60, 30);
-            ctx.font = "10px Verdana";
+            ctx.font = "11px Verdana";
             ctx.fillText("D = " + this.demolicionesForm.get("anchoPilar").value + "m", 90, 170);
             ctx.font = "12px Verdana";
             ctx.fillText("Taco", 450, 70);
@@ -338,6 +348,8 @@ export class EstructurasLopezJComponent implements OnInit {
             ctx.fillStyle = "#000001";
             ctx.font = "14px Verdana";
             ctx.fillText("Altura de Corte = " + this.demolicionesForm.get("alturaCortePropuesta").value + "m", -320, 45);
+            ctx.font = "12px Verdana";
+            ctx.fillText("Ancho Pilar = " + this.demolicionesForm.get("anchoPilar").value + "m", -470, 450);
             ctx.font = "12px Verdana";
             ctx.fillText("E = " + this.demolicionesForm.get("espaciamientoBarreno").value + "m", -275, 85);
 

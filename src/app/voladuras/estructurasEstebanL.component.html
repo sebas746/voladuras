@@ -12,7 +12,7 @@
 <form [formGroup]="demolicionesForm" (ngSubmit)="submit()">
     <div class="card">
         <h5 class="card-header text-center">Parámetros Generales</h5>
-        <div class="card-body">           
+        <div class="card-body">
             <div class="form-group">
                 <label for="tipoExplosivo">Tipo de Explosivo</label>
                 <ng-select [ngClass]="{ 'is-invalid': isSubmitted  &&  form.tipoExplosivo.errors }"
@@ -115,8 +115,8 @@
             <div class="form-group">
                 <label for="espacimiento">Espaciamiento Entre Barrenos de la Misma Fila</label>
                 <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.espacimiento.errors }"
-                    placeholder="Total" formControlName="espaciamiento">
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.espacimiento.errors }" placeholder="Total"
+                    formControlName="espaciamiento">
                 <div class="invalid-feedback">
                     Ingrese el espaciamiento.
                 </div>
@@ -124,8 +124,8 @@
             <div class="form-group">
                 <label for="espacimiento">Número de Filas de Barreno en el Pilar</label>
                 <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.numeroFilasBarrenoPilar.errors }"
-                    placeholder="Total" formControlName="numeroFilasBarrenoPilar">
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.numeroFilasBarrenoPilar.errors }" placeholder="Total"
+                    formControlName="numeroFilasBarrenoPilar">
                 <div class="invalid-feedback">
                     Ingrese el número de filas en el barreno.
                 </div>
@@ -257,4 +257,16 @@
     </div>
 </div>
 <br />
+<div class="card">
+    <h5 class="card-header text-center">Gráficos Generales</h5>
+    <div class="card-body">
+        <div class="container panel panel-default">
+            <div class="row">
+                <div class="col-4">
+                    <canvas id="stage" width="700" height="700"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <br />
