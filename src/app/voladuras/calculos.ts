@@ -726,7 +726,7 @@ export class Calculos {
     relacionSB(form: FormGroup) {
         let r1 = form.get("durezaRoca").value.ParametroRelacion;
         let r2 = r1;
-        let r3 = 0;
+        let r3 = r1;
         return [r1, r2, r3];
     }
 
@@ -747,7 +747,7 @@ export class Calculos {
     consumoEspecificoVoladuraVias(form: FormGroup) {
         let r1 = form.get("durezaRoca").value.ParametroConsumoEsp;
         let r2 = r1;
-        let r3 = 0;
+        let r3 = r1;
         return [r1, r2, r3];
     }
 
