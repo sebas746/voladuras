@@ -6,5 +6,229 @@
         "Fondo": "0.3",
         "FilasBarreno": "2",
         "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion" : "2",
+        "Nombre" : "Muros de Ladrillo Espesor=0.45 (m)",
+        "Ancho": "0.35",
+        "Fondo": "0.35",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.65"
+    },
+    {
+        "IdTipoDemolicion" : "3",
+        "Nombre" : "Muros de Ladrillo Espesor=0.6 (m)",
+        "Ancho": "0.45",
+        "Fondo": "0.45",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion" : "4",
+        "Nombre" : "Muros de Ladrillo Espesor=0.7 (m)",
+        "Ancho": "0.55",
+        "Fondo": "0.55",
+        "FilasBarreno": "3",
+        "Espaciamiento": "0.6"
+    },
+    {
+        "IdTipoDemolicion" : "5",
+        "Nombre" : "Muro de Ladrillo Espesor= >1.0 (m)",
+        "Ancho": "0.55",
+        "Fondo": "0.55",
+        "FilasBarreno": "3",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion" : "6",
+        "Nombre" : "Muros de Hormigón Espesor=0.35 (m)",
+        "Ancho": "0.25",
+        "Fondo": "0.25",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion" : "7",
+        "Nombre" : "Muros de Hormigón Espesor=0.45 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.65"
+    },
+    {
+        "IdTipoDemolicion" : "8",
+        "Nombre" : "Muros de Hormigón Espesor=0.6 (m)",
+        "Ancho": "0.45",
+        "Fondo": "0.45",
+        "FilasBarreno": "3",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion" : "9",
+        "Nombre" : "Muros de Hormigón Espesor=0.7 (m)",
+        "Ancho": "0.50",
+        "Fondo": "0.50",
+        "FilasBarreno": "3",
+        "Espaciamiento": "0.6"
+    },
+    {
+        "IdTipoDemolicion" : "10",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón en masa  Espesor=0.2 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "11",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón en masa  Espesor=0.3 (m)",
+        "Ancho": "0.40",
+        "Fondo": "0.40",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "12",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón en masa  Espesor=0.4 (m)",
+        "Ancho": "0.50",
+        "Fondo": "0.50",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "13",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón en masa  Espesor=0.5 (m)",
+        "Ancho": "0.60",
+        "Fondo": "0.60",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion" : "14",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón armado  Espesor=0.2 (m)",
+        "Ancho": "0.20",
+        "Fondo": "0.20",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "15",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón armado  Espesor=0.3 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "16",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón armado  Espesor=0.4 (m)",
+        "Ancho": "0.35",
+        "Fondo": "0.35",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "17",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón rmado  Espesor=0.5 (m)",
+        "Ancho": "0.40",
+        "Fondo": "0.40",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion" : "18",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón armado  Espesor=0.6 (m)",
+        "Ancho": "0.50",
+        "Fondo": "0.50",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion" : "19",
+        "Nombre" : "Muros de Hormigón empotrados en su base - Hormigón rmado  Espesor=0.7 (m)",
+        "Ancho": "0.60",
+        "Fondo": "0.60",
+        "FilasBarreno": "2",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion" : "20",
+        "Nombre" : "Losas - Hormigón en masa  Espesor=0.3 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.2"
+    },
+    {
+        "IdTipoDemolicion" : "21",
+        "Nombre" : "Losas - Hormigón en masa  Espesor=0.4 (m)",
+        "Ancho": "0.40",
+        "Fondo": "0.40",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.25"
+    },
+    {
+        "IdTipoDemolicion" : "22",
+        "Nombre" : "Losas - Hormigón en masa  Espesor=0.5 (m)",
+        "Ancho": "0.50",
+        "Fondo": "0.50",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.35"
+    },
+    {
+        "IdTipoDemolicion" : "23",
+        "Nombre" : "Losas - Hormigón armado  Espesor=0.3 (m)",
+        "Ancho": "0.20",
+        "Fondo": "0.20",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.2"
+    },
+    {
+        "IdTipoDemolicion" : "24",
+        "Nombre" : "Losas - Hormigón armado  Espesor=0.4 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "25",
+        "Nombre" : "Losas - Hormigón armado  Espesor=0.5 (m)",
+        "Ancho": "0.35",
+        "Fondo": "0.35",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion" : "26",
+        "Nombre" : "Cubiertas  Espesor=0.2 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.15"
+    },
+    {
+        "IdTipoDemolicion" : "27",
+        "Nombre" : "Cubiertas  Espesor=0.3 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.2"
+    },
+    {
+        "IdTipoDemolicion" : "28",
+        "Nombre" : "Cubiertas  Espesor=0.4 (m)",
+        "Ancho": "0.30",
+        "Fondo": "0.30",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion" : "29",
+        "Nombre" : "Cubiertas  Espesor= >0.5 (m)",
+        "Ancho": "0.50",
+        "Fondo": "0.50",
+        "FilasBarreno": "1",
+        "Espaciamiento": "0.4"
     }
 ]

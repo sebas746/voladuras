@@ -18,8 +18,7 @@ export class CieloAbiertoComponent implements OnInit {
     explosivo1: TipoExplosivo;
 
     //Valores por defecto
-    defExplosivo1: TipoExplosivo;
-
+    defExplosivo1: TipoExplosivo;  
     burden: number[] = [0, 0, 0];
     burdenCorregido: number[] = [0, 0, 0];
     indiceRigidez: number[] = [0, 0, 0];
@@ -139,8 +138,8 @@ export class CieloAbiertoComponent implements OnInit {
                 scaleLabel: {
                     display: true,
                     labelString: 'Porcentaje que pasa (%)'
-                    
-                  },
+
+                },
                 ticks: {
                     beginAtZero: true,
                     callback: function (value, index, values) {
@@ -149,11 +148,11 @@ export class CieloAbiertoComponent implements OnInit {
                 }
             }],
             xAxes: [{
-                
+
                 scaleLabel: {
                     display: true,
                     labelString: 'Tamaño (m)'
-                  }               
+                }
             }]
         }
     };
@@ -177,7 +176,7 @@ export class CieloAbiertoComponent implements OnInit {
     }
 
     initTable() {
-        $('#tableResult').DataTable({
+        $('#tableResult').DataTable({          
             "ordering": false,
             dom: 'Bfrtip',
             buttons: [
@@ -293,7 +292,18 @@ export class CieloAbiertoComponent implements OnInit {
     }
 
     submit() {
+        this.isSubmitted = true;
+        this.calcularValores();
+        this.drawGraphic(0);
+        if (this.cieloAbiertoForm.invalid) {
+            return;
+        }
+        this.destroyTables();
+        this.initTable();
+        this.calcularValores();
+    }
 
+    calcularValores() {
         this.burden = this.calculos.burden(this.cieloAbiertoForm);
         this.burdenCorregido = this.calculos.burdenCorregido(this.burden, this.cieloAbiertoForm);
         this.indiceRigidez = this.calculos.indiceRigidez(this.burdenCorregido, this.cieloAbiertoForm);
@@ -335,11 +345,8 @@ export class CieloAbiertoComponent implements OnInit {
         this.cargaMaximaPorRetardo = this.calculos.cargaMaximaPorRetardo(this.cieloAbiertoForm);
         this.velocidadPicoParticula = this.calculos.velocidadPicoParticula(this.cargaMaximaPorRetardo, this.cieloAbiertoForm);
 
-
-
         //Si hay precorte
         if (this.cieloAbiertoForm.get("esPrecorte").value == "SI") {
-            console.log('entro aca');
             this.burdenPrecorte = this.calculos.burdenPrecorte(this.burden);
             this.longitudCargaPrecorte = this.calculos.longitudCargaPrecorte(this.cieloAbiertoForm);
             this.diametroExplosivoPrecorte = this.calculos.diametroExplosivoPrecorte(this.cieloAbiertoForm);
@@ -370,13 +377,11 @@ export class CieloAbiertoComponent implements OnInit {
         this.lineChartData = [
             { data: this.resultadoTamiz, label: 'Tamizado para autor: ' + this.autor },
         ];
+    }
 
-        this.drawGraphic(0);
-
-        this.isSubmitted = true;
-        if (this.cieloAbiertoForm.invalid) {
-            return;
-        }
+    destroyTables() {
+        $('#tableResult').DataTable().destroy();
+        $('#tableKuzRamResult').DataTable().destroy();
     }
 
     drawGraphic(idAutor) {

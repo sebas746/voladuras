@@ -1,27 +1,1550 @@
 [
     {
-        "Nombre" : "Caliza Dureza Media",
-        "Densidad": "2.4",
-        "Resistencia_Compresion": "85",
-        "Dureza": "10"
-    },
-    {
         "IdTipoRoca": "1",
-        "Nombre": "Granodiorita de biotita y horblenda",
+        "Nombre": "Granodiorita de biotita y horblenda dureza blanda",
         "Descripcion": "blanda",
         "Peso": "2.83",
         "Densidad": "2.83",
         "ResistenciaCompresion": "50",
-		"ValorDureza": "46"
+        "ValorDureza": "46"
     },
-	{
+    {
         "IdTipoRoca": "2",
-        "Nombre": "Diorita horblenda alterada",
+        "Nombre": "Diorita horblenda alterada dureza media",
         "Descripcion": "media",
         "Peso": "2.83",
         "Densidad": "2.83",
         "ResistenciaCompresion": "90",
-		"ValorDureza": "35"
-     }
-
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "3",
+        "Nombre": "Diorita horblenda alterada dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.83",
+        "Densidad": "2.83",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "4",
+        "Nombre": "Diorita horblenda alterada dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.83",
+        "Densidad": "2.83",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "5",
+        "Nombre": "Granito dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.61",
+        "Densidad": "2.61",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "6",
+        "Nombre": "Granito dureza media",
+        "Descripcion": "media",
+        "Peso": "2.61",
+        "Densidad": "2.61",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "7",
+        "Nombre": "Granito dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.61",
+        "Densidad": "2.61",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "8",
+        "Nombre": "Granito dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.61",
+        "Densidad": "2.61",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "9",
+        "Nombre": "Diorita horblenda alterada dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.94",
+        "Densidad": "2.94",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "10",
+        "Nombre": "Diorita horblenda alterada dureza media",
+        "Descripcion": "media",
+        "Peso": "2.94",
+        "Densidad": "2.94",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "11",
+        "Nombre": "Diorita horblenda alterada dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.94",
+        "Densidad": "2.94",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "12",
+        "Nombre": "Diorita horblenda alterada dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.94",
+        "Densidad": "2.94",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "13",
+        "Nombre": "Andresita porfiritica horblendica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.72",
+        "Densidad": "2.72",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "14",
+        "Nombre": "Andresita porfiritica horblendica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.72",
+        "Densidad": "2.72",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "15",
+        "Nombre": "Andresita porfiritica horblendica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.72",
+        "Densidad": "2.72",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "16",
+        "Nombre": "Andresita porfiritica horblendica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.72",
+        "Densidad": "2.72",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "17",
+        "Nombre": "Tonalita de biotita y horblenda dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.78",
+        "Densidad": "2.78",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "18",
+        "Nombre": "Tonalita de biotita y horblenda dureza media",
+        "Descripcion": "media",
+        "Peso": "2.78",
+        "Densidad": "2.78",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "19",
+        "Nombre": "Tonalita de biotita y horblenda dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.78",
+        "Densidad": "2.78",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "20",
+        "Nombre": "Tonalita de biotita y horblenda dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.78",
+        "Densidad": "2.78",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "21",
+        "Nombre": "Riolita alcalina opalizada dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.60",
+        "Densidad": "1.60",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "22",
+        "Nombre": "Riolita alcalina opalizada dureza media",
+        "Descripcion": "media",
+        "Peso": "1.60",
+        "Densidad": "1.60",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "23",
+        "Nombre": "Riolita alcalina opalizada dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.60",
+        "Densidad": "1.60",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "24",
+        "Nombre": "Riolita alcalina opalizada dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.60",
+        "Densidad": "1.60",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "25",
+        "Nombre": "Riodacita dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.62",
+        "Densidad": "2.62",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "26",
+        "Nombre": "Riodacita dureza media",
+        "Descripcion": "media",
+        "Peso": "2.62",
+        "Densidad": "2.62",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "27",
+        "Nombre": "Riodacita dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.62",
+        "Densidad": "2.62",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "28",
+        "Nombre": "Riodacita dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.62",
+        "Densidad": "2.62",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "29",
+        "Nombre": "Toba soldada riolítica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.16",
+        "Densidad": "2.16",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "30",
+        "Nombre": "Toba soldada riolítica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.16",
+        "Densidad": "2.16",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "31",
+        "Nombre": "Toba soldada riolítica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.16",
+        "Densidad": "2.16",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "32",
+        "Nombre": "Toba soldada riolítica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.16",
+        "Densidad": "2.16",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "33",
+        "Nombre": "Caliza dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.71",
+        "Densidad": "2.71",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "34",
+        "Nombre": "Caliza dureza media",
+        "Descripcion": "media",
+        "Peso": "2.71",
+        "Densidad": "2.71",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "35",
+        "Nombre": "Caliza dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.71",
+        "Densidad": "2.71",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "36",
+        "Nombre": "Caliza dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.71",
+        "Densidad": "2.71",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "37",
+        "Nombre": "Caliza microesparítica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.66",
+        "Densidad": "2.66",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "38",
+        "Nombre": "Caliza microesparítica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.66",
+        "Densidad": "2.66",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "39",
+        "Nombre": "Caliza microesparítica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.66",
+        "Densidad": "2.66",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "40",
+        "Nombre": "Caliza microesparítica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.66",
+        "Densidad": "2.66",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "41",
+        "Nombre": "Caliza biomicroesparítica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.73",
+        "Densidad": "2.73",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "42",
+        "Nombre": "Caliza biomicroesparítica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.73",
+        "Densidad": "2.73",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "43",
+        "Nombre": "Caliza biomicroesparítica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.73",
+        "Densidad": "2.73",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "44",
+        "Nombre": "Caliza biomicroesparítica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.73",
+        "Densidad": "2.73",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "45",
+        "Nombre": "Caliza alterada dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.67",
+        "Densidad": "2.67",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "46",
+        "Nombre": "Caliza alterada dureza media",
+        "Descripcion": "media",
+        "Peso": "2.67",
+        "Densidad": "2.67",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "47",
+        "Nombre": "Caliza alterada dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.67",
+        "Densidad": "2.67",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "48",
+        "Nombre": "Caliza alterada dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.67",
+        "Densidad": "2.67",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "49",
+        "Nombre": "Ortogneiss granulítico dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.80",
+        "Densidad": "1.80",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "50",
+        "Nombre": "Ortogneiss granulítico dureza media",
+        "Descripcion": "media",
+        "Peso": "1.80",
+        "Densidad": "1.80",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "51",
+        "Nombre": "Ortogneiss granulítico dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.80",
+        "Densidad": "1.80",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "52",
+        "Nombre": "Ortogneiss granulítico dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.80",
+        "Densidad": "1.80",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "53",
+        "Nombre": "Cuarzo andesita hornbléndica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.65",
+        "Densidad": "2.65",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "54",
+        "Nombre": "Cuarzo andesita hornbléndica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.65",
+        "Densidad": "2.65",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "55",
+        "Nombre": "Cuarzo andesita hornbléndica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.65",
+        "Densidad": "2.65",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "56",
+        "Nombre": "Cuarzo andesita hornbléndica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.65",
+        "Densidad": "2.65",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "57",
+        "Nombre": "Arenisca Dura dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.26",
+        "Densidad": "2.26",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "58",
+        "Nombre": "Arenisca Dura dureza media",
+        "Descripcion": "media",
+        "Peso": "2.26",
+        "Densidad": "2.26",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "59",
+        "Nombre": "Arenisca Dura dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.26",
+        "Densidad": "2.26",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "60",
+        "Nombre": "Arenisca Dura dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.26",
+        "Densidad": "2.26",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "61",
+        "Nombre": "Arenisca Labor dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.20",
+        "Densidad": "2.20",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "62",
+        "Nombre": "Arenisca Labor dureza media",
+        "Descripcion": "media",
+        "Peso": "2.20",
+        "Densidad": "2.20",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "63",
+        "Nombre": "Arenisca Labor dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.20",
+        "Densidad": "2.20",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "64",
+        "Nombre": "Arenisca Labor dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.20",
+        "Densidad": "2.20",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "65",
+        "Nombre": "Arenisca Tierna dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "66",
+        "Nombre": "Arenisca Tierna dureza media",
+        "Descripcion": "media",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "67",
+        "Nombre": "Arenisca Tierna dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "68",
+        "Nombre": "Arenisca Tierna dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "69",
+        "Nombre": "Arenisca silícea de grano fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.95",
+        "Densidad": "1.95",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "70",
+        "Nombre": "Arenisca silícea de grano fino dureza media",
+        "Descripcion": "media",
+        "Peso": "1.95",
+        "Densidad": "1.95",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "71",
+        "Nombre": "Arenisca silícea de grano fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.95",
+        "Densidad": "1.95",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "72",
+        "Nombre": "Arenisca silícea de grano fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.95",
+        "Densidad": "1.95",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "73",
+        "Nombre": "Limonita silícea arenosa cuarzosa dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.39",
+        "Densidad": "2.39",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "74",
+        "Nombre": "Limonita silícea arenosa cuarzosa dureza media",
+        "Descripcion": "media",
+        "Peso": "2.39",
+        "Densidad": "2.39",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "75",
+        "Nombre": "Limonita silícea arenosa cuarzosa dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.39",
+        "Densidad": "2.39",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "76",
+        "Nombre": "Limonita silícea arenosa cuarzosa dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.39",
+        "Densidad": "2.39",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "77",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.97",
+        "Densidad": "1.97",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "78",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza media",
+        "Descripcion": "media",
+        "Peso": "1.97",
+        "Densidad": "1.97",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "79",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.97",
+        "Densidad": "1.97",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "80",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.97",
+        "Densidad": "1.97",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "81",
+        "Nombre": "Chert ferruginosos silíceos dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.12",
+        "Densidad": "2.12",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "82",
+        "Nombre": "Chert ferruginosos silíceos dureza media",
+        "Descripcion": "media",
+        "Peso": "2.12",
+        "Densidad": "2.12",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "83",
+        "Nombre": "Chert ferruginosos silíceos dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.12",
+        "Densidad": "2.12",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "84",
+        "Nombre": "Chert ferruginosos silíceos dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.12",
+        "Densidad": "2.12",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "85",
+        "Nombre": "Arenisca dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.23",
+        "Densidad": "2.23",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "86",
+        "Nombre": "Arenisca dureza media",
+        "Descripcion": "media",
+        "Peso": "2.23",
+        "Densidad": "2.23",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "87",
+        "Nombre": "Arenisca dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.23",
+        "Densidad": "2.23",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "88",
+        "Nombre": "Arenisca dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.23",
+        "Densidad": "2.23",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "89",
+        "Nombre": "Chert silíceos dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.07",
+        "Densidad": "2.07",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "90",
+        "Nombre": "Chert silíceos dureza media",
+        "Descripcion": "media",
+        "Peso": "2.07",
+        "Densidad": "2.07",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "91",
+        "Nombre": "Chert silíceos dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.07",
+        "Densidad": "2.07",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "92",
+        "Nombre": "Chert silíceos dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.07",
+        "Densidad": "2.07",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "93",
+        "Nombre": "Arcillolita muy compacta Amarilla dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.14",
+        "Densidad": "2.14",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "94",
+        "Nombre": "Arcillolita muy compacta Amarilla dureza media",
+        "Descripcion": "media",
+        "Peso": "2.14",
+        "Densidad": "2.14",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "95",
+        "Nombre": "Arcillolita muy compacta Amarilla dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.14",
+        "Densidad": "2.14",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "96",
+        "Nombre": "Arcillolita muy compacta Amarilla dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.14",
+        "Densidad": "2.14",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "97",
+        "Nombre": "Arcillolina rojiza dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.71",
+        "Densidad": "1.71",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "98",
+        "Nombre": "Arcillolina rojiza dureza media",
+        "Descripcion": "media",
+        "Peso": "1.71",
+        "Densidad": "1.71",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "99",
+        "Nombre": "Arcillolina rojiza dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.71",
+        "Densidad": "1.71",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "100",
+        "Nombre": "Arcillolina rojiza dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.71",
+        "Densidad": "1.71",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "101",
+        "Nombre": "Cuarcita Wollastonítica dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.85",
+        "Densidad": "2.85",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "102",
+        "Nombre": "Cuarcita Wollastonítica dureza media",
+        "Descripcion": "media",
+        "Peso": "2.85",
+        "Densidad": "2.85",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "103",
+        "Nombre": "Cuarcita Wollastonítica dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.85",
+        "Densidad": "2.85",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "104",
+        "Nombre": "Cuarcita Wollastonítica dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.85",
+        "Densidad": "2.85",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "105",
+        "Nombre": "Gneis Wollastonítico dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.76",
+        "Densidad": "2.76",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "106",
+        "Nombre": "Gneis Wollastonítico dureza media",
+        "Descripcion": "media",
+        "Peso": "2.76",
+        "Densidad": "2.76",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "107",
+        "Nombre": "Gneis Wollastonítico dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.76",
+        "Densidad": "2.76",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "108",
+        "Nombre": "Gneis Wollastonítico dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.76",
+        "Densidad": "2.76",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "109",
+        "Nombre": "Hierro dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "3.20",
+        "Densidad": "3.20",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "110",
+        "Nombre": "Hierro dureza media",
+        "Descripcion": "media",
+        "Peso": "3.20",
+        "Densidad": "3.20",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "111",
+        "Nombre": "Hierro dureza dura",
+        "Descripcion": "dura",
+        "Peso": "3.20",
+        "Densidad": "3.20",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "112",
+        "Nombre": "Hierro dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "3.20",
+        "Densidad": "3.20",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "113",
+        "Nombre": "Arenisca silícea cuarzosa dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "114",
+        "Nombre": "Arenisca silícea cuarzosa dureza media",
+        "Descripcion": "media",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "115",
+        "Nombre": "Arenisca silícea cuarzosa dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "116",
+        "Nombre": "Arenisca silícea cuarzosa dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "117",
+        "Nombre": "Limolita muy porosa dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.78",
+        "Densidad": "1.78",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "118",
+        "Nombre": "Limolita muy porosa dureza media",
+        "Descripcion": "media",
+        "Peso": "1.78",
+        "Densidad": "1.78",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "119",
+        "Nombre": "Limolita muy porosa dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.78",
+        "Densidad": "1.78",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "120",
+        "Nombre": "Limolita muy porosa dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.78",
+        "Densidad": "1.78",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "121",
+        "Nombre": "Arenisca silícea con granos cuarzosos dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.25",
+        "Densidad": "2.25",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "122",
+        "Nombre": "Arenisca silícea con granos cuarzosos dureza media",
+        "Descripcion": "media",
+        "Peso": "2.25",
+        "Densidad": "2.25",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "123",
+        "Nombre": "Arenisca silícea con granos cuarzosos dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.25",
+        "Densidad": "2.25",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "124",
+        "Nombre": "Arenisca silícea con granos cuarzosos dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.25",
+        "Densidad": "2.25",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "125",
+        "Nombre": "Arenisca de grano fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.27",
+        "Densidad": "2.27",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "126",
+        "Nombre": "Arenisca de grano fino dureza media",
+        "Descripcion": "media",
+        "Peso": "2.27",
+        "Densidad": "2.27",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "127",
+        "Nombre": "Arenisca de grano fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.27",
+        "Densidad": "2.27",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "128",
+        "Nombre": "Arenisca de grano fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.27",
+        "Densidad": "2.27",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "129",
+        "Nombre": "Arenisca cuarzosa con cemento silíceo dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.34",
+        "Densidad": "2.34",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "130",
+        "Nombre": "Arenisca cuarzosa con cemento silíceo dureza media",
+        "Descripcion": "media",
+        "Peso": "2.34",
+        "Densidad": "2.34",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "131",
+        "Nombre": "Arenisca cuarzosa con cemento silíceo dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.34",
+        "Densidad": "2.34",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "132",
+        "Nombre": "Arenisca cuarzosa con cemento silíceo dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.34",
+        "Densidad": "2.34",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "133",
+        "Nombre": "Arenisca cuarzosa de grano fino con cemento de sílice dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "134",
+        "Nombre": "Arenisca cuarzosa de grano fino con cemento de sílice dureza media",
+        "Descripcion": "media",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "135",
+        "Nombre": "Arenisca cuarzosa de grano fino con cemento de sílice dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "136",
+        "Nombre": "Arenisca cuarzosa de grano fino con cemento de sílice dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.38",
+        "Densidad": "2.38",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "137",
+        "Nombre": "Limolita, arenisca cuarzosa de grano muy fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "138",
+        "Nombre": "Limolita, arenisca cuarzosa de grano muy fino dureza media",
+        "Descripcion": "media",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "139",
+        "Nombre": "Limolita, arenisca cuarzosa de grano muy fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "140",
+        "Nombre": "Limolita, arenisca cuarzosa de grano muy fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.29",
+        "Densidad": "2.29",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "141",
+        "Nombre": "Arenisca cuarzosa de grano fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "142",
+        "Nombre": "Arenisca cuarzosa de grano fino dureza media",
+        "Descripcion": "media",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "143",
+        "Nombre": "Arenisca cuarzosa de grano fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "144",
+        "Nombre": "Arenisca cuarzosa de grano fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "145",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "146",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza media",
+        "Descripcion": "media",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "147",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "148",
+        "Nombre": "Arenisca cuarzosa de grano muy fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.50",
+        "Densidad": "2.50",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "149",
+        "Nombre": "Areniscas silíceas cuarzosa de grano muy fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.45",
+        "Densidad": "2.45",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "150",
+        "Nombre": "Areniscas silíceas cuarzosa de grano muy fino dureza media",
+        "Descripcion": "media",
+        "Peso": "2.45",
+        "Densidad": "2.45",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "151",
+        "Nombre": "Areniscas silíceas cuarzosa de grano muy fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.45",
+        "Densidad": "2.45",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "152",
+        "Nombre": "Areniscas silíceas cuarzosa de grano muy fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.45",
+        "Densidad": "2.45",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "153",
+        "Nombre": "Arcillolita amarilla dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.03",
+        "Densidad": "2.03",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "154",
+        "Nombre": "Arcillolita amarilla dureza media",
+        "Descripcion": "media",
+        "Peso": "2.03",
+        "Densidad": "2.03",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "155",
+        "Nombre": "Arcillolita amarilla dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.03",
+        "Densidad": "2.03",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "156",
+        "Nombre": "Arcillolita amarilla dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.03",
+        "Densidad": "2.03",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "157",
+        "Nombre": "Arenisca cuarzosa de grano angular dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.28",
+        "Densidad": "2.28",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "158",
+        "Nombre": "Arenisca cuarzosa de grano angular dureza media",
+        "Descripcion": "media",
+        "Peso": "2.28",
+        "Densidad": "2.28",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "159",
+        "Nombre": "Arenisca cuarzosa de grano angular dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.28",
+        "Densidad": "2.28",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "160",
+        "Nombre": "Arenisca cuarzosa de grano angular dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.28",
+        "Densidad": "2.28",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "161",
+        "Nombre": "Arenisca de grano grueso dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.36",
+        "Densidad": "2.36",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "162",
+        "Nombre": "Arenisca de grano grueso dureza media",
+        "Descripcion": "media",
+        "Peso": "2.36",
+        "Densidad": "2.36",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "163",
+        "Nombre": "Arenisca de grano grueso dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.36",
+        "Densidad": "2.36",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "164",
+        "Nombre": "Arenisca de grano grueso dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.36",
+        "Densidad": "2.36",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "165",
+        "Nombre": "Arenisca cuarzosa compacta dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "2.15",
+        "Densidad": "2.15",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "166",
+        "Nombre": "Arenisca cuarzosa compacta dureza media",
+        "Descripcion": "media",
+        "Peso": "2.15",
+        "Densidad": "2.15",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "167",
+        "Nombre": "Arenisca cuarzosa compacta dureza dura",
+        "Descripcion": "dura",
+        "Peso": "2.15",
+        "Densidad": "2.15",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "168",
+        "Nombre": "Arenisca cuarzosa compacta dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "2.15",
+        "Densidad": "2.15",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    },
+    {
+        "IdTipoRoca": "169",
+        "Nombre": "Arenisca cuarzosa de color amarillo de grano muy fino dureza blanda",
+        "Descripcion": "blanda",
+        "Peso": "1.96",
+        "Densidad": "1.96",
+        "ResistenciaCompresion": "50",
+        "ValorDureza": "46"
+    },
+    {
+        "IdTipoRoca": "170",
+        "Nombre": "Arenisca cuarzosa de color amarillo de grano muy fino dureza media",
+        "Descripcion": "media",
+        "Peso": "1.96",
+        "Densidad": "1.96",
+        "ResistenciaCompresion": "90",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "171",
+        "Nombre": "Arenisca cuarzosa de color amarillo de grano muy fino dureza dura",
+        "Descripcion": "dura",
+        "Peso": "1.96",
+        "Densidad": "1.96",
+        "ResistenciaCompresion": "150",
+        "ValorDureza": "35"
+    },
+    {
+        "IdTipoRoca": "172",
+        "Nombre": "Arenisca cuarzosa de color amarillo de grano muy fino dureza muy dura",
+        "Descripcion": "muy dura",
+        "Peso": "1.96",
+        "Densidad": "1.96",
+        "ResistenciaCompresion": "200",
+        "ValorDureza": "30"
+    }
 ]

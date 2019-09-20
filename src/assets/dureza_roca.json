@@ -1,7 +1,18 @@
 [
     {
         "IdDureza" : "1",
-        "Nombre" : "Media",
+        "Nombre" : "Blanda",
+        "ValorDureza": "46",
+        "ParametroEspaciamiento": "51",
+        "ParametroRetacado": "35",
+        "ParametroRelacion": "1.25",
+        "ParametroConsumoEsp": "0.3",
+        "ParametroSobreperforacion": "10",
+        "ParametroBurden": "0"
+    },
+    {
+        "IdDureza": "1",
+        "Nombre": "Media",
         "ValorDureza": "35",
         "ParametroEspaciamiento": "47",
         "ParametroRetacado": "34",
@@ -9,5 +20,27 @@
         "ParametroConsumoEsp": "0.35",
         "ParametroSobreperforacion": "11",
         "ParametroBurden": "37"
+    },
+    {
+        "IdDureza": "3",
+        "Nombre": "Dura",
+        "ValorDureza": "35",
+        "ParametroEspaciamiento": "43",
+        "ParametroRetacado": "32",
+        "ParametroRelacion": "1.15",
+        "ParametroConsumoEsp": "0.42",
+        "ParametroSobreperforacion": "12",
+        "ParametroBurden": "0"
+    },
+    {
+        "IdDureza": "4",
+        "Nombre": "Muy dura ",
+        "ValorDureza": "35",
+        "ParametroEspaciamiento": "438",
+        "ParametroRetacado": "30",
+        "ParametroRelacion": "1.15",
+        "ParametroConsumoEsp": "0.49",
+        "ParametroSobreperforacion": "12",
+        "ParametroBurden": "0"
     }
 ]

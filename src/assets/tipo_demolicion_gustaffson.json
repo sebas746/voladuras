@@ -1,9 +1,191 @@
 [
     {
-        "IdTipoDemolicion" : "1",
-        "Nombre" : "Hormigon en Masa mala calidad",
-        "ProfundidadBarreno": "1",
+        "IdTipoDemolicion": "1",
+        "Nombre": "Hormigón en Masa de mala calidad - 0.3 (m)",
+        "ProfundidadBarreno": "0.23",
         "NoHilerasBarreno": "1",
         "Espaciamiento": "0.8"
+    },
+    {
+        "IdTipoDemolicion": "2",
+        "Nombre": "Horrmigón  en masa de buena calidad y resistencia - 0.6 (m)",
+        "ProfundidadBarreno": "0.45",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion": "3",
+        "Nombre": "Hormigón armado solamente en la superficie - 0.7 (m)",
+        "ProfundidadBarreno": "0.53",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.6"
+    },
+    {
+        "IdTipoDemolicion": "4",
+        "Nombre": "Horrmigón armado con armaduras densas - 0.7 (m)",
+        "ProfundidadBarreno": "0.53",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.55"
+    },
+    {
+        "IdTipoDemolicion": "5",
+        "Nombre": "Homigón especial armado tipo militar - 0.8 (m)",
+        "ProfundidadBarreno": "0.6",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion": "6",
+        "Nombre": "Homigón especial armado tipo militar 2 - 0.9 (m)",
+        "ProfundidadBarreno": "0.7",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.55"
+    },
+    {
+        "IdTipoDemolicion": "7",
+        "Nombre": "Homigón no armado - 0.2 (m)",
+        "ProfundidadBarreno": "0.15",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.6"
+    },
+    {
+        "IdTipoDemolicion": "8",
+        "Nombre": "Homigón no armado - 0.3 (m)",
+        "ProfundidadBarreno": "0.23",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.9"
+    },
+    {
+        "IdTipoDemolicion": "9",
+        "Nombre": "Homigón no armado - 0.4 (m)",
+        "ProfundidadBarreno": "0.3",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.65"
+    },
+    {
+        "IdTipoDemolicion": "10",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.2 (m)",
+        "ProfundidadBarreno": "0.15",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion": "11",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.3 (m)",
+        "ProfundidadBarreno": "0.23",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion": "12",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.4 (m)",
+        "ProfundidadBarreno": "0.3",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.55"
+    },
+    {
+        "IdTipoDemolicion": "13",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.5 (m)",
+        "ProfundidadBarreno": "0.38",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion": "14",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.6 (m)",
+        "ProfundidadBarreno": "0.45",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.7"
+    },
+    {
+        "IdTipoDemolicion": "15",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.7 (m)",
+        "ProfundidadBarreno": "0.53",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.56"
+    },
+    {
+        "IdTipoDemolicion": "16",
+        "Nombre": "Homigón armado con armaduras exteriores - 0.8 (m)",
+        "ProfundidadBarreno": "0.6",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion": "17",
+        "Nombre": "Pilares de hormigón - 0.3 (m)",
+        "ProfundidadBarreno": "0.2",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion": "18",
+        "Nombre": "Pilares de hormigón - 0.4 (m)",
+        "ProfundidadBarreno": "0.3",
+        "NoHilerasBarreno": "1",
+        "Espaciamiento": "0.3"
+    },
+    {
+        "IdTipoDemolicion": "19",
+        "Nombre": "Pilares de hormigón - 0.5 (m)",
+        "ProfundidadBarreno": "0.4",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.35"
+    },
+    {
+        "IdTipoDemolicion": "20",
+        "Nombre": "Pilares de hormigón - 0.6 (m)",
+        "ProfundidadBarreno": "0.45",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.35"
+    },
+    {
+        "IdTipoDemolicion": "21",
+        "Nombre": "Pilares de hormigón - 0.7 (m)",
+        "ProfundidadBarreno": "0.55",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.35"
+    },
+    {
+        "IdTipoDemolicion": "22",
+        "Nombre": "Hormigón de baja resistencia - 0.3 (m)",
+        "ProfundidadBarreno": "0.2",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.4"
+    },
+    {
+        "IdTipoDemolicion": "23",
+        "Nombre": "Hormigón de baja resistencia - 0.4 (m)",
+        "ProfundidadBarreno": "0.3",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion": "24",
+        "Nombre": "Hormigón de baja resistencia - 0.5 (m)",
+        "ProfundidadBarreno": "0.4",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.5"
+    },
+    {
+        "IdTipoDemolicion": "25",
+        "Nombre": "Hormigón de alta resistencia - 0.3 (m)",
+        "ProfundidadBarreno": "0.2",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.2"
+    },
+    {
+        "IdTipoDemolicion": "26",
+        "Nombre": "Hormigón de alta resistencia - 0.4 (m)",
+        "ProfundidadBarreno": "0.3",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.2"
+    },
+    {
+        "IdTipoDemolicion": "27",
+        "Nombre": "Hormigón de alta resistencia - 0.5 (m)",
+        "ProfundidadBarreno": "0.4",
+        "NoHilerasBarreno": "2",
+        "Espaciamiento": "0.2"
     }
 ]
