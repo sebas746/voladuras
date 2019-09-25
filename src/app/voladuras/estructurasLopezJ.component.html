@@ -258,8 +258,16 @@
     <div class="card-body">
         <div class="container panel panel-default">
             <div class="row">
-                <div class="col-4">
+                <div class="col">
                     <canvas id="stage" width="700" height="700"></canvas>
+                </div>
+                <div class="col">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
+                            [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                            [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                        </canvas>
+                    </div>
                 </div>
             </div>
         </div>

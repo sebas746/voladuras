@@ -4,6 +4,8 @@ import { Repository } from './repository';
 import { TipoExplosivo } from '../models/tipoExplosivo.model';
 import { Calculos } from './calculos';
 import { TipoDemolicionLopezJ } from '../models/tipoDemolicionLopezJ.model';
+import { Color, Label } from 'ng2-charts';
+import { ChartOptions, ChartDataSets } from 'chart.js';
 
 declare var $: any;
 
@@ -39,12 +41,113 @@ export class EstructurasLopezJComponent implements OnInit {
     longitudSobreperforacion = 0;
     longitudPerforacion = 0;
 
+    randomScalingFactor() {
+        return Math.ceil(Math.random() * 10.0) * Math.pow(10, Math.ceil(Math.random() * 5));
+    };
+
+    //Chart js
+    public lineChartData: ChartDataSets[] = [
+        {
+            type: 'scatter',
+            label: "Test",
+            data: [{
+                x: 10,
+                y: 80
+            }, {
+                x: 15,
+                y: 100
+            }, {
+                x: 25,
+                y: 0
+            }]
+        }
+    ];
+    public lineChartLabels: Label[] = ['1', '10', '100', '1000'];
+    public lineChartOptions: (ChartOptions & { annotation: any }) = {
+        responsive: true,
+        annotation: {
+            annotations: [
+                {
+                    type: 'line',
+                    mode: 'vertical',
+                    scaleID: 'x-axis-0',
+                    value: '100',
+                    borderColor: 'orange',
+                    borderWidth: 2,
+                    label: {
+                        enabled: true,
+                        fontColor: 'orange',
+                        content: 'LineAnno'
+                    }
+                },
+            ],
+        },
+        scales: {
+            yAxes: [
+                {
+                    // type: 'logarithmic',
+                    // ticks: {
+                    //     min: 0.01,
+                    //     max: 100000,
+                    //     callback: function (value, index, values) {
+                    //         return Number(value.toString());//pass tick values as a string into Number function
+                    //     }
+                    // },
+                    // afterBuildTicks: function (chartObj) { //Build ticks labelling as per your need
+                    //     chartObj.ticks = [];
+                    //     chartObj.ticks.push(0.01);
+                    //     chartObj.ticks.push(0.1);
+                    //     chartObj.ticks.push(1);
+                    //     chartObj.ticks.push(10);
+                    //     chartObj.ticks.push(100);
+                    //     chartObj.ticks.push(1000);
+                    //     chartObj.ticks.push(10000);
+                    // }
+                }
+            ],
+            xAxes: [
+                {
+                    //type: 'logarithmic',
+                    // ticks: {
+                    //     min: 1,
+                    //     max: 1000,
+                    //     // callback: function(value, index, values) {
+                    //     //     return value.toExponential();
+                    //     // }
+                    //     callback: function (value, index, values) {
+                    //         return Number(value.toString());//pass tick values as a string into Number function
+                    //     }
+                    // },
+                    // afterBuildTicks: function (chartObj) { //Build ticks labelling as per your need
+                    //     chartObj.ticks = [];
+                    //     //chartObj.ticks.push(0.1);
+                    //     chartObj.ticks.push(1);
+                    //     chartObj.ticks.push(10);
+                    //     chartObj.ticks.push(100);
+                    //     chartObj.ticks.push(1000);
+                    // }
+                }
+            ]
+        }
+    };
+    public lineChartColors: Color[] = [
+        {
+            borderColor: 'black',
+            backgroundColor: 'rgba(255,0,0,0.3)',
+        },
+    ];
+    public lineChartLegend = true;
+    public lineChartType = 'line';
+    public lineChartPlugins = [];
+
+
+
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
 
     ngOnInit() {
         this.createForm();
-        this.initTable();        
+        this.initTable();
     }
 
     get tipo_explosivos(): TipoExplosivo[] { return this.repo.tipo_explosivos; }
@@ -209,7 +312,7 @@ export class EstructurasLopezJComponent implements OnInit {
             ctx.fillStyle = "#B8F12D";
             ctx.fillRect(635, 85, 30, 20);
             ctx.fillStyle = "#2D68F1";
-            ctx.fillRect(635, 115, 30, 20);          
+            ctx.fillRect(635, 115, 30, 20);
             ctx.stroke();
 
             // lineas cota barreno
@@ -338,7 +441,7 @@ export class EstructurasLopezJComponent implements OnInit {
             ctx.fillText("Longitud de Carga", 450, 100);
             ctx.fillText(this.longitudSobreperforacion + "m", 275, 315);
             ctx.fillText("Longitud de Sobreperforación", 450, 130);
-            ctx.fillText(this.longitudRetardo + "m", 212, 315);            
+            ctx.fillText(this.longitudRetardo + "m", 212, 315);
             ctx.fillText("Total = " + this.longitudPerforacion + "m", 212, 180);
             // Reset transformation matrix to the identity matrix
             ctx.resetTransform();
