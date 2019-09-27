@@ -41,146 +41,68 @@ export class EstructurasLopezJComponent implements OnInit {
     longitudSobreperforacion = 0;
     longitudPerforacion = 0;
 
-    randomScalingFactor() {
-        return Math.ceil(Math.random() * 10.0) * Math.pow(10, Math.ceil(Math.random() * 5));
-    };
-
-    //Chart js
-    public lineChartData: ChartDataSets[] = [
-        {
-            type: 'scatter',
-            label: "Test",
-            data: [{
-                x: 10,
-                y: 80
-            }, {
-                x: 15,
-                y: 100
-            }, {
-                x: 25,
-                y: 0
-            }]
-        }
-    ];
-    public lineChartLabels: Label[] = ['1', '10', '100', '1000'];
-    public lineChartOptions: (ChartOptions & { annotation: any }) = {
-        responsive: true,
-        annotation: {
-            annotations: [
-                {
-                    type: 'line',
-                    mode: 'vertical',
-                    scaleID: 'x-axis-0',
-                    value: '100',
-                    borderColor: 'orange',
-                    borderWidth: 2,
-                    label: {
-                        enabled: true,
-                        fontColor: 'orange',
-                        content: 'LineAnno'
-                    }
-                },
-            ],
-        },
-        scales: {
-            yAxes: [
-                {
-                    // type: 'logarithmic',
-                    // ticks: {
-                    //     min: 0.01,
-                    //     max: 100000,
-                    //     callback: function (value, index, values) {
-                    //         return Number(value.toString());//pass tick values as a string into Number function
-                    //     }
-                    // },
-                    // afterBuildTicks: function (chartObj) { //Build ticks labelling as per your need
-                    //     chartObj.ticks = [];
-                    //     chartObj.ticks.push(0.01);
-                    //     chartObj.ticks.push(0.1);
-                    //     chartObj.ticks.push(1);
-                    //     chartObj.ticks.push(10);
-                    //     chartObj.ticks.push(100);
-                    //     chartObj.ticks.push(1000);
-                    //     chartObj.ticks.push(10000);
-                    // }
-                }
-            ],
-            xAxes: [
-                {
-                    //type: 'logarithmic',
-                    // ticks: {
-                    //     min: 1,
-                    //     max: 1000,
-                    //     // callback: function(value, index, values) {
-                    //     //     return value.toExponential();
-                    //     // }
-                    //     callback: function (value, index, values) {
-                    //         return Number(value.toString());//pass tick values as a string into Number function
-                    //     }
-                    // },
-                    // afterBuildTicks: function (chartObj) { //Build ticks labelling as per your need
-                    //     chartObj.ticks = [];
-                    //     //chartObj.ticks.push(0.1);
-                    //     chartObj.ticks.push(1);
-                    //     chartObj.ticks.push(10);
-                    //     chartObj.ticks.push(100);
-                    //     chartObj.ticks.push(1000);
-                    // }
-                }
-            ]
-        }
-    };
-    public lineChartColors: Color[] = [
-        {
-            borderColor: 'black',
-            backgroundColor: 'rgba(255,0,0,0.3)',
-        },
-    ];
-    public lineChartLegend = true;
-    public lineChartType = 'line';
-    public lineChartPlugins = [];
-
-
-    //Google charts
-    title = 'Average Temperatures of Cities';
+    //Google charts init
+    title = 'Vibraciones';
     type = 'LineChart';
     data = [
-        ["Jan", 7.0, -0.2, -0.9, 3.9],
-        ["Feb", 6.9, 0.8, 0.6, 4.2],
-        ["Mar", 9.5, 5.7, 3.5, 5.7],
-        ["Apr", 14.5, 11.3, 8.4, 8.5],
-        ["May", 18.2, 17.0, 13.5, 11.9],
-        ["Jun", 21.5, 22.0, 17.0, 15.2],
-        ["Jul", 25.2, 24.8, 18.6, 17.0],
-        ["Aug", 26.5, 24.1, 17.9, 16.6],
-        ["Sep", 23.3, 20.1, 14.3, 14.2],
-        ["Oct", 18.3, 14.1, 9.0, 10.3],
-        ["Nov", 13.9, 8.6, 3.9, 6.6],
-        ["Dec", 9.6, 2.5, 1.0, 4.8]
+        [1, -10, -100, 0],
+        [2.2, 0.01, -100, 0],
+        [4.4, 0.05, 0.01, 0],
+        [1000, 7000, 900, 0]
     ];
-    columnNames = ["Month", "Tokyo", "New York", "Berlin", "Paris"];
+    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto"];
     options = {
         hAxis: {
-            title: 'Month'
+            title: 'Distancia (m)',
+            scaleType: 'log',
+            ticks: [1, 10, 100, 1000]
         },
         vAxis: {
-            title: 'Temperature'
+            title: 'Carga del Explosivo (Kg)',
+            scaleType: 'log',
+            ticks: [0.01, 0.1, 1, 10, 100, 1000, 10000]
         },
         crosshair: {
             color: '#000000',
             trigger: 'selection'
         },
-        trendlines: {
-            0: {
-                type: 'exponential',
-                showR2: true,
-                visibleInLegend: true,
-             
+
+        series: {
+            2: { lineDashStyle: [14, 2, 7, 2], pointShape: 'circle', pointSize: 5, type: 'line' }
+        },
+        annotations: {
+            boxStyle: {
+              // Color of the box outline.
+              stroke: '#888',
+              // Thickness of the box outline.
+              strokeWidth: 1,
+              // x-radius of the corner curvature.
+              rx: 10,
+              // y-radius of the corner curvature.
+              ry: 10,
+              // Attributes for linear gradient fill.
+              gradient: {
+                // Start color for gradient.
+                color1: '#fbf6a7',
+                // Finish color for gradient.
+                color2: '#33b679',
+                // Where on the boundary to start and
+                // end the color1/color2 gradient,
+                // relative to the upper left corner
+                // of the boundary.
+                x1: '0%', y1: '0%',
+                x2: '100%', y2: '100%',
+                // If true, the boundary for x1,
+                // y1, x2, and y2 is the box. If
+                // false, it's the entire chart.
+                useObjectBoundingBoxUnits: true
+              }
             }
-        }
+          }
+
     };
-    width = 550;
-    height = 400;
+    width = 950;
+    height = 700;
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
@@ -208,8 +130,24 @@ export class EstructurasLopezJComponent implements OnInit {
             fondoPilar: ['0.3', Validators.required],
             alturaCortePropuesta: ['0.6', Validators.required],
             maximoBarrenosConexionados: ['3', Validators.required],
-            espaciamientoBarreno: ['0.7', Validators.required]
+            espaciamientoBarreno: ['0.7', Validators.required],
+            distanciaMasCercana: ['100', Validators.required],
         });
+    }
+
+    crearGraficoVibraciones() {
+        let distanciaVivienda: number = parseInt(this.demolicionesForm.get('distanciaMasCercana').value);
+        let totalExplosivo: number = this.totalExplosivosEdificio;
+        console.log('vivienda: ' + distanciaVivienda);
+        this.data = [
+            [1, -10, -100, distanciaVivienda],
+            [totalExplosivo, -10, -100, distanciaVivienda],
+            [totalExplosivo, -10, -100, 0.01],
+            [2.2, 0.01, -100, null],
+            [4.4, 0.05, 0.01, null],
+            [1000, 7000, 900, null]
+        ];
+
     }
 
     initTable() {
@@ -282,6 +220,7 @@ export class EstructurasLopezJComponent implements OnInit {
         this.longitudCarga = this.calculos.longitudCarga(this.longitudPerforacion);
 
         this.drawGraphic();
+        this.crearGraficoVibraciones();
     }
 
     drawGraphic() {
