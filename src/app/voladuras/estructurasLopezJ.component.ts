@@ -45,14 +45,17 @@ export class EstructurasLopezJComponent implements OnInit {
     //Google charts init
     title = 'Vibraciones';
     type = 'LineChart';
-    data:any[] = [
-        [1, -10, -100, 0],
-        [2.2, 0.01, null,  null],
-        [4.4, 0.05, 0.01, null],
-        [1000, 7000, 900, null],
-       
+    data: any[] = [
+        [10, null, null, null, 59, null, null],
+        [48, null, null, null, null, 2.5, null],
+        [190, null, null, null, null, null, 0.05],
+        [1, -10, -100, 0, null, null, null],
+        [2.2, 0.01, null, null, null, null, null],
+        [4.4, 0.05, 0.01, null, null, null, null],
+        [1000, 7000, 900, null, null, null, null],
+
     ];
-    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto"];
+    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto", "Est. Preliminar", "Med. Control", "Proy. Tipo Vibra."];
     options = {
         hAxis: {
             title: 'Distancia (m)',
@@ -70,38 +73,12 @@ export class EstructurasLopezJComponent implements OnInit {
         },
 
         series: {
-            2: { lineDashStyle: [14, 2, 7, 2], pointShape: 'circle', pointSize: 5, type: 'line' }
+            2: { lineDashStyle: [14, 2, 7, 2], pointShape: 'circle', pointSize: 5, type: 'line' },
+            3: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#000080' },
+            4: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#00FF00' },
+            5: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#b44' }
         },
-        // annotations: {
-        //     boxStyle: {
-        //       // Color of the box outline.
-        //       stroke: '#888',
-        //       // Thickness of the box outline.
-        //       strokeWidth: 1,
-        //       // x-radius of the corner curvature.
-        //       rx: 10,
-        //       // y-radius of the corner curvature.
-        //       ry: 10,
-        //       // Attributes for linear gradient fill.
-        //       gradient: {
-        //         // Start color for gradient.
-        //         color1: '#fbf6a7',
-        //         // Finish color for gradient.
-        //         color2: '#33b679',
-        //         // Where on the boundary to start and
-        //         // end the color1/color2 gradient,
-        //         // relative to the upper left corner
-        //         // of the boundary.
-        //         x1: '0%', y1: '0%',
-        //         x2: '100%', y2: '100%',
-        //         // If true, the boundary for x1,
-        //         // y1, x2, and y2 is the box. If
-        //         // false, it's the entire chart.
-        //         useObjectBoundingBoxUnits: true
-        //       }
-        //     }
-        //   }
-
+       
     };
     width = 970;
     height = 700;
@@ -142,12 +119,15 @@ export class EstructurasLopezJComponent implements OnInit {
         let totalExplosivo: number = this.totalExplosivosEdificio;
         // console.log('vivienda: ' + distanciaVivienda);
         this.data = [
-            [1, -10, -100, totalExplosivo, totalExplosivo],
-            [distanciaVivienda, -10, -100, totalExplosivo, ""],
-            [distanciaVivienda, -10, -100, 0.01, distanciaVivienda],
-            [2.2, 0.01, "D", -100, null],
-            [4.4, 0.05, 0.01, null, "E"],
-            [1000, 7000, 900, null, "F"],            
+            [10, null, null, null, 59, null, null],
+            [48, null, null, null, null, 2.5, null],
+            [190, null, null, null, null, null, 0.05],
+            [1, -10, -100, totalExplosivo, null, null, null],
+            [distanciaVivienda, -10, -100, totalExplosivo, null, null, null],
+            [distanciaVivienda, -10, -100, 0.01, null, null, null],
+            [2.2, 0.01, null, null, null, null, null],
+            [4.4, 0.05, 0.01, null, null, null, null],
+            [1000, 7000, 900, null, null, null, null],
         ];
 
         this.columnNames[3] = "Distancia = " + distanciaVivienda + "m Carga = " + totalExplosivo + "kg";
@@ -202,7 +182,7 @@ export class EstructurasLopezJComponent implements OnInit {
         });
     }
 
-    submit() {        
+    submit() {
         this.calcularValores();
         this.drawGraphic();
         this.crearGraficoVibraciones();
