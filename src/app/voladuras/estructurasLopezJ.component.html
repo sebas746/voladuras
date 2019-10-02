@@ -230,7 +230,8 @@
 <br />
 <br />
 <div class="card">
-    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación
+    </h5>
     <div class="card-body">
         <table id="tableResultadosPerforacion" class="display nowrap">
             <thead>
@@ -270,9 +271,28 @@
                     <canvas id="stage" width="700" height="700"></canvas>
                 </div>
                 <div class="col">
-                    <google-chart #chart [title]="title" [type]="type" [data]="data" [columnNames]="columnNames"
-                        [options]="options" [width]="width" [height]="height">
-                    </google-chart>
+                    <div class="chartWithOverlay">
+
+                        <google-chart #chart [title]="title" [type]="type" [data]="data" [columnNames]="columnNames"
+                            [options]="options" [width]="width" [height]="height">
+                        </google-chart>
+
+                        <div class="overlay">
+                            <div
+                                style="color: #b44; font-family:'Arial Black'; font-size: 26px; letter-spacing: .21em; margin-top:60px; margin-left:255px;">
+                                C
+                            </div>
+                            <div
+                                style="color: #b44; font-family:'Arial Black'; font-size: 26px; letter-spacing: .15em; margin-top:60px; margin-left:330px;">
+                                B
+                            </div>
+                            <div
+                                style="color: #b44; font-family:'Arial Black'; font-size: 26px; letter-spacing: .15em; margin-top:80px; margin-left:450px;">
+                                A
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

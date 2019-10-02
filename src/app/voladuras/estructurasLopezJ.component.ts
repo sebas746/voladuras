@@ -46,13 +46,13 @@ export class EstructurasLopezJComponent implements OnInit {
     title = 'Vibraciones';
     type = 'LineChart';
     data:any[] = [
-        [1, -10, -100, 0, "A"],
-        [2.2, 0.01, null, null, "B"],
-        [4.4, 0.05, 0.01, null, "C"],
-        [1000, 7000, 900, "D", "D"],
+        [1, -10, -100, 0],
+        [2.2, 0.01, null,  null],
+        [4.4, 0.05, 0.01, null],
+        [1000, 7000, 900, null],
        
     ];
-    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto", {type:'string', role:'annotation'}];
+    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto"];
     options = {
         hAxis: {
             title: 'Distancia (m)',
