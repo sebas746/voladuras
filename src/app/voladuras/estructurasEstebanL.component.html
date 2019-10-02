@@ -11,7 +11,7 @@
 <br />
 <form [formGroup]="demolicionesForm" (ngSubmit)="submit()">
     <div class="card">
-        <h5 class="card-header text-center" style="background-color: #C30808;">Parámetros Generales</h5>
+        <h5 class="card-header text-center text-white" style="background-color: #900505;">Parámetros Generales</h5>
         <div class="card-body">
             <div class="form-group">
                 <label for="tipoExplosivo">Tipo de Explosivo</label>
@@ -130,18 +130,17 @@
                     Ingrese el número de filas en el barreno.
                 </div>
             </div>
+            <br />
+            <button type="submit" class="btn btn-primary center">Calcular Valores</button>
         </div>
     </div>
-    <br />
-    <button type="submit" class="btn btn-primary center">Calcular Valores</button>
 </form>
-<hr>
 <br />
 <h2>Datos de Salida</h2>
-<br />
+<hr>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Resultados Generales</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Generales</h5>
     <div class="card-body">
         <table id="tableResultados" class="display nowrap">
             <thead>
@@ -223,10 +222,10 @@
         </table>
     </div>
 </div>
-<br />
+<hr>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Resultados Longitud de Perforación</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación</h5>
     <div class="card-body">
         <table id="tableResultadosPerforacion" class="display nowrap">
             <thead>
@@ -258,7 +257,7 @@
 </div>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Gráficos Generales</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Gráficos Generales</h5>
     <div class="card-body">
         <div class="container panel panel-default">
             <div class="row">

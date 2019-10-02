@@ -127,6 +127,14 @@ export class EstructurasGustaffsonComponent implements OnInit {
     }
 
     submit() {
+        this.drawGraphic();
+        this.calcularValores();
+        this.destroyTables();
+        this.initTable();
+        this.calcularValores();
+    }
+
+    calcularValores() {
         this.volumenTeoricoVolar = this.calculos.volumenTeoricoVolar(this.demolicionesForm);
         this.totalLineasPisosIguales = this.calculos.totalLineasPisosIgualesGustafsson(this.demolicionesForm);
         this.totalLineasPisosDiferentes = this.calculos.totalLineasPisosDiferentesGustafsson(this.demolicionesForm);
@@ -147,8 +155,11 @@ export class EstructurasGustaffsonComponent implements OnInit {
         this.longitudSobreperforacion = this.calculos.longitudSobreperforacion(this.longitudPerforacion);
         this.longitudRetardo = this.calculos.longitudRetardo(this.longitudPerforacion);
         this.longitudCarga = this.calculos.longitudCarga(this.longitudPerforacion);
+    }
 
-        this.drawGraphic();
+    destroyTables() {
+        $('#tableResultados').DataTable().destroy();
+        $('#tableResultadosPerforacion').DataTable().destroy();
     }
 
     drawGraphic() {

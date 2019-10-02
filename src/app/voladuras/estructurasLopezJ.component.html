@@ -10,7 +10,7 @@
 <br />
 <form [formGroup]="demolicionesForm" (ngSubmit)="submit()">
     <div class="card">
-        <h5 class="card-header text-center" style="background-color: #C30808;">Parámetros Generales</h5>
+        <h5 class="card-header text-center text-white" style="background-color: #900505;">Parámetros Generales</h5>
         <div class="card-body">
             <div class="form-group">
                 <label for="tipoDemolicion">Tipo de Demolición</label>
@@ -133,24 +133,23 @@
             <div class="form-group">
                 <label for="distanciaMasCercana">Distancia a la Vivienda más Cercana (m)</label>
                 <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaMasCercana.errors }"
-                    placeholder="En metros" formControlName="distanciaMasCercana">
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaMasCercana.errors }" placeholder="En metros"
+                    formControlName="distanciaMasCercana">
                 <div class="invalid-feedback">
                     Ingrese la distancia en metros.
                 </div>
             </div>
+            <br />
+            <button type="submit" class="btn btn-primary center">Calcular Valores</button>
         </div>
     </div>
-    <br />
-    <button type="submit" class="btn btn-primary center">Calcular Valores</button>
 </form>
-<hr>
 <br />
 <h2>Datos de Salida</h2>
-<br />
+<hr>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Resultados Generales</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Generales</h5>
     <div class="card-body">
         <table id="tableResultados" class="display nowrap">
             <thead>
@@ -231,7 +230,7 @@
 <br />
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Resultados Longitud de Perforación</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación</h5>
     <div class="card-body">
         <table id="tableResultadosPerforacion" class="display nowrap">
             <thead>
@@ -263,13 +262,13 @@
 </div>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Gráficos Generales</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Gráficos Generales</h5>
     <div class="card-body">
         <div class="container panel panel-default">
             <div class="row">
                 <div class="col">
                     <canvas id="stage" width="700" height="700"></canvas>
-                </div>               
+                </div>
                 <div class="col">
                     <google-chart #chart [title]="title" [type]="type" [data]="data" [columnNames]="columnNames"
                         [options]="options" [width]="width" [height]="height">

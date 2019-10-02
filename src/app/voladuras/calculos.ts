@@ -778,4 +778,18 @@ export class Calculos {
         let r3 = 3 * Math.pow(form.get("diametroBarreno").value / 1000 * longitudBarreno, 0.5);
         return this.redondear([r1, r2, r3], 1);
     }
+
+    longitudExplosivoVias(longitudBarreno: number[], retacado: number[]) {
+        let r1 = longitudBarreno[0] - retacado[0];
+        let r2 = longitudBarreno[1] - retacado[1];
+        let r3 = longitudBarreno[2] - retacado[2];
+        return this.redondear([r1, r2, r3], 1);
+    }
+
+    cargaTotalBarrenoVias(longitudExplosivoVias: number[], form: FormGroup) {
+        let r1 = longitudExplosivoVias[0] * (0.0031415 * form.get("tipoExplosivo").value.Densidad * Math.pow(form.get("diametroBarreno").value / 2, 2));
+        let r2 = longitudExplosivoVias[1] * (0.0031415 * form.get("tipoExplosivo").value.Densidad * Math.pow(form.get("diametroBarreno").value / 2, 2));
+        let r3 = longitudExplosivoVias[2] * (0.0031415 * form.get("tipoExplosivo").value.Densidad * Math.pow(form.get("diametroBarreno").value / 2, 2));
+        return this.redondear([r1, r2, r3], 1);
+    }
 }
