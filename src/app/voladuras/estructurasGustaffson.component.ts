@@ -39,6 +39,47 @@ export class EstructurasGustaffsonComponent implements OnInit {
     longitudSobreperforacion = 0;
     longitudPerforacion = 0;
 
+    //Google charts init
+    title = 'Vibraciones';
+    type = 'LineChart';
+    data: any[] = [
+        [10, null, null, null, 59, null, null],
+        [48, null, null, null, null, 2.5, null],
+        [190, null, null, null, null, null, 0.05],
+        [1, -10, -100, 0, null, null, null],
+        [2.2, 0.01, null, null, null, null, null],
+        [4.4, 0.05, 0.01, null, null, null, null],
+        [1000, 7000, 900, null, null, null, null],
+
+    ];
+    columnNames = ["Distancia (m)", "Linea 1", "Linea 2", "Punto", "Est. Preliminar", "Med. Control", "Proy. Tipo Vibra."];
+    options = {
+        hAxis: {
+            title: 'Distancia (m)',
+            scaleType: 'log',
+            ticks: [1, 10, 100, 1000]
+        },
+        vAxis: {
+            title: 'Carga del Explosivo (Kg)',
+            scaleType: 'log',
+            ticks: [0.01, 0.1, 1, 10, 100, 1000, 10000]
+        },
+        crosshair: {
+            color: '#000000',
+            trigger: 'selection'
+        },
+
+        series: {
+            2: { lineDashStyle: [14, 2, 7, 2], pointShape: 'circle', pointSize: 5, type: 'line' },
+            3: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#000080' },
+            4: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#00FF00' },
+            5: { pointShape: 'circle', pointSize: 5, type: 'scatter', color: '#b44' }
+        },
+       
+    };
+    width = 970;
+    height = 700;
+
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
 
@@ -74,7 +115,8 @@ export class EstructurasGustaffsonComponent implements OnInit {
             tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
             longitudCarga: ['9.56', Validators.required],
             indiceEstabilidad: ['7.18', Validators.required],
-            RWSExplosivo: ['100', Validators.required]
+            RWSExplosivo: ['100', Validators.required],
+            distanciaMasCercana: ['100', Validators.required]
         });
     }
 
@@ -132,6 +174,27 @@ export class EstructurasGustaffsonComponent implements OnInit {
         this.destroyTables();
         this.initTable();
         this.calcularValores();
+        this.crearGraficoVibraciones();
+    }
+
+    crearGraficoVibraciones() {
+        let distanciaVivienda: number = parseInt(this.demolicionesForm.get('distanciaMasCercana').value);
+        let totalExplosivo: number = this.totalExplosivosEdificio;
+        // console.log('vivienda: ' + distanciaVivienda);
+        this.data = [
+            [10, null, null, null, 59, null, null],
+            [48, null, null, null, null, 2.5, null],
+            [190, null, null, null, null, null, 0.05],
+            [1, -10, -100, totalExplosivo, null, null, null],
+            [distanciaVivienda, -10, -100, totalExplosivo, null, null, null],
+            [distanciaVivienda, -10, -100, 0.01, null, null, null],
+            [2.2, 0.01, null, null, null, null, null],
+            [4.4, 0.05, 0.01, null, null, null, null],
+            [1000, 7000, 900, null, null, null, null],
+        ];
+
+        this.columnNames[3] = "Distancia = " + distanciaVivienda + "m Carga = " + totalExplosivo + "kg";
+
     }
 
     calcularValores() {

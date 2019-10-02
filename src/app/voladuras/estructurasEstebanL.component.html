@@ -130,6 +130,15 @@
                     Ingrese el número de filas en el barreno.
                 </div>
             </div>
+            <div class="form-group">
+                <label for="distanciaMasCercana">Distancia a la Vivienda más Cercana (m)</label>
+                <input type="text" class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.distanciaMasCercana.errors }" placeholder="En metros"
+                    formControlName="distanciaMasCercana">
+                <div class="invalid-feedback">
+                    Ingrese la distancia en metros.
+                </div>
+            </div>
             <br />
             <button type="submit" class="btn btn-primary center">Calcular Valores</button>
         </div>
@@ -225,7 +234,8 @@
 <hr>
 <br />
 <div class="card">
-    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Longitud de Perforación
+    </h5>
     <div class="card-body">
         <table id="tableResultadosPerforacion" class="display nowrap">
             <thead>
@@ -261,8 +271,30 @@
     <div class="card-body">
         <div class="container panel panel-default">
             <div class="row">
-                <div class="col-4">
+                <div class="col">
                     <canvas id="stage" width="700" height="700"></canvas>
+                </div>
+                <div class="col">
+                    <div class="chartWithOverlay">
+                        <google-chart #chart [title]="title" [type]="type" [data]="data" [columnNames]="columnNames"
+                            [options]="options" [width]="width" [height]="height">
+                        </google-chart>
+
+                        <div class="overlay">
+                            <div
+                                style="color: #000080; font-family:'Arial Black'; font-size: 26px; letter-spacing: .21em; margin-top:60px; margin-left:195px;">
+                                C
+                            </div>
+                            <div
+                                style="color: #00FF00; font-family:'Arial Black'; font-size: 26px; letter-spacing: .15em; margin-top:60px; margin-left:330px;">
+                                B
+                            </div>
+                            <div
+                                style="color: #b44; font-family:'Arial Black'; font-size: 26px; letter-spacing: .15em; margin-top:80px; margin-left:450px;">
+                                A
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
