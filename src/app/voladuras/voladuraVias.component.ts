@@ -26,6 +26,8 @@ export class VoladuraViasComponent implements OnInit {
     sobreperforacion: any[] = [0, 0, 0];
     espaciamiento: any[] = [0, 0, 0];
     consumoEspecifico: any[] = [0, 0, 0];
+    longitudExplosivo: any[] = [0, 0, 0];
+    cargaTotalBarreno: any[] = [0, 0, 0];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
         private calculos: Calculos) { }
@@ -98,6 +100,18 @@ export class VoladuraViasComponent implements OnInit {
     }
 
     submit() {
+        this.calcularValores();
+        this.destroyTables();
+        this.initTable();
+        this.calcularValores();
+    }
+
+    destroyTables() {
+        $('#tableResultados').DataTable().destroy();
+        $('#tableResultadosPerforacion').DataTable().destroy();
+    }
+
+    calcularValores() {
         this.sobreperforacion = this.calculos.sobreperforacionVoladuraVias(this.formulario);
         this.retacado = this.calculos.retacado(this.formulario);
         this.relacionSB = this.calculos.relacionSB(this.formulario);
@@ -108,5 +122,7 @@ export class VoladuraViasComponent implements OnInit {
         this.cantidadExplosivoBarreno = this.calculos.cargaExplosivoBarreno(this.concentracionLinealExplosivo[0], this.longitudExplosivoFondo[0]);
         this.burden = this.calculos.burdenVoladuraVias(this.consumoEspecifico[0], this.relacionSB[0], this.cantidadExplosivoBarreno[0], this.formulario);
         this.espaciamiento = this.calculos.espaciamiento(this.longitudBarreno[2], this.formulario);
+        this.longitudExplosivo = this.calculos.longitudExplosivoVias(this.longitudBarreno, this.retacado);
+        this.cargaTotalBarreno = this.calculos.cargaTotalBarrenoVias(this.longitudExplosivo, this.formulario);
     }
 }

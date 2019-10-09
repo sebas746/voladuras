@@ -10,7 +10,7 @@
 <br />
 <form [formGroup]="formulario" (ngSubmit)="submit()">
     <div class="card">
-        <h5 class="card-header text-center" style="background-color: #C30808;">Parámetros Generales</h5>
+        <h5 class="card-header text-center text-white" style="background-color: #900505;">Parámetros Generales</h5>
         <div class="card-body">
             <div class="form-group">
                 <label for="tipoExplosivo">Tipo de Explosivo</label>
@@ -58,18 +58,19 @@
                     Ingrese el ángulo de perforación del barreno en grados.
                 </div>
             </div>
+            <br />
+            <button type="submit" class="btn btn-primary center">Calcular Valores</button>
         </div>
     </div>
-    <br />
-    <button type="submit" class="btn btn-primary center">Calcular Valores</button>
+    
+    
 </form>
-<hr>
 <br />
 <h2>Datos de Salida</h2>
-<br />
+<hr>
 <br />
 <div class="card">
-    <h5 class="card-header text-center" style="background-color: #C30808;">Resultados Generales</h5>
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Generales</h5>
     <div class="card-body">
         <table id="tableResultados" class="display nowrap">
             <thead>
@@ -141,7 +142,18 @@
                     <td>{{ consumoEspecifico[1] }}</td>
                     <td>{{ consumoEspecifico[2] }}</td>
                 </tr>
-             
+                <tr>
+                    <td>Longitud del Explosivo (m)</td>
+                    <td>{{ longitudExplosivo[0] }}</td>
+                    <td>{{ longitudExplosivo[1] }}</td>
+                    <td>{{ longitudExplosivo[2] }}</td>
+                </tr>
+                <tr>
+                    <td>CARGA TOTAL DEL BARRENO (Kg/barreno)</td>
+                    <td>{{ cargaTotalBarreno[0] }}</td>
+                    <td>{{ cargaTotalBarreno[1] }}</td>
+                    <td>{{ cargaTotalBarreno[2] }}</td>
+                </tr>
             </tbody>
         </table>
     </div>

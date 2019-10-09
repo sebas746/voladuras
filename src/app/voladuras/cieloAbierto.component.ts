@@ -159,7 +159,7 @@ export class CieloAbiertoComponent implements OnInit {
     public lineChartColors: Color[] = [
         {
             borderColor: 'black',
-            backgroundColor: 'rgba(255,0,0,0.3)',
+            backgroundColor: '#900505',
         },
     ];
     public lineChartLegend = true;
