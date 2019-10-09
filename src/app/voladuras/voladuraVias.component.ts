@@ -43,9 +43,9 @@ export class VoladuraViasComponent implements OnInit {
         this.formulario = this.formBuilder.group({
             tipoExplosivo: ['', Validators.required],
             durezaRoca: ['', Validators.required],
-            diametroBarreno: ['133.3', Validators.required],
-            alturaBanco: ['8', Validators.required],
-            anguloPerforacion: ['15', Validators.required]
+            diametroBarreno: ['', Validators.required],
+            alturaBanco: ['', Validators.required],
+            anguloPerforacion: ['', Validators.required]
         });
     }
 
