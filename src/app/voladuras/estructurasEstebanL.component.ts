@@ -120,7 +120,7 @@ export class EstructurasEstebanLComponent implements OnInit {
             indiceEstabilidad: ['', Validators.required],
             RWSExplosivo: ['', Validators.required],
             espaciamiento: ['', Validators.required],
-            numeroFilasBarrenoPilar: ['', Validators.required]
+            numeroFilasBarrenoPilar: ['', Validators.required],
             distanciaMasCercana: ['', Validators.required]
         });
     }

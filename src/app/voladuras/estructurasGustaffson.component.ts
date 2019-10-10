@@ -115,7 +115,7 @@ export class EstructurasGustaffsonComponent implements OnInit {
             tamanoBloqueDiscontinuidad: ['', Validators.required],
             longitudCarga: ['', Validators.required],
             indiceEstabilidad: ['', Validators.required],
-            RWSExplosivo: ['', Validators.required]
+            RWSExplosivo: ['', Validators.required],
             distanciaMasCercana: ['', Validators.required]
         });
     }
