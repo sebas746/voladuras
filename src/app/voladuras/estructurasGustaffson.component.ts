@@ -105,8 +105,7 @@ export class EstructurasGustaffsonComponent implements OnInit {
             anchoPilar: ['', Validators.required],
             fondoPilar: ['', Validators.required],
             alturaCortePropuesta: ['', Validators.required],
-            maximoBarrenosConexionados: ['', Validators.required],
-            espaciamientoBarreno: ['', Validators.required],
+            maximoBarrenosConexionados: ['', Validators.required],            
             geometria: ['', Validators.required],
             RMRRoca: ['', Validators.required],
             espaciamientoDiscontinuidad: ['', Validators.required],
@@ -169,12 +168,12 @@ export class EstructurasGustaffsonComponent implements OnInit {
     }
 
     submit() {
-        this.drawGraphic();
         this.calcularValores();
+        this.drawGraphic();
+        this.crearGraficoVibraciones();
         this.destroyTables();
         this.initTable();
         this.calcularValores();
-        this.crearGraficoVibraciones();
     }
 
     crearGraficoVibraciones() {
@@ -427,6 +426,8 @@ export class EstructurasGustaffsonComponent implements OnInit {
             // Reset transformation matrix to the identity matrix
             ctx.resetTransform();
 
+            console.log(this.longitudPerforacion);
+
             ctx.beginPath();
             ctx.rotate(-90 * Math.PI / 180);
             ctx.fillStyle = "#000001";
@@ -435,7 +436,7 @@ export class EstructurasGustaffsonComponent implements OnInit {
             ctx.font = "12px Verdana";
             ctx.fillText("Ancho Pilar = " + this.demolicionesForm.get("anchoPilar").value + "m", -470, 450);
             ctx.font = "12px Verdana";
-            ctx.fillText("E = " + this.demolicionesForm.get("espaciamientoBarreno").value + "m", -275, 85);
+            ctx.fillText("E = " + this.demolicionesForm.get("tipoDemolicion").value.Espaciamiento + "m", -275, 85);
 
         }
     }
