@@ -108,8 +108,7 @@ export class EstructurasEstebanLComponent implements OnInit {
             anchoPilar: ['', Validators.required],
             fondoPilar: ['', Validators.required],
             alturaCortePropuesta: ['', Validators.required],
-            maximoBarrenosConexionados: ['', Validators.required],
-            espaciamientoBarreno: ['', Validators.required],
+            maximoBarrenosConexionados: ['', Validators.required],            
             geometria: ['', Validators.required],
             RMRRoca: ['', Validators.required],
             espaciamientoDiscontinuidad: ['', Validators.required],
@@ -442,7 +441,7 @@ export class EstructurasEstebanLComponent implements OnInit {
             ctx.font = "12px Verdana";
             ctx.fillText("Ancho Pilar = " + this.demolicionesForm.get("anchoPilar").value + "m", -470, 450);
             ctx.font = "12px Verdana";
-            ctx.fillText("E = " + this.demolicionesForm.get("espaciamientoBarreno").value + "m", -275, 85);
+            ctx.fillText("E = " + this.demolicionesForm.get("espaciamiento").value + "m", -275, 85);
 
         }
     }
