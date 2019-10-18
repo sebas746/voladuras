@@ -5,6 +5,8 @@ import { TipoExplosivo } from '../models/tipoExplosivo.model';
 import { Calculos } from './calculos';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartDataSets } from 'chart.js';
+import { ToastrService } from 'ngx-toastr';
+
 
 declare var $: any;
 
@@ -16,6 +18,8 @@ export class CieloAbiertoComponent implements OnInit {
     cieloAbiertoForm: FormGroup;
     isSubmitted = false;
     explosivo1: TipoExplosivo;
+
+
 
     //Valores por defecto
     defExplosivo1: TipoExplosivo;  
@@ -167,12 +171,22 @@ export class CieloAbiertoComponent implements OnInit {
     public lineChartPlugins = [];
 
     constructor(private formBuilder: FormBuilder, private repo: Repository,
-        private calculos: Calculos) { }
+        private calculos: Calculos, private toast: ToastrService) { 
+            
+        }
 
     ngOnInit() {
         this.defExplosivo1 = this.repo.tipo_explosivos[0];
         this.createForm();
         this.initTable();
+    }
+
+    showSuccess(){
+        this.toast.success("El Formulario ha sido calculado exitosamente", "Éxito");
+    }
+
+    showError(){
+        this.toast.error("Por favor diligencia todos los campos obligatorios.", "Error");
     }
 
     initTable() {
@@ -234,41 +248,41 @@ export class CieloAbiertoComponent implements OnInit {
             tipoExplosivo1: ['', Validators.required],
             tipoExplosivo2: ['', Validators.required],
             tipoRoca: ['', Validators.required],
-            anguloBarreno: ['', Validators.required],
-            angulo2Barreno: ['', Validators.required],
-            diametroBarreno: ['', Validators.required],
-            alturaBanco: ['', Validators.required],
-            duracionProyecto: ['', Validators.required],
-            totalVoladuras: ['', Validators.required],
-            longitudVia: ['', Validators.required],
-            largoCantera: ['' ,Validators.required],
-            anchoCantera: ['' ,Validators.required],
-            fondoCantera: ['' ,Validators.required],
-            volumenMovido: ['' ,Validators.required],
-            distanciaVivienda: ['', Validators.required],
-            distanciaReducida: ['', Validators.required],
-            correcionFactoresGeo: ['', Validators.required],
-            correcionNumeroFilas: ['', Validators.required],
-            correccionEstGeologica: ['', Validators.required],
+            anguloBarreno: [18, Validators.required],
+            angulo2Barreno: [0.951, Validators.required],
+            diametroBarreno: [101.6, Validators.required],
+            alturaBanco: [10.8, Validators.required],
+            duracionProyecto: [3, Validators.required],
+            totalVoladuras: [2, Validators.required],
+            longitudVia: [100, Validators.required],
+            largoCantera: [180, Validators.required],
+            anchoCantera: [10.8, Validators.required],
+            fondoCantera: [50, Validators.required],
+            volumenMovido: [200000, Validators.required],
+            distanciaVivienda: [150, Validators.required],
+            distanciaReducida: [50, Validators.required],
+            correcionFactoresGeo: [0.9, Validators.required],
+            correcionNumeroFilas: [0.95, Validators.required],
+            correccionEstGeologica: [1.10, Validators.required],
             esPrecorte: ['NO', Validators.required],
             diametroExplosivoAsumido: [''],
             diametroBarrenoPrecorte: [''],
             espaciamientoPrecorte: [''],
             tacoDecidido: [''],
-            geometria: ['', Validators.required],
-            RMRRoca: ['', Validators.required],
-            espaciamientoDiscontinuidad: ['', Validators.required],
-            buzamientoDiscontinuidad: ['', Validators.required],
-            rumboDiscontinuidad: ['', Validators.required],
-            tamanoBloqueDiscontinuidad: ['', Validators.required],
-            longitudCarga: ['', Validators.required],
-            indiceEstabilidad: ['', Validators.required],
-            RWSExplosivo: ['', Validators.required],
-            fragmentacionSobreTamano: ['', Validators.required],
-            fragmentacionOptimo: ['', Validators.required],
-            fragmentacionSubtamano: ['', Validators.required],
-            autorGraficos: ['', Validators.required],
-            constanciaRelacionadaPropRoca: ['', Validators.required]
+            geometria: ['1', Validators.required],
+            RMRRoca: ['90', Validators.required],
+            espaciamientoDiscontinuidad: ['1', Validators.required],
+            buzamientoDiscontinuidad: ['80', Validators.required],
+            rumboDiscontinuidad: ['0', Validators.required],
+            tamanoBloqueDiscontinuidad: ['0.3', Validators.required],
+            longitudCarga: ['9.56', Validators.required],
+            indiceEstabilidad: ['7.645', Validators.required],
+            RWSExplosivo: ['100', Validators.required],
+            fragmentacionSobreTamano: ['0.3', Validators.required],
+            fragmentacionOptimo: ['0.2', Validators.required],
+            fragmentacionSubtamano: ['0.01', Validators.required],
+            autorGraficos: ['0', Validators.required],
+            constanciaRelacionadaPropRoca: ['500', Validators.required]
         });
     }
 
@@ -293,11 +307,15 @@ export class CieloAbiertoComponent implements OnInit {
 
     submit() {
         this.isSubmitted = true;
-        this.calcularValores();
-        this.drawGraphic(0);
         if (this.cieloAbiertoForm.invalid) {
+            this.showError();
             return;
         }
+
+        this.showSuccess();        
+        this.calcularValores();
+        this.drawGraphic(0);
+        
         this.destroyTables();
         this.initTable();
         this.calcularValores();

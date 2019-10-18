@@ -59,8 +59,9 @@ export class Calculos {
     ];
 
     redondear(values: any[], decimales) {
-        let response = values.map(function (each_element) {
-            return Number(each_element.toFixed(decimales));
+
+        let response = values.map(function (element) {           
+            return Number(Number.parseFloat(element).toFixed(decimales));
         });
 
         return response;
@@ -124,6 +125,7 @@ export class Calculos {
         let r1 = (form.get("alturaBanco").value / form.get("angulo2Barreno").value) + (1 - (20 / 100) * sobrePerfo[0]);
         let r2 = form.get("alturaBanco").value + sobrePerfo[1];
         let r3 = form.get("alturaBanco").value + sobrePerfo[2];
+        console.log([r1, r2, r3]);
         return this.redondear([r1, r2, r3], 2);
     }
 

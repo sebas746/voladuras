@@ -13,28 +13,35 @@ import { VoladuraViasComponent } from './voladuraVias.component';
 import { GraficosComponent } from './graficos.component';
 import { ChartsModule } from 'ng2-charts';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-    declarations: 
-    [
-        CieloAbiertoComponent,
-        HomeComponent,
-        EstructurasEstebanLComponent,
-        EstructurasGustaffsonComponent,
-        EstructurasLopezJComponent,
-        VoladuraViasComponent,
-        GraficosComponent
-    ],
+    declarations:
+        [
+            CieloAbiertoComponent,
+            HomeComponent,
+            EstructurasEstebanLComponent,
+            EstructurasGustaffsonComponent,
+            EstructurasLopezJComponent,
+            VoladuraViasComponent,
+            GraficosComponent
+        ],
     imports: [
-        BrowserModule, 
-        RouterModule, 
+        BrowserModule,
+        RouterModule,
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
         HttpClientModule,
         ChartsModule,
-        GoogleChartsModule
+        GoogleChartsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 2000,
+            positionClass: 'toast-top-right'
+        })
     ],
     exports: []
 })
-export class VoladurasModule {}
+export class VoladurasModule { }
