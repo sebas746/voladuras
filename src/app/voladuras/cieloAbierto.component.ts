@@ -68,6 +68,9 @@ export class CieloAbiertoComponent implements OnInit {
     cordonDetonantePrecorte: any[] = [0, 0, 0];
     horasPerforacionPorVoladuraPrecorte: any[] = [0, 0, 0];
     totalDiasPerforacionPrecorte: any[] = [0, 0, 0];
+    espaciamientoPrecorte: any[] = [0, 0, 0];
+    cantidadExplosivosBarrenoPrecorte: any[] = [0, 0, 0];
+    totalExplosivosPrecorte: any[] = [0, 0, 0];
     moduloYoung: any[] = [0, 0, 0];
     factorPotenciaPeso: any[] = [0, 0, 0];
     factorPotenciaVolumen: any[] = [0, 0, 0];
@@ -213,6 +216,29 @@ export class CieloAbiertoComponent implements OnInit {
             }
         });
 
+        $('#tableResultPrecorte').DataTable({          
+            "ordering": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "No se han encontrado registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+
+            }
+        });
+
         $('#tableKuzRamResult').DataTable({
             "ordering": false,
             dom: 'Bfrtip',
@@ -264,11 +290,10 @@ export class CieloAbiertoComponent implements OnInit {
             correcionFactoresGeo: [0.9, Validators.required],
             correcionNumeroFilas: [0.95, Validators.required],
             correccionEstGeologica: [1.10, Validators.required],
-            esPrecorte: ['NO', Validators.required],
-            diametroExplosivoAsumido: [''],
+            esPrecorte: ['NO', Validators.required],            
             diametroBarrenoPrecorte: [''],
-            espaciamientoPrecorte: [''],
-            tacoDecidido: [''],
+            tipoExplosivoPrecorte: ['', Validators.required],
+            cantidadExplosivoPrecorte: ['', Validators.required],
             geometria: ['1', Validators.required],
             RMRRoca: ['90', Validators.required],
             espaciamientoDiscontinuidad: ['1', Validators.required],
@@ -288,20 +313,17 @@ export class CieloAbiertoComponent implements OnInit {
 
     cambioPrecorte(value) {
         if (value == 'SI') {
-            this.cieloAbiertoForm.get("diametroExplosivoAsumido").setValidators([Validators.required]);
+            this.cieloAbiertoForm.get("tipoExplosivoPrecorte").setValidators([Validators.required]);
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValidators([Validators.required]);
-            this.cieloAbiertoForm.get("espaciamientoPrecorte").setValidators([Validators.required]);
-            this.cieloAbiertoForm.get("tacoDecidido").setValidators([Validators.required]);
+            this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").setValidators([Validators.required]);
         }
         else {
-            this.cieloAbiertoForm.get("diametroExplosivoAsumido").clearValidators()
-            this.cieloAbiertoForm.get("diametroExplosivoAsumido").setValue('');
+            this.cieloAbiertoForm.get("tipoExplosivoPrecorte").clearValidators()
+            this.cieloAbiertoForm.get("tipoExplosivoPrecorte").setValue('');
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").clearValidators();
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValue('');
-            this.cieloAbiertoForm.get("espaciamientoPrecorte").clearValidators();
-            this.cieloAbiertoForm.get("espaciamientoPrecorte").setValue('');
-            this.cieloAbiertoForm.get("tacoDecidido").clearValidators();
-            this.cieloAbiertoForm.get("tacoDecidido").setValue('');
+            this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").clearValidators();
+            this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").setValue('');            
         }
     }
 
@@ -366,11 +388,14 @@ export class CieloAbiertoComponent implements OnInit {
         //Si hay precorte
         if (this.cieloAbiertoForm.get("esPrecorte").value == "SI") {
             this.burdenPrecorte = this.calculos.burdenPrecorte(this.burden);
-            this.longitudCargaPrecorte = this.calculos.longitudCargaPrecorte(this.cieloAbiertoForm);
+            this.espaciamientoPrecorte = this.calculos.espaciamientoPrecorte(this.cieloAbiertoForm);
+            this.longitudCargaPrecorte = this.alturaVerticalBarreno;
             this.diametroExplosivoPrecorte = this.calculos.diametroExplosivoPrecorte(this.cieloAbiertoForm);
             this.cargaMetroLinealPrecorte = this.calculos.cargaMetroLinealPrecorte(this.cieloAbiertoForm);
+            this.cantidadExplosivosBarrenoPrecorte = this.calculos.cantidadExplosivosBarrenoPrecorte(this.cieloAbiertoForm, this.longitudCargaPrecorte);
+            this.totalExplosivosPrecorte = this.calculos.totalExplosivosPrecorte(this.cantidadExplosivosBarrenoPrecorte, this.numeroBarrenosPrecorte);
             this.cargaBarrenoPrecorte = this.calculos.cargaBarrenoPrecorte(this.longitudCargaPrecorte, this.cargaMetroLinealPrecorte);
-            this.numeroBarrenosPrecorte = this.calculos.numeroBarrenosPrecorte(this.cieloAbiertoForm);
+            this.numeroBarrenosPrecorte = this.calculos.numeroBarrenosPrecorte(this.cieloAbiertoForm, this.espaciamientoPrecorte);
             this.numeroVoladurasPrecorte = this.calculos.numeroVoladurasPrecorte(this.cieloAbiertoForm);
             this.totalBarrenosPrecorte = this.calculos.totalBarrenosPrecorte(this.numeroBarrenosPrecorte, this.numeroVoladurasPrecorte);
             this.perforacionPorVoladuraPrecorte = this.calculos.perforacionPorVoladuraPrecorte(this.numeroBarrenosPrecorte, this.cieloAbiertoForm);
@@ -399,6 +424,7 @@ export class CieloAbiertoComponent implements OnInit {
 
     destroyTables() {
         $('#tableResult').DataTable().destroy();
+        $('#tableResultPrecorte').DataTable().destroy();
         $('#tableKuzRamResult').DataTable().destroy();
     }
 

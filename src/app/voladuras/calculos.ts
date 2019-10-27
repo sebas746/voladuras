@@ -359,6 +359,13 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
+    espaciamientoPrecorte(form: FormGroup) {
+        let r1 = 5 / 100 * Math.pow(form.get("diametroBarrenoPrecorte").value, 2 /3);
+        let r2 = 5 / 100 * Math.pow(form.get("diametroBarrenoPrecorte").value, 2 /3);
+        let r3 = 5 / 100 * Math.pow(form.get("diametroBarrenoPrecorte").value, 2 /3);
+        return this.redondear([r1, r2, r3], 2);
+    }
+
     longitudCargaPrecorte(form: FormGroup) {
         let r1 = form.get("alturaBanco").value - form.get("tacoDecidido").value;
         let r2 = r1;
@@ -380,6 +387,20 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
+    cantidadExplosivosBarrenoPrecorte(form: FormGroup, longitudCargaPrecorte:any[]) {
+        let r1 = form.get("tipoExplosivoPrecorte").value.Peso * form.get("cantidadExplosivoPrecorte").value * longitudCargaPrecorte[0] / 1000;
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
+    totalExplosivosPrecorte(cantidadExplosivosBarrenoPrecorte:any[], numeroBarrenosPrecorte:any[]) {
+        let r1 = cantidadExplosivosBarrenoPrecorte[0] * numeroBarrenosPrecorte[0];
+        let r2 = r1;
+        let r3 = r1;
+        return this.redondear([r1, r2, r3], 2);
+    }
+
     cargaBarrenoPrecorte(longitudCargaPrecorte: any[], cargaMetroLinealPrecorte: any[]) {
         let r1 = longitudCargaPrecorte[0] * cargaMetroLinealPrecorte[0];
         let r2 = longitudCargaPrecorte[1] * cargaMetroLinealPrecorte[1];
@@ -387,8 +408,8 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-    numeroBarrenosPrecorte(form: FormGroup) {
-        let r1 = 60 / form.get("espaciamientoPrecorte").value / 2;
+    numeroBarrenosPrecorte(form: FormGroup, espaciamientoPrecorte: any[]) {
+        let r1 = form.get("largoCantera").value / espaciamientoPrecorte[0];
         let r2 = r1;
         let r3 = r1;
         return this.redondear([r1, r2, r3], 0);

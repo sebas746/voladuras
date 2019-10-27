@@ -208,16 +208,16 @@
                 <div class="invalid-feedback">
                     Ingrese SI o NO para precorte.
                 </div>
-            </div>
+            </div>  
             <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
-                <label for="diametroExplosivoAsumido">Diámetro Explosivo Asumido (mm)</label>
-                <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.diametroExplosivoAsumido.errors }"
-                    placeholder="Diámetro en milímetros" formControlName="diametroExplosivoAsumido">
-                <div class="invalid-feedback">
-                    Ingrese el díametro del explosivo asumido.
+                <label for="exampleInputEmail1">Tipo de Explosivo Precorte</label>
+                <ng-select [ngClass]="{ 'is-invalid': isSubmitted && form.tipoExplosivoPrecorte.errors }"
+                    [items]="tipo_explosivos" formControlName="tipoExplosivoPrecorte" bindLabel="Nombre" required>
+                </ng-select>
+                <div *ngIf="isSubmitted && form.tipoExplosivoPrecorte.invalid" class="invalid-feedback d-block">
+                    Ingrese el tipo de explosivo de Precorte.
                 </div>
-            </div>
+            </div>         
             <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
                 <label for="diametroBarrenoPrecorte">Diámetro Barreno Precorte (mm)</label>
                 <input type="text" class="form-control form-control-sm"
@@ -228,23 +228,14 @@
                 </div>
             </div>
             <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
-                <label for="espaciamientoPrecorte">Espaciamiento Eo (m)</label>
+                <label for="cantidadExplosivoPrecorte">Cantidad de Barras de Explosivo (un/m)</label>
                 <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.espaciamientoPrecorte.errors }"
-                    placeholder="Espaciamiento en metros" formControlName="espaciamientoPrecorte">
+                    [ngClass]="{ 'is-invalid': isSubmitted && form.cantidadExplosivoPrecorte.errors }"
+                    placeholder="No. de unidades por metro" formControlName="cantidadExplosivoPrecorte">
                 <div class="invalid-feedback">
-                    Ingrese el espaciamiento.
+                    Ingrese la cantidad de barras.
                 </div>
-            </div>
-            <div class="form-group" *ngIf="form.esPrecorte.value == 'SI'">
-                <label for="tacoDecidido">Taco (m)</label>
-                <input type="text" class="form-control form-control-sm"
-                    [ngClass]="{ 'is-invalid': isSubmitted && form.tacoDecidido.errors }" placeholder="Taco en metros"
-                    formControlName="tacoDecidido">
-                <div class="invalid-feedback">
-                    Ingrese el taco asumido.
-                </div>
-            </div>
+            </div>          
         </div>
     </div>
     <br />
@@ -708,6 +699,65 @@
     </div>
 </div>
 <br />
+<div class="card">
+    <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Precorte</h5>
+    <div class="card-body">
+        <table id="tableResultPrecorte" class="display nowrap">
+            <thead>
+                <tr>
+                    <th scope="col">Parámetro Calculado</th>
+                    <th scope="col">Resultado</th>       
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>
+                    <td>Burden Precorte (m)</td>
+                    <td>{{ burdenPrecorte[0] }}</td>                  
+                </tr>
+                <tr>
+                    <td>Espaciamiento Precorte (m)</td>
+                    <td>{{ espaciamientoPrecorte[0] }}</td>                  
+                </tr>
+                <tr>
+                    <td>Longitud de Carga Precorte (m)</td>
+                    <td>{{ longitudCargaPrecorte[0] }}</td>
+                </tr>
+                <tr>
+                    <td>Díámetro de Explosivo Precorte dcc (mm)</td>
+                    <td>{{ diametroExplosivoPrecorte[0] }}</td>                  
+                </tr>
+                <tr>
+                    <td>Número de Barrenos Precorte (un)</td>
+                    <td>{{ numeroBarrenosPrecorte[0] }}</td>                  
+                </tr>
+                <tr>
+                    <td>Cantidad Explosivo por Barreno Precorte (Kg)</td>
+                    <td>{{ cantidadExplosivosBarrenoPrecorte[0] }}</td>
+                </tr>
+                <tr>
+                    <td>Total Explosivos Precorte (Kg)</td>
+                    <td>{{ totalExplosivosPrecorte[0] }}</td>
+                </tr>               
+                <tr>
+                    <td>Carga por Barreno Precorte (Kg)</td>
+                    <td>{{ cargaBarrenoPrecorte[0] }}</td>                  
+                </tr>               
+                <tr>
+                    <td>Perforación por Voladura Precorte</td>
+                    <td>{{ perforacionPorVoladuraPrecorte[0] }}</td>
+                </tr>
+                <tr>
+                    <td>Total Perforación Precorte (ml)</td>
+                    <td>{{ totalPerforacionPrecorte[0] }}</td>
+                </tr>
+                <tr>
+                    <td>Longitud Cordón Detonante Precorte (m)</td>
+                    <td>{{ cordonDetonantePrecorte[0] }}</td>
+                </tr>              
+            </tbody>
+        </table>
+    </div>
+</div>
 <br />
 <div class="card">
     <h5 class="card-header text-center text-white" style="background-color: #900505;">Resultados Kuz Ram</h5>
