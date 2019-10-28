@@ -443,10 +443,10 @@ export class Calculos {
         return this.redondear([r1, r2, r3], 2);
     }
 
-    cordonDetonantePrecorte(totalBarrenosPrecorte: any[], form: FormGroup) {
-        let r1 = (totalBarrenosPrecorte[0] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[0]);
-        let r2 = (totalBarrenosPrecorte[1] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[1]);
-        let r3 = (totalBarrenosPrecorte[2] * form.get("alturaBanco").value + form.get("espaciamientoPrecorte").value * totalBarrenosPrecorte[2]);
+    cordonDetonantePrecorte(totalBarrenosPrecorte: any[], espaciamientoPrecorte: any[], form: FormGroup) {
+        let r1 = (totalBarrenosPrecorte[0] * form.get("alturaBanco").value + espaciamientoPrecorte[0] * totalBarrenosPrecorte[0]);
+        let r2 = r1;
+        let r3 = r1;
         return this.redondear([r1, r2, r3], 0);
     }
 

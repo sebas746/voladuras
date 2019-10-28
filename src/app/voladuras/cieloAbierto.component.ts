@@ -400,7 +400,7 @@ export class CieloAbiertoComponent implements OnInit {
             this.totalBarrenosPrecorte = this.calculos.totalBarrenosPrecorte(this.numeroBarrenosPrecorte, this.numeroVoladurasPrecorte);
             this.perforacionPorVoladuraPrecorte = this.calculos.perforacionPorVoladuraPrecorte(this.numeroBarrenosPrecorte, this.cieloAbiertoForm);
             this.totalPerforacionPrecorte = this.calculos.totalPerforacionPrecorte(this.totalBarrenosPrecorte, this.cieloAbiertoForm);
-            this.cordonDetonantePrecorte = this.calculos.cordonDetonantePrecorte(this.totalBarrenosPrecorte, this.cieloAbiertoForm);
+            this.cordonDetonantePrecorte = this.calculos.cordonDetonantePrecorte(this.totalBarrenosPrecorte, this.espaciamientoPrecorte, this.cieloAbiertoForm);
             this.horasPerforacionPorVoladuraPrecorte = this.calculos.horasPerforacionPorVoladuraPrecorte(this.perforacionPorVoladuraPrecorte);
             this.totalDiasPerforacionPrecorte = this.calculos.totalDiasPerforacionPrecorte(this.horasPerforacionPorVoladuraPrecorte);
         }
