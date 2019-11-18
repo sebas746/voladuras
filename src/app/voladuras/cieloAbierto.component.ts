@@ -306,7 +306,7 @@ export class CieloAbiertoComponent implements OnInit {
             fragmentacionSobreTamano: ['', Validators.required],
             fragmentacionOptimo: ['', Validators.required],
             fragmentacionSubtamano: ['', Validators.required],
-            autorGraficos: ['', Validators.required],
+            autorGraficos: ['0'],
             constanciaRelacionadaPropRoca: ['', Validators.required]
         });
     }
@@ -331,6 +331,7 @@ export class CieloAbiertoComponent implements OnInit {
         this.isSubmitted = true;
         if (this.cieloAbiertoForm.invalid) {
             this.showError();
+            // console.log(this.cieloAbiertoForm);
             return;
         }
 
