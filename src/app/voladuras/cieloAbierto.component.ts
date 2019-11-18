@@ -292,8 +292,8 @@ export class CieloAbiertoComponent implements OnInit {
             correccionEstGeologica: [1.10, Validators.required],
             esPrecorte: ['NO', Validators.required],            
             diametroBarrenoPrecorte: [''],
-            tipoExplosivoPrecorte: ['', Validators.required],
-            cantidadExplosivoPrecorte: ['', Validators.required],
+            tipoExplosivoPrecorte: [''],
+            cantidadExplosivoPrecorte: [''],
             geometria: ['1', Validators.required],
             RMRRoca: ['90', Validators.required],
             espaciamientoDiscontinuidad: ['1', Validators.required],
@@ -323,7 +323,7 @@ export class CieloAbiertoComponent implements OnInit {
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").clearValidators();
             this.cieloAbiertoForm.get("diametroBarrenoPrecorte").setValue('');
             this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").clearValidators();
-            this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").setValue('');            
+            this.cieloAbiertoForm.get("cantidadExplosivoPrecorte").setValue('');
         }
     }
 
