@@ -472,9 +472,10 @@ export class Calculos {
     }
 
     factorPotenciaVolumen(burden: any[], espacimientoOptimo: any[], form: FormGroup) {
-        let r1 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[0] * espacimientoOptimo[0] * form.get("alturaBanco").value);
-        let r2 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[1] * espacimientoOptimo[1] * form.get("alturaBanco").value);
-        let r3 = 1000 * Math.PI * Math.pow(form.get("diametroBarreno").value / 1000 / 2, 2) * form.get("longitudCarga").value * form.get("tipoExplosivo1").value.Densidad / (burden[2] * espacimientoOptimo[2] * form.get("alturaBanco").value);
+        let r1 = 1000 * Math.PI * Math.pow(Number(form.get("diametroBarreno").value) / 1000 / 2, 2) * Number(form.get("longitudCarga").value) * Number(form.get("tipoExplosivo1").value.Densidad) / (burden[0] * espacimientoOptimo[0] * Number(form.get("alturaBanco").value));
+        let r2 = 1000 * Math.PI * Math.pow(Number(form.get("diametroBarreno").value) / 1000 / 2, 2) * Number(form.get("longitudCarga").value) * Number(form.get("tipoExplosivo1").value.Densidad) / (burden[1] * espacimientoOptimo[1] * Number(form.get("alturaBanco").value));
+        let r3 = 1000 * Math.PI * Math.pow(Number(form.get("diametroBarreno").value) / 1000 / 2, 2) * Number(form.get("longitudCarga").value) * Number(form.get("tipoExplosivo1").value.Densidad) / (burden[2] * espacimientoOptimo[2] * Number(form.get("alturaBanco").value));
+        // console.log(Math.pow(Number(form.get("diametroBarreno").value) / 1000 / 2, 2) * Number(form.get("longitudCarga").value));
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -524,6 +525,7 @@ export class Calculos {
         let r1 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[0], -0.8) * Math.pow(pesoExplosivo[0], 0.16667) * Math.pow(115 / 100, 19 / 30);
         let r2 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[1], -0.8) * Math.pow(pesoExplosivo[1], 0.16667) * Math.pow(115 / 100, 19 / 30);
         let r3 = form.get("indiceEstabilidad").value * Math.pow(factorPotenciaVolumen[2], -0.8) * Math.pow(pesoExplosivo[2], 0.16667) * Math.pow(115 / 100, 19 / 30);
+        console.log(r1);
         return this.redondear([r1, r2, r3], 0);
     }
 
