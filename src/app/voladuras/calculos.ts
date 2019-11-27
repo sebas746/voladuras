@@ -96,7 +96,7 @@ export class Calculos {
     espacimientoOptimo(burden: any[], form: FormGroup) {
         let r1 = 0.043 * form.get("diametroBarreno").value;
         let r2 = burden[1] * 1.15;
-        let r3 = (form.get("alturaBanco").value + 7 * burden[2]) / 8;
+        let r3 = (Number(form.get("alturaBanco").value) + 7 * burden[2]) / 8;        
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -125,7 +125,7 @@ export class Calculos {
         let r1 = (form.get("alturaBanco").value / form.get("angulo2Barreno").value) + (1 - (20 / 100) * sobrePerfo[0]);
         let r2 = form.get("alturaBanco").value + sobrePerfo[1];
         let r3 = form.get("alturaBanco").value + sobrePerfo[2];
-        console.log([r1, r2, r3]);
+        // console.log([r1, r2, r3]);
         return this.redondear([r1, r2, r3], 2);
     }
 
@@ -294,7 +294,7 @@ export class Calculos {
         let r1 = form.get("fondoCantera").value / burden[0];
         let r2 = form.get("fondoCantera").value / burden[1];
         let r3 = form.get("fondoCantera").value / burden[2];
-        console.log([r1, r2, r3]);
+        // console.log([r1, r2, r3]);
         return this.redondear([r1, r2, r3], 3);
     }
 
@@ -302,7 +302,7 @@ export class Calculos {
         let r1 = form.get("largoCantera").value / espacimientoOptimo[0];
         let r2 = form.get("largoCantera").value / espacimientoOptimo[1];
         let r3 = form.get("largoCantera").value / espacimientoOptimo[2];
-        console.log([r1, r2, r3]);
+        // console.log([r1, r2, r3]);
         return this.redondear([r1, r2, r3], 3);
     }
 

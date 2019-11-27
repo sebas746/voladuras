@@ -426,7 +426,7 @@ export class EstructurasGustaffsonComponent implements OnInit {
             // Reset transformation matrix to the identity matrix
             ctx.resetTransform();
 
-            console.log(this.longitudPerforacion);
+            //  console.log(this.longitudPerforacion);
 
             ctx.beginPath();
             ctx.rotate(-90 * Math.PI / 180);
