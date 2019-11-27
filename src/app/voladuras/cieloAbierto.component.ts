@@ -535,7 +535,7 @@ export class CieloAbiertoComponent implements OnInit {
             ctx.fillText("Burden = " + this.burden[idAutor] + "m", 275, 30);
 
             // Rotated rectangle
-            let longitudBarreno = this.tacoPromedio[idAutor] + this.longitudCargaColumna[idAutor] + this.longitudCargaFondo[idAutor] + this.sobrePerforacion[idAutor];
+            let longitudBarreno =  Number.parseFloat(this.tacoPromedio[idAutor] + this.longitudCargaColumna[idAutor] + this.longitudCargaFondo[idAutor] + this.sobrePerforacion[idAutor]).toFixed(3);
             ctx.beginPath();
             ctx.rotate(-63 * Math.PI / 180);
             ctx.fillStyle = "#202040";
