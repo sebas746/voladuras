@@ -8,7 +8,7 @@
         "ParametroRelacion": "1.25",
         "ParametroConsumoEsp": "0.3",
         "ParametroSobreperforacion": "10",
-        "ParametroBurden": "0"
+        "ParametroBurden": "39"
     },
     {
         "IdDureza": "1",
@@ -30,7 +30,7 @@
         "ParametroRelacion": "1.15",
         "ParametroConsumoEsp": "0.42",
         "ParametroSobreperforacion": "12",
-        "ParametroBurden": "0"
+        "ParametroBurden": "35"
     },
     {
         "IdDureza": "4",
@@ -41,6 +41,6 @@
         "ParametroRelacion": "1.15",
         "ParametroConsumoEsp": "0.49",
         "ParametroSobreperforacion": "12",
-        "ParametroBurden": "0"
+        "ParametroBurden": "33"
     }
 ]
